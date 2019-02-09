@@ -45,38 +45,38 @@ A3:
 #### Q4: How will you build it?
 * What is the technology stack? Specify any and all languages, frameworks, libraries, PaaS(Platform as a service) products or tools. 
 
-Web App:
+- Web App:
   Front-End and Back-End :HTML5, CSS3, jQuery , HTTP, NodeJs
   Database: MongoDB(free) or AWS DynamoDB, AWS S3
   Deployment: Heroku(free) or AWS Lambda
   Automation Testing: Java, Selenium, TestNG
-Android App:
+- Android App:
   We are building this application based on an existing prototype completed by team 10,
   mainly use Java, AWS DynamoDB and same automation testing tools as above.
 
 * How will you deploy the application?
 
 We think of two options to deploy it:
-Web App:
-1. Deploy it on Heroku. 
-  Advantages: totally free for short term, extremely easy to start
-  Disadvantages: only free for low volume, even more expensive than aws when it 
+- Web App:
+  1. Deploy it on Heroku. 
+    Advantages: totally free for short term, extremely easy to start
+    Disadvantages: only free for low volume, even more expensive than aws when it 
                  actually put into use  
-2. Deploy it on AWS Lambda
-  Advantages: easy to set up connection with aws database
+  2. Deploy it on AWS Lambda
+    Advantages: easy to set up connection with aws database
               charge little during development
-  Disadvantages: not free
+    Disadvantages: not free
 We will discuss it with our partner for final decision.
 
-Android App:
-We will be developing this application on Github. Anyone with access may clone it to the local device and deploy it on a Android phone through Android Studio.
+- Android App:
+  We will be developing this application on Github. Anyone with access may clone it to the local device and deploy it on a Android phone through Android Studio.
 
 * Describe the architecture - what are the high level components or patterns you will use? Diagrams are useful here.
-Web App:
+- Web App:
   We will use Model-View-Controller architecture
   There are two sides, client side and server side(including database). Client side are responsible to display the content, handle users' operation and send http request to the server. The server side are responsible to handle the http request return proper pages or perform CRUD operation on database.
 
-Android App:
+- Android App:
   Similar MVC architecture for Java Application
 
 * Will you be using third party applications or APIs? If so, what are they?
