@@ -13,38 +13,24 @@ Scrum master(2): Like a facilitator or coach to the team. Allocate jobs to each 
 Development team(everyone):  Understand the purpose and objective of the project. Follow print backlog. Split large tasks into smaller daily tasks. Report progress. Identify issues. Contribute both in front-end, back-end and database 
 QA(2): Write proper test document and checklist.  Ensure all features match client’s requirements. Ensure each feature quality and regression. 
 
-[Roles and Reaons]:
--
-Smile is Product owner,QA,Engineer since he has industrial working experience, is familiar with agile methodologies and has strong communication ability
--
-Krizhan is Engineer	since he has industrial working experience and a good problem solver
--
-Mengdi is Scrum master,Engineer since she is organized, circumspect, easy-going
--
-Yufei Yang	is Scrum master,Engineer since she has strong communication skills and is friendly
--
-Jayson is QA,Engineer since he has industrial automation QA experiences and a good problem solver
--
-Siqi, Yang  is Engineer since he is a good problem solver
--
+[Roles and Reaons]:  
+Smile is Product owner,QA,Engineer since he has industrial working experience, is familiar with agile methodologies and has strong communication ability  
+Krizhan is Engineer	since he has industrial working experience and a good problem solver  
+Mengdi is Scrum master,Engineer since she is organized, circumspect, easy-going  
+Yufei Yang	is Scrum master,Engineer since she has strong communication skills and is friendly  
+Jayson is QA,Engineer since he has industrial automation QA experiences and a good problem solver  
+Siqi, Yang  is Engineer since he is a good problem solver  
 Abi is Product owner,Engineer since he has strong speech skills and logical thinking
+  
 
-
-[Personal Strengths and weaknesses]:
--
-Smile has advantages in Test automation, Agile Methodologies, SDLC and disadvantages in HTML, XML
--
-Krizhan has advantages in Infrastructure, Backend, Problem solver  and disadvantages in UI Design, Testing, C
--
-Mengdi has advantages in Database, Android studio, UI Design and disadvantages in AWS, Server, HTML
--
-Yufei Yang	jas advantages in Database, python, Communication and disadvantages in UI design, C, Automation Testing
--
-Jayson has advantages in Problem solver, Coding, Automation Testing and disadvantages in Communication,UI,documentation
--
-Siqi Yang has advantages in Database, Java, AWS and disadvantages in C,UI design, Testing
--
-Abi has advantages in Javascript, backend, java, python and disadvantages in UI design, testing, C
+[Personal Strengths and weaknesses]:  
+Smile has advantages in Test automation, Agile Methodologies, SDLC and disadvantages in HTML, XML  
+Krizhan has advantages in Infrastructure, Backend, Problem solver  and disadvantages in UI Design, Testing, C  
+Mengdi has advantages in Database, Android studio, UI Design and disadvantages in AWS, Server, HTML  
+Yufei Yang	jas advantages in Database, python, Communication and disadvantages in UI design, C, Automation Testing  
+Jayson has advantages in Problem solver, Coding, Automation Testing and disadvantages in Communication,UI,documentation  
+Siqi Yang has advantages in Database, Java, AWS and disadvantages in C,UI design, Testing  
+Abi has advantages in Javascript, backend, java, python and disadvantages in UI design, testing, C  
 
 
 #### Team Rules
