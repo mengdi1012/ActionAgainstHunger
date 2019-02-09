@@ -43,7 +43,7 @@ A3:
 
 
 #### Q4: How will you build it?
-* What is the technology stack? Specify any and all languages, frameworks, libraries, PaaS(Platform as a service) products or tools. 
+What is the technology stack? Specify any and all languages, frameworks, libraries, PaaS(Platform as a service) products or tools. 
 
 - Web App:
   Front-End and Back-End :HTML5, CSS3, jQuery , HTTP, NodeJs
@@ -54,7 +54,7 @@ A3:
   We are building this application based on an existing prototype completed by team 10,
   mainly use Java, AWS DynamoDB and same automation testing tools as above.
 
-* How will you deploy the application?
+How will you deploy the application?
 
 We think of two options to deploy it:
 - Web App:
@@ -71,7 +71,7 @@ We will discuss it with our partner for final decision.
 - Android App:
   We will be developing this application on Github. Anyone with access may clone it to the local device and deploy it on a Android phone through Android Studio.
 
-* Describe the architecture - what are the high level components or patterns you will use? Diagrams are useful here.
+Describe the architecture - what are the high level components or patterns you will use? Diagrams are useful here.
 - Web App:
   We will use Model-View-Controller architecture
   There are two sides, client side and server side(including database). Client side are responsible to display the content, handle users' operation and send http request to the server. The server side are responsible to handle the http request return proper pages or perform CRUD operation on database.
@@ -79,12 +79,12 @@ We will discuss it with our partner for final decision.
 - Android App:
   Similar MVC architecture for Java Application
 
-* Will you be using third party applications or APIs? If so, what are they?
+Will you be using third party applications or APIs? If so, what are they?
 
   We will be using third party application when there is necessity. One possibility is using third party front-end templates to professionalize user interfaces to make the application more user-friendly.
   We also might use Google Translate api to translate between english posts and french posts.
 
-* What is your testing strategy?
+What is your testing strategy?
 
   In order to ensure the quality and stability of our application, we will be using both manual testing and automation testing throughout the development process.
   For manual testing, we build test plan as we develop new features, which will contain multiple test scenarios and expected behaviours for each feature. After new features are implemented, we go through all the relevant test cases manually and record the test results. On regular basis, we will do regression test on previous features to ensure that they are still functioning well as we make progress.
