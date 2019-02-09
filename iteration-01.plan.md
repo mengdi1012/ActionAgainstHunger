@@ -37,17 +37,17 @@ Abi has advantages in Javascript, backend, java, python and disadvantages in UI 
 
 Describe your team's working culture.
 
-Communications:
+Communications:  
 A:
 The team communicates among each other using a group chat in facebook and wechat . There are at least 2 regular group meeting. Both meetings are held in a study room. For the first meeting, it is encouraged to attend in person but facebook video chat is fine as well. The second meeting needs everyone to attend in person. 
 
 The group wants to meet with partner biweekly by person or using skype dso that the team can make sure the project processes in a correct way.  Before the meeting, the group will prepare a list of questions and accomplishments using Google Doc and share it to each other. In this way, as a team, we can adjust our project based on our partner’s opinions and suggestions. 
 
  
-Meetings:
+Meetings:  
 A: We hold two meetings every week and each meeting has a designated chair (different person every meeting). Every team member will be given tasks that they will be responsible for completing and reporting on in the meetings. This way we can ensure that the team is on track and each member has a precise idea of what is happening. Attendance is recorded for every meeting so that the team can see if there is anyone that is frequently absent. Those that do not regularly attend meetings will have to talk to the team to figure out possible solutions.
  
-Conflict Resolution:
+Conflict Resolution:  
 A:
   1. Some team member is not answering any of the emails or texts.
 	I will try to meet that team member in person and remind him/her with polite that I had sent an email and wait for the reply. If we can’t find the person, I will leave a voice message in case the member is in an area that has poor signal connection so that the member can reply back when he/she can. Also, I will send another text message and tell him/her: “I’ll follow up tomorrow and if you need help or you have an urgency, do not hesitate to contact me by this number.” 
@@ -61,13 +61,13 @@ A:
 
 #### Events
 
-Describe meetings (and other events) you are planning to have:
+Describe meetings (and other events) you are planning to have:  
 A:
 We will be having meetings twice a week, every week. These meetings will be in-person, those that are unable to attend in person may join through a skype video call.  The purpose of the first meeting is to discuss what needs to be done and assign action items. This ensures that every member of the team knows what they are responsible for. The first meeting of the week will generally be around an hour in length and will usually be on a Tuesday or Wednesday. The second meeting will be the longer meeting typically lasting around 2 hours. This meeting is meant for going over the assigned action items for that week and reviewing progress. Each member will be responsible for completing their action items before the second meeting so that each person can discuss their part and the team can analyze the product as a whole. If there is any confusion or troublesome problems with the source code, the second half of this meeting may be used as a coding session/code review. We chose to follow this “Scrum” methodology because it is efficient, organized and every member is comfortable with this type of schedule.
 
 #### Artifacts
 
-List/describe the artifacts you will produce in order to organize your team.       
+List/describe the artifacts you will produce in order to organize your team.         
 A:
 To remain organized, our biggest tool will be using a scrum sheet (using an Excel document)  that our weekly/biweekly tasks. Each task will also contain priorities for the task. The scrum sheet will help us keep track of our individual tasks for each sprint and which tasks are most important. Our scrum sheet will consist of two different types of sheets. The first sheet is a weekly/biweekly sprint schedule for the entire semester. This sheet will provide us an idea of the bigger focuses of the week (such as completing a whole feature). It tells us our goals for each week so we know where we should be at weekly/biweekly. The second sheet will be to indicate our progress for each week. For each goal in the first sheet, we will separate it into smaller subtasks and determine each subtask for each individual member. This will help organize our day-to-day-progress. 
 There are different ways we can allocate tasks for teammates. One way is to split this team into smaller teams and have each team focus on one part of the speciality. This would help us, since specializing would help us be more focused on our tasks. For example we can split the team into frontend and backend. Or we can also split the team based on features, such as one group works on authentication and others work on the quiz feature. 
@@ -102,7 +102,7 @@ The security of personal information privacy is the most important part of the p
 
 #### Artifacts
 
-List/describe the artifacts you will produce in order to present your project idea.
+List/describe the artifacts you will produce in order to present your project idea.  
 A:
 Firstly, our main artifact is building the website, uploading it, and deploying it such that it is publicly accessible to users. The purpose of this artifact is that this is our end goal and what we wanted to create. It is useful for our team and users to have a publicly accessible website to test and use in production. By having a deployed website, this will help the client with their goals which is creating connections with students and having then learn from health-related professionals and each other.
 There are other artifacts which are useful from a developer’s perspective. 
