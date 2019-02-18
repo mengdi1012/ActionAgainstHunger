@@ -25,10 +25,6 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
 }));
 
-mongoose.connect('mongodb://csc309:123456@ds149820.mlab.com:49820/csc309-project');
-var db = mongoose.connection;
-
-
 curCourse = new Object();
 // An array to store chat messages.  We will only store messages
 // as long as the server is running.

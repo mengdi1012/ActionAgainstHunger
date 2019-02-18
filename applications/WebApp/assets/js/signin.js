@@ -1,4 +1,4 @@
-(function(){	
+$(document).ready(function() {
 	const userEmail = document.getElementById("txtEmail");
 	const userPass = document.getElementById("txtPassword");
 	const btnLogin = document.getElementById("btnLogin");
@@ -7,10 +7,12 @@
 		const email = txtEmail.value;
 		const pass = txtPassword.value;
 		const auth = app_firebase.auth();
-	//sign in
+	
+	//notify backend
 	const promise = auth.signInWithEmailAndPassword(email, pass);
+	
 	promise
-		.then(window.location.replace("/signup"))
+		.then(window.location.replace("/signin?email=" + email))
 		.catch(e => console.log(e.message));
 	});
-})()
+});

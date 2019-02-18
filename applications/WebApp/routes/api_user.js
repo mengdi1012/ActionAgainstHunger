@@ -50,10 +50,19 @@ function signUp(req, res) {
 	  res.redirect('/')
 }
 
+function signIn(req, res){
+  console.log("got it");
+  var email = req.query.email;
+  console.log(email);
+  res.statusCode = 200;
+  res.render('student-profile');
+}
+
 
 
 app.get('/signup', goSignUp);
 app.post('/signup', signUp);
+app.get('/signin', signIn);
 //app.post('/password',changePassword);
 //app.get('/logout', logout);
 }
