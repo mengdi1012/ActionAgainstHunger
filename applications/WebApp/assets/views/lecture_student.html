@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>LectureRoom</title>
+  <link rel="stylesheet" href="assets/css/lecture.css"/>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+  <script type="text/javascript" src="assets/js/lecture_student.js"></script>
+</head>
+
+<body>
+
+<header>
+  <strong>CSC309</strong>
+</header>
+
+<div class="main row col-12">
+<!-- Left Side Panel-->
+<div id="leftSide" class="col-8 row">
+<section id="showPDF" class="wrapper">
+  <div class="responsive-wrapper-left">
+     <iframe type="application/pdf" src="./../document/CSC309-Project-Phase1.pdf"></iframe>
+  </div>
+</section>
+
+<footer id="postQuestion" class="wrapper row">
+    <!-- <span><b>MyQuestion</b></span> -->
+    <div id="questionDetail">
+      <div id="left" class="col-3"><span>Slides Page</span><br><input id="pageNumber" placeholder="#"></input></div>
+      <div id="middle" class="col-6 "><span>Questions</span><br><textarea name="info" maxlength="150" placeholder="Maximum 150 words" id='myQuestion' rows="3" cols="60"></textarea></div>
+      <div id="right"><button id="postButton">ASK</button></div>
+    </div>
+ </footer>
+</div>
+<!-- Left Side Panel-->
+
+
+<!-- Right Side Panel-->
+<div id="rightSide" class="row">
+  <aside id="showQuestion" class="wrapper">
+  <span id="hideButton"></span>
+
+  <h2>All Questions</h2>
+  <hr class="line">
+  <div class="feed_list" id="feedList">
+<!--     <article class="feed wrapper"><button class="test--like_button like_buttons" id="like_buttons"> Like 27</button><p class=="row">Question1</p><p class=="row">I don't know how to read the word</p>
+    </article>  -->  
+  </div>
+  </aside>
+</div>
+<!-- Right Side Panel-->
+
+</div>
+
+</body>
+</html>

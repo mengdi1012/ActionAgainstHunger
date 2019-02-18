@@ -1,0 +1,203 @@
+body {
+
+	background-color: #9FC4F8;
+	margin: 0;
+	padding: 0;
+	font-family: "Times New Roman", Times, serif;
+}
+
+h1 {
+	font-family: Impact, sans-serif;
+	letter-spacing: 2px;
+}
+
+.topbar {
+
+	text-align: center;
+	border-bottom: double;
+	margin: 5% 10% 5% 10%;
+}
+
+a {
+
+	text-decoration: none;
+}
+
+.lecture-items a {
+
+	color: black;
+	text-decoration: underline;
+}
+
+li {
+
+	list-style-type: none;
+
+}
+
+ul {
+
+    list-style:none;
+    padding-left:0;
+}​
+
+h2 {
+
+	text-align: left;
+}
+
+main {
+
+	margin: 5% 10% 5% 10%;
+}
+
+.section-contect {
+
+	border-style: inset;
+	margin: 10%;
+	padding: 5%;
+	text-align: center;
+}
+
+
+#courses li:focus {
+
+	background: #a0d0f7;
+	outline: none;
+}
+
+.delete-course-button {
+
+	background: red;
+	color: white;
+	border: none;
+	visibility: hidden;
+
+}
+
+#courses li:focus .delete-course-button {
+
+	visibility: visible;
+
+}
+
+#add-item-button {
+
+	background: white;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 5%;
+    cursor: pointer;
+
+}
+
+
+.lecture-section-radio {
+
+	display: block;
+
+}
+
+details {
+
+	cursor: pointer;
+}
+
+.upload-lecture-button {
+
+	background: white;
+    border: none;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 5%;
+    cursor: pointer;
+
+}
+
+.file-input {
+
+	background: white;
+	margin: 5%;
+}
+
+.lecture-items {
+
+	margin: 3%;
+}
+
+footer {
+
+	padding: 4%;
+    position: relative;
+	background-color: #efefef;
+	text-align: center;
+
+
+}
+
+/* Screen larger 1280px
+ *
+ */
+
+@media screen and (min-width: 1280px) {
+
+	body {
+
+		height: 100%;
+	}
+
+	main {
+
+		text-align: center;
+		display: -webkit-flex;
+		-webkit-flex-wrap: wrap;
+		-webkit-justify-content: center;
+	}
+
+	.topbar {
+
+		display: flex;
+	}
+
+	#menu {
+
+		position: absolute;
+		top: 1%;
+		right: 1%;
+	}
+
+	.section-contect {
+
+		min-height: 25%;
+		max-height: 250px;
+		margin: 1%;
+		display: inline-block;
+	}
+
+	footer {
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		padding: 1%;
+	}
+
+	#courses li:hover .delete-course-button {
+
+		visibility: visible;
+
+	}
+
+	#lecture-item-list {
+
+		height: 100px;
+		overflow:hidden;
+		overflow-y:scroll;
+	}
+
+}

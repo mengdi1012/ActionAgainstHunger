@@ -1,0 +1,79 @@
+body{
+    -webkit-animation-name: color_change;
+    -webkit-animation-duration: 9s;
+    -webkit-animation-delay: 3s;
+    -webkit-animation-timing-function: ease-out;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: color_change;
+    animation-duration: 9s;
+    animation-delay: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes color_change {
+    0%   {background-color: #ADFF2F;}
+    25%  {background-color: #F08080;}
+    50%  {background-color: #FFB6C1;}
+    100% {background-color: #F08080;}
+}
+
+/* Standard syntax */
+@keyframes color_change {
+    0%   {background-color: #ADFF2F;}
+    25%  {background-color: #F08080;}
+    50%  {background-color: #FFB6C1;}
+    100% {background-color: #F08080;}
+}
+
+
+.signin {
+	position: absolute;
+	min-width: 200px;
+	width: 30%;
+	z-index: 15;
+	top: 25%;
+	margin-left: 35%;
+	padding: 0px 0px;
+	border: 1px;	
+}
+
+.signin h1 {
+	font-size: 2em;
+	font-family: Impact, sans-serif;
+	width: 100%;
+	float: center;
+	color: #fff;
+    text-shadow: 2px 2px 2px #000000;
+	clear: both;
+}
+
+.signin input, .signin button {
+	width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.signin input {
+	width: 70%;
+	margin-left: 0%;
+}
+
+.signin button {
+	width: 50%;
+	margin-left: 25%;
+}
+
+/** Smartphone **/
+@media (max-width: 320px) {
+	.signin {
+		width: 60%;
+		margin-left: 15%;
+		margin-bottom: 15%;
+	}
+}
