@@ -2,11 +2,11 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<meta name="author" content="Team 11">
+		<meta name="author" content="Team 6">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- CSS -->
-		<link rel="stylesheet" type="text/css" href="assets/css/profile.css" media="screen" />
-		<title>Instructor - Lecture Selection</title>
+		<link rel="stylesheet" type="text/css" href="../css/profile.css" media="screen" />
+		<title>Instructor - Profile</title>
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
@@ -14,121 +14,77 @@
 	</head>
 	<body>
 		<header class='topbar'>
-
 			<h1>Welcome <span id="header-user-name">Name</span></h1>
-
 			<nav id="menu">
 				<ul>
 					<li>
 						<a href="">Change Your Password</a>
 					</li>
 				</ul>
-
 			</nav>
-
 		</header>
-		
+
 		<main>
-			
-			<section id="courses" class="section-contect">
+			<div id = "profileInfo">
+				<img class='img-circle' src="uoft.jpg"/>
+				<p>Name: <span> Mr. Smith</span></p>
+				<p>School Name: <span>School1</span></p>
+				<p>School Location: <span>Toronto</span></p>
 
-				<h2>Courses</h2>
-				
-				<ul id="courseList">
-					<li tabindex="1">
-						<button class="delete-course-button">Delete</button>
-						<label>Course Code</label>
-					</li>
-					<li tabindex="1">
-						<button class="delete-course-button">Delete</button>
-						<label>Course Code</label>
-					</li>
-				</ul>
+				<div class="student">
+					<b>Student Information</b>
+					<table class='studentTable'>
+						<tbody>
+						<tr>
+							<th>
+								ID
+							</th>
+							<th>
+								Name
+							</th>
 
-				<button id="add-item-button">Add New Course</button>
+						</tr>
 
-			</section>
+						<tr>
+							<td>
+								1
+							</td>
+							<td>
+								Amy Lee
+							</td>
+						</tr>
+						<tr>
+						</tbody>
+					</table>
 
-			<section id="lecture-section" class="section-contect">
+				</div>
 
-				<h2>Section</h2>
+			</div>
 
-				<ul id="sectionList">
-					<label class="lecture-section-radio">
-						<input type="radio" value="L0101" name="lecture-section-selection" onclick="">
-						<span class="radio-text">Section L0101</span>
-					</label>
+			<div id='timeline'>
+				<div class='timelineHeader'>
+					<ul>
+						<li><a href="">Posts</a></li>
+						<li><a href="">Post & Replies</a></li>
+					</ul>
+				</div>
+				<div id='post'>
+					<!-- Reuse all of the tweet classes from the one above,
+                    and just change the content of the tweet. -->
+					<div class='postIconContainer'>
+						<img class='postIcon' src="uoft.jpg"/>
+					</div>
 
-					<label class="lecture-section-radio">
-						<input type="radio" value="L0102" name="lecture-section-selection"onclick="">
-	 					<span class="radio-text">Section L0102</span>
-					</label>
-				</ul>
+					<div class='postContent'><b>School1</b>
+					</div>
+					<div class='postContent'>
+						<a>Grow you own apple!</a>
+					</div>
+					<img class='postContentPicture' src="apple.jpg"/>
 
-				<button id="add-item-button">Add New Section</button>
-  				
-
-			</section>
-
-			<section id="lectures" class="section-contect">
-
-				<h2>Lecture</h2>
-
-				<ul id="lecture-item-list">
-					<details class="lecture-items">
-						<summary>Lecture 1</summary>
-
-						<form action="">
-							<input class="file-input" type="file" name="lecture" accept="pdf, ppt">
-							<br>
-							<input class="upload-lecture-button" type="submit" value="Upload">
-						</form>
-						
-					</details>
-
-					<details class="lecture-items">
-						<summary>Lecture 2</summary>
-
-						<form action="">
-							<input class="file-input" type="file" name="lecture" accept="pdf, ppt">
-							<br>
-							<input class="upload-lecture-button" type="submit" value="Upload">
-						</form>
-						
-					</details>
-
-					<details class="lecture-items">
-						<summary>Lecture 3</summary>
-
-						<form action="">
-							<input class="file-input" type="file" name="lecture" accept="pdf, ppt">
-							<br>
-							<input class="upload-lecture-button" type="submit" value="Upload">
-						</form>	
-						
-					</details>
-
-					<details class="lecture-items">
-						<summary>Lecture 4</summary>
-
-						<form action="">
-							<input class="file-input" type="file" name="lecture" accept="pdf, ppt">
-							<br>
-							<input class="upload-lecture-button" type="submit" value="Upload">
-						</form>
-						
-					</details>
-				</ul>
-
-				<button id="add-item-button">Add New Lecture</button>
-
-			</section>
-
+				</div>
+			</div>
 		</main>
-
-		<footer>
-			Instant Lecture Q&#38;A
-		</footer>
 		
 	</body>
 </html>
