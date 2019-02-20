@@ -1,6 +1,6 @@
 body {
 
-	background-color: #9FC4F8;
+	background-color: #e6ecf0;
 	margin: 0;
 	padding: 0;
 	font-family: "Times New Roman", Times, serif;
@@ -10,135 +10,125 @@ h1 {
 	font-family: Impact, sans-serif;
 	letter-spacing: 2px;
 }
+a {
+	text-decoration: none;
+	color: black;
+}
 
 .topbar {
-
 	text-align: center;
 	border-bottom: double;
 	margin: 5% 10% 5% 10%;
 }
 
-a {
-
-	text-decoration: none;
+table,td,th {
+	border-collapse: collapse;
+	border: 1px solid black;
+	max-width: 200px;
 }
 
-.lecture-items a {
-
-	color: black;
-	text-decoration: underline;
+td, th {
+	min-width: 150px;
 }
-
-li {
-
-	list-style-type: none;
-
-}
-
-ul {
-
-    list-style:none;
-    padding-left:0;
-}​
-
-h2 {
-
-	text-align: left;
-}
-
-main {
-
-	margin: 5% 10% 5% 10%;
-}
-
-.section-contect {
-
-	border-style: inset;
-	margin: 10%;
-	padding: 5%;
+#menu {
+	position: absolute;
+	top: 12%;
+	right: 50%;
 	text-align: center;
-}
-
-
-#courses li:focus {
-
-	background: #a0d0f7;
-	outline: none;
-}
-
-.delete-course-button {
-
-	background: red;
-	color: white;
-	border: none;
-	visibility: hidden;
 
 }
 
-#courses li:focus .delete-course-button {
+.img-circle{
+	border-radius: 50%;
+	border:solid white;
+	width: 150px;
+}
 
-	visibility: visible;
+.student {
+	padding: 5px;
+	max-width: 200px;
+	margin-top: 10px;
 
 }
 
-#add-item-button {
+.student p {
+	margin: 2px;
+}
 
-	background: white;
-    border: none;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 5%;
-    cursor: pointer;
+
+.student span {
+	font-weight: bold;
+}
+
+#profileInfo {
+	background-color: white;
+	float:left;
+	padding: 10px;
+	margin-left:5%;
+	width: 410px;
+	min-height: 300px;
 
 }
 
 
-.lecture-section-radio {
-
+#timeline {
+	position: absolute;
+	border-radius: 10px;
+	background-color: white;
+	width: 600px;
 	display: block;
+	height: auto;
+	margin-left: 550px;
+}
+.timelineHeader {
+	border-bottom: 1px solid grey;
+}
+
+.timelineHeader ul {
+	margin: 0px;
+}
+
+.timelineHeader ul li {
+	padding: 10px;
+	margin-right: 20px;
+	font-size: 150%;
+	font-weight: bold;
+	display:inline-block;
+
+}
+#post {
+	background-color: white;
+	min-height: 100px;
+	overflow: auto;
+	border-bottom: 1px solid grey;
+}
+
+.postIconContainer {
+	width: 80px;
+	float: left;
+}
+
+.postIcon {
+	margin-right: 10px;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+}
+.postContent {
+	margin: 0px;
+	margin-top: 20px;
 
 }
 
-details {
-
-	cursor: pointer;
+.postContentPicture {
+	max-width: 250px;
+	margin-top: 10px;
+	margin-bottom: 5px;
 }
 
-.upload-lecture-button {
-
-	background: white;
-    border: none;
-    padding: 10px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 5%;
-    cursor: pointer;
-
-}
-
-.file-input {
-
-	background: white;
-	margin: 5%;
-}
-
-.lecture-items {
-
-	margin: 3%;
-}
-
-footer {
-
-	padding: 4%;
-    position: relative;
-	background-color: #efefef;
-	text-align: center;
-
-
-}
 
 /* Screen larger 1280px
  *
@@ -147,57 +137,101 @@ footer {
 @media screen and (min-width: 1280px) {
 
 	body {
-
 		height: 100%;
 	}
 
-	main {
-
-		text-align: center;
-		display: -webkit-flex;
-		-webkit-flex-wrap: wrap;
-		-webkit-justify-content: center;
-	}
-
 	.topbar {
-
 		display: flex;
 	}
 
 	#menu {
-
 		position: absolute;
-		top: 1%;
-		right: 1%;
-	}
-
-	.section-contect {
-
-		min-height: 25%;
-		max-height: 250px;
-		margin: 1%;
-		display: inline-block;
-	}
-
-	footer {
-		position: fixed;
-		left: 0;
-		bottom: 0;
-		width: 100%;
-		padding: 1%;
-	}
-
-	#courses li:hover .delete-course-button {
-
-		visibility: visible;
+		top: 12%;
+		right: 50%;
+		text-align: center;
 
 	}
 
-	#lecture-item-list {
-
-		height: 100px;
-		overflow:hidden;
-		overflow-y:scroll;
+	.img-circle{
+		border-radius: 50%;
+		border:solid white;
+		width: 150px;
 	}
+
+	#student {
+		padding: 3px;
+		max-width: 200px;
+		margin-top: 10px;
+	}
+
+	.student p {
+		margin: 2px;
+	}
+
+	.student span {
+		font-weight: bold;
+	}
+	#profileInfo {
+		background-color: white;
+		float:left;
+		padding: 10px;
+		margin-left:5%;
+		width: 410px;
+		min-height: 300px;
+	}
+
+	#post {
+		background-color: white;
+		min-height: 100px;
+		overflow: auto;
+		border-bottom: 1px solid grey;
+
+	}
+	.postIconContainer {
+		width: 80px;
+		float: left;
+	}
+	.postIcon {
+		margin-right: 10px;
+		margin-top: 10px;
+		margin-left: 10px;
+		margin-bottom: 10px;
+		border-radius: 50%;
+		width: 60px;
+		height: 60px;
+	}
+	.postContent {
+		margin: 0px;
+		margin-top: 20px;
+
+	}
+
+	#timeline {
+		position: absolute;
+		border-radius: 10px;
+		background-color: white;
+		width: 600px;
+		display: block;
+		height: auto;
+		margin-left: 550px;
+	}
+	.timelineHeader {
+		border-bottom: 1px solid grey;
+	}
+
+	.timelineHeader ul {
+		margin: 0px;
+	}
+
+	.timelineHeader ul li {
+		padding: 10px;
+		margin-right: 20px;
+		font-size: 150%;
+		font-weight: bold;
+		/* Add properties below */
+		display:inline-block;
+
+	}
+
 
 }
