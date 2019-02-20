@@ -3,36 +3,21 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/signup.css"/>
-  	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-            crossorigin="anonymous"></script>
-    <script type="text/javascript" src="assets/js/signup.js"></script>
+    <link rel="stylesheet" href="../css/signup.css"/>
 
 
 </head>
 <body>
 	<section>
 		<header>
-			<button id="back"> Back </button><h1> Instant Lecture Q&A </h1>
+			<button id="back"> Back </button><h1> User Signup Page </h1>
 		</header>
 
 		<form action="/signup" method="post">
 			<ul>
-				<label class="radio-label">
-					<input id="student" type="radio" checked name="isTeacher" value=false>
-					<span class="radio-text">Student</span>
-				</label>
-				<label class="radio-label">
-					<input id="teacher" type="radio" name="isTeacher" value=true>
-					<span class="radio-text">Instructor</span>
-				</label>
-			</ul>
-			
-			<ul>
 				<li class="ss-item-required">
-	            	<span class="label"> Email(UofT) : </span>
-	            	<input class="text-input" type="text" id="uoft_email" placeholder="Email(UofT)" title="Type in U of T email form: uoft@mail.utoronto.ca, uoft@teach.utoronto.ca" name="email" required="true"/>
+	            	<span class="label"> Email : </span>
+	            	<input class="text-input" type="text" id="email" placeholder="Email" title="Type in email" name="email" required="true"/>
 				</li>
 				<li class="ss-item-required">
 					<span class="label"> Username : </span>

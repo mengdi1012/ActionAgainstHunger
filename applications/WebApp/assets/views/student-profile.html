@@ -1,97 +1,62 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="author" content="Team 11">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!-- CSS -->
-		<link rel="stylesheet" type="text/css" href="assets/css/profile.css" media="screen" />
-		<title>Student - Lecture Selection</title>
-	</head>
-	<body>
-		<header class='topbar'>
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Team 6">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="../css/profile.css" media="screen" />
+	<title>Student - Profile</title>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+			integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+			crossorigin="anonymous"></script>
+	<script type="text/javascript" src="assets/js/instructor-profile.js"></script>
+</head>
+<body>
+<header class='topbar'>
+	<h1>Welcome <span id="header-user-name">Name</span></h1>
+	<nav id="menu">
+		<ul>
+			<li>
+				<a href="">Change Your Password</a>
+			</li>
+		</ul>
+	</nav>
+</header>
 
-			<h1>Welcome <span id="header-user-name">Name</span></h1>
+<main>
+	<div id = "profileInfo">
+		<img class='img-circle' src="uoft.jpg"/>
+		<p>Nick Name: <span>student1 </span></p>
+		<p>School Name: <span>School1</span></p>
+		<p>School Location: <span>Toronto</span></p>
 
-			<nav id="menu">
-				<ul>
-					<li>
-						<a href="">Change Your Password</a>
-					</li>
-				</ul>
+	</div>
 
-			</nav>
+	<div id='timeline'>
+		<div class='timelineHeader'>
+			<ul>
+				<li><a href="">Posts</a></li>
+				<li><a href="">Post & Replies</a></li>
+			</ul>
+		</div>
+		<div id='post'>
+			<!-- Reuse all of the tweet classes from the one above,
+            and just change the content of the tweet. -->
+			<div class='postIconContainer'>
+				<img class='postIcon' src="uoft.jpg"/>
+			</div>
 
-		</header>
-		
-		<main>
-			
-			<section id="courses" class="section-contect">
+			<div class='postContent'><b>Student1</b>
+			</div>
+			<div class='postContent'>
+				<a>My apple!</a>
+			</div>
+			<img class='postContentPicture' src="apple.jpg"/>
 
-				<h2>Courses</h2>
-				
-				<ul>
-					<li tabindex="1">
-						<button class="delete-course-button">Delete</button>
-						<label>Course Code</label>
-					</li>
-					<li tabindex="1">
-						<button class="delete-course-button">Delete</button>
-						<label>Course Code</label>
-					</li>
-				</ul>
+		</div>
+	</div>
+</main>
 
-				<button id="add-item-button">Add New Course</button>
-
-			</section>
-
-			<section id="lecture-section" class="section-contect">
-
-				<h2>Section</h2>
-
-				<ul>
-					<label class="lecture-section-radio">
-						<input type="radio" value="L0101" name="lecture-section-selection" onclick="">
-						<span class="radio-text">Section L0101</span>
-					</label>
-
-					<label class="lecture-section-radio">
-						<input type="radio" value="L0102" name="lecture-section-selection"onclick="">
-	 					<span class="radio-text">Section L0102</span>
-					</label>
-				</ul>
-
-				<button id="add-item-button">Add New Section</button>
-  				
-
-			</section>
-
-			<section id="lectures" class="section-contect">
-
-				<h2>Lecture</h2>
-
-				<ul id="lecture-item-list">
-					<li class="lecture-items"><a href="">Lecture 1</a></li>
-
-					<li class="lecture-items"><a href="">Lecture 2</a></li>
-
-					<li class="lecture-items"><a href="">Lecture 3</a></li>
-
-					<li class="lecture-items"><a href="">Lecture 4</a></li>
-
-
-				
-				</ul>
-
-				<button id="add-item-button">Add New Lecture</button>
-
-			</section>
-
-		</main>
-
-		<footer>
-			Instant Lecture Q&#38;A
-		</footer>
-		
-	</body>
+</body>
 </html>
