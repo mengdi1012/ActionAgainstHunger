@@ -43,7 +43,7 @@ function test(req, res){
 
 // Routes
 // Serve the index page
-app.get("/", goSigninpage);
+app.get(['/', '/index', '/signin'], goSigninpage);
 
 //users routers
 require('./routes/api_user')(app);

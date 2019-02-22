@@ -11,4 +11,6 @@ var app_firebase = {};
 		};
 	firebase.initializeApp(config);
 	app_firebase = firebase;
+
+	app_firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
 })()

@@ -5,19 +5,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/signin.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
 </head>
 	<body>
 	<section class="signin" id="input_userinfo">
 			<h1> Action Against Hunder</h1>
-			<form>			
-				<div>Username <input type="text" id="txtEmail" placeholder="Enter U of T email" required/></div>
-				<div>Password <input type="text" id="txtPassword" placeholder="Enter Password" required/></div>
+			<form action="/signin" method="post">	
+				<input type="email" id="txtEmail" placeholder="Enter U of T email" name="email" required/>
+				<input type="password" id="txtPassword" placeholder="Enter Password" name="password" required/>
+			<input id="signin" type="submit" value="SignIn"/>
 			</form>
-			<button id="btnLogin">Login to Account</button>
 	</section>
 	
-	<script src="assets/js/firebase.js"></script>
 	<script src="assets/js/signin.js"></script>
 	</body>
 </html>

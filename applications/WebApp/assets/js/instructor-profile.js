@@ -1,4 +1,5 @@
 $(function(){
+	window.history.pushState("", "", '/');
 	document.getElementById('add-item-button').addEventListener(
   'click', function() {
   	post = "<input id='testInput'></input>";
