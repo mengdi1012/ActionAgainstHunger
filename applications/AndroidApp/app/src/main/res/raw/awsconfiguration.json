@@ -1,0 +1,58 @@
+{
+    "UserAgent": "aws-amplify-cli/0.1.0",
+    "Version": "1.0",
+    "IdentityManager": {
+        "Default": {}
+    },
+    "CredentialsProvider": {
+        "CognitoIdentity": {
+            "Default": {
+                "PoolId": "us-east-1:ac5895b2-e578-4e8c-98ff-aec8fb767bda",
+                "Region": "us-east-1"
+            }
+        }
+    },
+    "CognitoUserPool": {
+        "Default": {
+            "PoolId": "us-east-1_L15vpaUHR",
+            "AppClientId": "63t2s913qgjrvfn9h6sfd9jnst",
+            "AppClientSecret": "17s6s7k83c7via6os3ro63vngs5iaop145uko188a64ijmvp1vns",
+            "Region": "us-east-1"
+        }
+    },
+    "AppSync": {
+        "Default": {
+            "ApiUrl": "https://mt7gvqh3sbhv5acwu3wmzipiqq.appsync-api.us-east-1.amazonaws.com/graphql",
+            "Region": "us-east-1",
+            "AuthMode": "AMAZON_COGNITO_USER_POOLS"
+        }
+    },
+    "S3TransferUtility": {
+        "Default": {
+            "Bucket": "actionagainsthunger-userfiles-mobilehub-1944626418",
+            "Region": "us-east-1"
+        }
+    },
+    "DynamoDBObjectMapper": {
+        "Default": {
+            "Region": "us-east-1"
+        }
+    },
+    "PinpointAnalytics": {
+        "Default": {
+            "AppId": "b981db19edda44c89fe5d80bfcd35adf",
+            "Region": "us-east-1"
+        }
+    },
+    "PinpointTargeting": {
+        "Default": {
+            "Region": "us-east-1"
+        }
+    },
+    "UserFileManager": {
+        "Default": {
+            "Bucket": "actionagainsthunger-userfiles-mobilehub-1944626418",
+            "Region": "us-east-1"
+        }
+    }
+}
