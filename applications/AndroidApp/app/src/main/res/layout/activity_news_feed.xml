@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/container"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context="ca.actionagainsthunger.news_view.NewsFeed">
+
+    <android.support.design.widget.BottomNavigationView
+      android:id="@+id/navigation"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:background="?android:attr/windowBackground"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:menu="@menu/navigation" />
+
+    <ScrollView
+      android:id="@+id/newsTable"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_marginTop="8dp"
+      android:layout_marginBottom="16dp"
+      android:layout_marginStart="8dp"
+      android:layout_marginEnd="8dp"
+      android:fillViewport="false"
+      app:layout_constraintBottom_toTopOf="@+id/navigation"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.25">
+
+        <LinearLayout
+          android:id="@+id/post_feed"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:padding="10dp"
+          android:orientation="vertical"></LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

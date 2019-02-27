@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "770900129060",
+    "firebase_url": "https://hungerteam-55dde.firebaseio.com",
+    "project_id": "hungerteam-55dde",
+    "storage_bucket": "hungerteam-55dde.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770900129060:android:32b8820926370cd5",
+        "android_client_info": {
+          "package_name": "ca.actionagainsthunger.aah"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "770900129060-93bobgumpd8p3qf3mg316ofslpc942ae.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ca.actionagainsthunger.aah",
+            "certificate_hash": "e56cc111e88a3987517e4a472ea6590ddef0aff7"
+          }
+        },
+        {
+          "client_id": "770900129060-pgguffhvhlmtsktn23j2u2ibtc73jf34.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAG7ZOXH_dqpfn4m8Ze1QbhztrbO6exVTk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "770900129060-pgguffhvhlmtsktn23j2u2ibtc73jf34.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

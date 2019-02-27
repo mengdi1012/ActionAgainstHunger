@@ -7,7 +7,8 @@ function logout(req, res) {
   req.session.destroy(function(err) {
     if (!err) {
       return res.json({});
-    }
+		}
+		res.redirect('/')
   })
 }
 
@@ -26,43 +27,66 @@ function signUp(req, res) {
 	signup_email = req.body.email;
 	signup_password = req.body.password;
 	signup_username = req.body.username;
-	signup_isTeacher = req.body.isTeacher;
+	// signup_isTeacher = req.body.isTeacher;
+	signup_isTeacher = true
 
-    // create authentication user
-	firebase.auth().createUser({
-	  email: signup_email,
-	  password: signup_password,
-	  displayName: signup_username
-	})
-	  .then(function(userRecord) {
-		// See the UserRecord reference doc for the contents of userRecord.
-		console.log("Successfully created new user:", userRecord.uid);
-		// link to database 
-		firebase.firestore().collection('users').doc(userRecord.uid).set({
-			email: userRecord.email,
-			username: userRecord.displayName,
-			isteacher: signup_isTeacher,
-			})
+	// link to database 
+	firebase.firestore().collection('users').doc().set({
+		email: signup_email,
+		password: signup_password,
+		username: signup_username,
+		isteacher: signup_isTeacher,
 		})
-	  .catch(function(error) {
-		console.log("Error creating new user:", error);
-	  });
-	  res.redirect('/')
+	.then(function() {
+			console.log("Document successfully written!");
+	})
+	.catch(function(error) {
+			console.error("Error writing document: ", error);
+	});
+	res.redirect('/')
 }
 
 function signIn(req, res){
-  console.log("got it");
-  var email = req.query.email;
-  console.log(email);
-  res.statusCode = 200;
-  res.render('student-profile');
+  var email = req.body.email;
+	var password = req.body.password;
+	
+	var exist = false
+	firebase.firestore().collection("users")
+	.get().then(function(querySnapshot) {
+		querySnapshot.forEach(function(doc) {
+			user = doc.data()
+			if (user.email == email && user.password == password){
+				exist = true
+			}
+		});
+
+		if(exist == true){
+			req.session.username = user.username; 
+			req.session.isteacher = user.isteacher; 
+			console.log(req.session);
+			if(req.session.isteacher){
+				res.render('student-profile', {
+					username: req.session.username
+				});
+			}else{
+				res.render('student-profile', {
+				username: req.session.username
+			});    
+			}
+		}else{
+			console.log("No such user exist!");
+			res.redirect('/')		
+		}
+	}) 
+	.catch(function(error) {
+		console.log("Error getting document:", error);
+		res.redirect('/')
+	});
 }
-
-
 
 app.get('/signup', goSignUp);
 app.post('/signup', signUp);
-app.get('/signin', signIn);
+app.post('/signin', signIn);
 //app.post('/password',changePassword);
-//app.get('/logout', logout);
+app.get('/logout', logout);
 }

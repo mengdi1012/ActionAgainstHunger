@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">ActionAgainstHunger_Login_Register</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="title_blog">Blog</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_post">Post</string>
+    <string name="title_news">News</string>
+
+    <string name="title_news1">Gather, Analyze, and Share Data on Undernutrition</string>
+    <string name="content_news1">
+        To determine prevalence and the root causes of undernutrition in each local context, we analyze both indirect and direct factors and conduct rigorous assessments. Gathering, analyzing, and sharing this data is essential to guiding an effective, relevant response.
+    </string>
+
+    <string name="title_news2">Treat Acute Undernutrition</string>
+    <string name="content_news2">
+        We refer acutely undernourished children  who show signs of complications for inpatient care. We provide local, accessible, easy-to-reach outpatient treatment for acutely undernourished children without medical complications through a highly effective approach known as "community management of acute malnutrition," (also called CMAM).
+    </string>
+
+    <string name="title_news3">Prevent Undernutrition</string>
+    <string name="content_news3">
+        We work to prevent chronic and acute undernutrition through an integrated approach that addresses both the direct and underlying causes. In emergencies, we work to ensure that vulnerable children under five, pregnant women, and nursing mothers have access to supplementary food to meet their nutritional needs and prevent them from becoming undernourished.
+        We also work to educate and support mothers about the importance of breastfeeding for the first six months, and work to improve care and feeding practices to ensure children from six months of age to five years receive adequate micronutrients and protein for healthy development. Our programs also provide pregnant women and new mothers with peer support groups, facilitated by heath workers, to encourage and promote good nutrition, hygiene, sanitation, and care practices for mothers, infants, and young children.
+    </string>
+
+    <string name="title_news4">Strengthen Local Capacity and Build Resilience</string>
+    <string name="content_news4">
+        We train local health care workers and partners to screen and treat undernutrition, and we provide technical expertise and support to strengthen local health systems. In severe humanitarian emergencies, we sometimes directly deliver emergency nutrition programs to provide lifesaving treatment to acutely undernourished children, but our aim is to transfer our knowledge, work in partnership with communities, and strengthen what is already working via local health care services to ensure sustainable impact.
+    </string>
+    <string name="title_activity_news_page">NewsPage</string>
+    <string name="title_activity_feed">FeedActivity</string>
+
+    <string name="title_activity_news_list">NewsList</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string> n
+
+
+    <string name="write_post_hint">Write post</string>
+    <string name="post">Post</string>
+
+    <string name="write_comment_hint">Write comment</string>
+    <string name="comment">Comment</string>
+
+    <string name="profile_picture">Profile Picture</string>
+    <string name="title_all">All</string>
+    <string name="title_questions">Questions</string>
+    <string name="title_articles">Articles</string>
+    <string name="title_highlights">Highlights</string>
+    <string name="post_title">Post Title</string>
+    <string name="sign_out">Sign Out</string>
+
+    <string-array name="post_types_array">
+        <item>Article</item>
+        <item>Question</item>
+        <item>Highlight</item>
+    </string-array>
+
+</resources>
