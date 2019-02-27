@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
+
 var app = express();
 app.use(express.static(__dirname + '/'));
 app.use(express.static(__dirname + '/assets'));
@@ -24,7 +25,13 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
 }));
 
-curCourse = new Object();
+//firebase initialize
+var firebase = require('firebase-admin'); 
+var serviceAccount = require("./serviceAccountKey.json");
+firebase.initializeApp({
+  credential: firebase.credential.cert(serviceAccount)
+});
+
 // An array to store chat messages.  We will only store messages
 // as long as the server is running.
 function goSigninpage(req, res){
@@ -46,7 +53,8 @@ function test(req, res){
 app.get(['/', '/index', '/signin'], goSigninpage);
 
 //users routers
-require('./routes/api_user')(app);
+require('./routes/api_user')(app, firebase);
+require('./routes/api_admin')(app, firebase);
 //require('./routes/api_course')(app, Users);
 //require('./routes/api_lecture')(app);
 //require('./routes/api_question')(app, Questions);
