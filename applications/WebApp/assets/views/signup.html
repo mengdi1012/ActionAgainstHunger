@@ -4,13 +4,14 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/signup.css"/>
+    <script src="../js/signup.js"> </script>
 
 
 </head>
 <body>
 	<section>
 		<header>
-			<button id="back"> Back </button><h1> User Signup Page </h1>
+			<button id="back"> Back </button><h1> Signup Page </h1>
 		</header>
 
 		<form action="/signup" method="post">
@@ -20,13 +21,35 @@
 	            	<input class="text-input" type="text" id="email" placeholder="Email" title="Type in email" name="email" required="true"/>
 				</li>
 				<li class="ss-item-required">
-					<span class="label"> Username : </span>
-					<input class="text-input" type="text" id="username" name="username" required="true"/>
+					<span class="label"> Nickname : </span>
+					<input class="text-input" type="text" id="nickname" name="username" required="true"/>
 				</li>
 				<li class="ss-item-required">
 					<span class="label"> Password :  </span>
 					<input class="text-input" type="password" id="password" name="password" required="true"/>
 				</li>
+			    	<ul>
+			    		<h4>I am a: </h4>
+                        <li class="account-type">
+			    			<input type="radio" checked="checked" name="radio" value="Teacher">
+							<span class="label">teacher at: </span>
+				 			<input class="text-input" type="text" id="schoolname" placeholder="School Name" name="school" required="true"/><br>
+						</li>
+						<li class="account-type">
+							<input type="radio" checked="checked" name="radio" value="Guess">
+							<span class="label">professional: </span>
+				 			<input class="text-input" type="text" id="profession" placeholder="your profession" name="profession" required="true"/><br>
+				 		</li>
+				 	</ul>	
+
+				<li class="ss-item-required">
+				  	<input type="button" onclick="myFunction()" value="Create my username"><br>
+					<span class="label"> Username : </span>
+					<input type="text" id="username" size="50" required="true"/>
+				</li>
+
+
+
 			</ul>
 
 			<input id="signup-button" type="submit" value="Signup"/>

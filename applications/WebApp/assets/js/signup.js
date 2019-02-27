@@ -1,11 +1,17 @@
+
 var radios = document.getElementsByClassName('user_radio')
-for (var i = 0; i < radios.length; i++) {
-	radios[i].onclick = function(evt) {
-		var val = evt.target.value
-		if (val == "Student") {
-			document.getElementById('uoft_email').pattern = "[a-z0-9._%+-]+@mail.utoronto.ca|[a-z0-9._%+-]+@mail.utoronto.ca"
-		} else {
-			document.getElementById('uoft_email').pattern = "[a-z0-9._%+-]+@teach.utoronto.ca|[a-z0-9._%+-]+@edu.utoronto.ca"
+function myFunction() {
+	for (var i = 0; i < radios.length; i++) {
+		radios[i].onclick = function(evt) {
+			var val = evt.target.value
+			var nickname = document.getElementById("nickname").value
+			if (val == "Teacher") {
+				var prefix = document.getElementById("schoolname").value
+				document.getElementById("username").value = prefix + '-' + nickname
+			} else {
+				var prefix = document.getElementById("profession").value
+				document.getElementById('username').value = prefix + '-' + nickname
+			}
 		}
 	}
 }
