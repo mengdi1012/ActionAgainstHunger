@@ -1,6 +1,6 @@
 Execution Step:
-1. npm install -- install node modules
-2. npm start -- start up the localhost server
+1. npm install ( install node modules)
+2. npm start (start up the localhost server)
 3. access: localhost:3000
 
 _
