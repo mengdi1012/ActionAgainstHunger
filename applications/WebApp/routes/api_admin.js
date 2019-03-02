@@ -1,31 +1,35 @@
 module.exports = function (app, firebase) {
 
 function invite(req, res) {
-	invite_email = req.body.email;
-	usertype = 'teacher'
-	if (!req.body.usertype) {
-		usertype = 'guest'
-	}
+	if(req.session.username){
+		var invite_email = req.body.email;
+		var usertype = req.body.usertype
+		var signup_url =  "http://localhost:3000/teacher_signup"
+		console.log("invite usertype: ", req.body.usertype )
+		signup_url =  "http://localhost:3000/" + usertype +"_signup"
 
-	// link to database 
-	firebase.firestore().collection('users').doc().set({
-		email: invite_email,
-		password: '',
-		username: '',
-		usertype: usertype
+		// link to database 
+		firebase.firestore().collection('users').doc().set({
+			email: invite_email,
+			password: '',
+			username: '',
+			usertype: usertype
+			})
+		.then(function() {
+				console.log("Document successfully written!");
+				sendInvitationEmail(invite_email, signup_url);
 		})
-	.then(function() {
-			console.log("Document successfully written!");
-			sendInvitationEmail(invite_email);
-	})
-	.catch(function(error) {
-			console.error("Error writing document: ", error);
-	});
-	return res.sendStatus(200)
+		.catch(function(error) {
+				console.error("Error writing document: ", error);
+		});
+		res.send({result:"success"})
+	}else{
+		return res.sendStatus(404)
+	}
 }
 
 
-function sendInvitationEmail(invite_email) {
+function sendInvitationEmail(invite_email, signup_url) {
 	var nodemailer = require('nodemailer');
 
 	var transporter = nodemailer.createTransport({
@@ -40,7 +44,7 @@ function sendInvitationEmail(invite_email) {
 		from: 'Teamhunger966@gmail.com',
 		to: invite_email,
 		subject: 'Welcome to action against hunger',
-		text: 'Please go to http://localhost:3000/signup for signup!!!'
+		text: 'Please go to ' + signup_url +' for signup!!!'
 	};
 
 	transporter.sendMail(mailOptions, function(error, info){

@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/signup.css"/>
-    <script src="../js/signup.js"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
 
 </head>
@@ -22,7 +22,7 @@
 				</li>
 				<li class="ss-item-required">
 					<span class="label"> Nickname : </span>
-					<input class="text-input" type="text" id="nickname" name="username" required="true"/>
+					<input class="text-input" type="text" id="nickname" name="nickname" required="true"/>
 				</li>
 				<li class="ss-item-required">
 					<span class="label"> Password :  </span>
@@ -31,21 +31,15 @@
 			    	<ul>
 			    		<h4>I am a: </h4>
                         <li class="account-type">
-			    			<input type="radio" checked="checked" name="radio" value="Teacher">
 							<span class="label">teacher at: </span>
 				 			<input class="text-input" type="text" id="schoolname" placeholder="School Name" name="school" required="true"/><br>
 						</li>
-						<li class="account-type">
-							<input type="radio" checked="checked" name="radio" value="Guess">
-							<span class="label">professional: </span>
-				 			<input class="text-input" type="text" id="profession" placeholder="your profession" name="profession" required="true"/><br>
-				 		</li>
 				 	</ul>	
 
 				<li class="ss-item-required">
-				  	<input type="button" onclick="myFunction()" value="Create my username"><br>
+				  	<input type="button" onclick="createUsername()" value="Create my unique username"><br>
 					<span class="label"> Username : </span>
-					<input type="text" id="username" size="50" required="true"/>
+					<input type="text" id="username" name="username" size="50" required="true"/>
 				</li>
 
 
@@ -55,7 +49,9 @@
 			<input id="signup-button" type="submit" value="Signup"/>
 	
 		</form>
-	</section>	
+	</section>
+	<script src="assets/js/teacher_signup.js"> </script>
+	
 </body>
 
 </html>

@@ -15,7 +15,7 @@
 			<button id="back"> Back </button><h1> Teacher Invitation Page </h1>
 		</header>
 
-		<form action="/invite" method="post">
+		<form>
 		  <ul>
 				<li class="ss-item-required">
 								<span class="label"> Email : </span>
@@ -25,17 +25,17 @@
 				<li class="ss-item-required">
 						<h4>Choise Account Type:</h4>
 							<label class="container">Teacher
-								<input type="radio" checked="checked" name="usertype">
+								<input type="radio" checked="checked" name="usertype" value="teacher">
 								<span class="checkmark"></span>
 							</label>
-							<label class="container">Guess
-								<input type="radio" name="usertype">
+							<label class="container">Guest
+								<input type="radio" name="usertype" value="guest">
 								<span class="checkmark"></span>
 							</label>
 				</li>
       </ul>
 
-			<input id="signup-button" type="submit" value="Send invitation"/>
+			<input id="invite-button" type="submit" value="Send invitation"/>
 	
 		</form>
 	</section>	
