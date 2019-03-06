@@ -36,6 +36,54 @@ module.exports = function (app, firebase) {
 	   });
     }
 
+
+    function getComments(req, res){
+        var postId = req.params.postId;
+        
+        firebase.firestore().collection("comments").where('post', '==', postId).get()
+        .then(comments => {
+            if ( comments.empty){
+                console.log("No Comments");
+                res.send();
+            }
+            
+            var allComments = [];
+            comments.forEach(eachComment => {
+                console.log(eachComment.id, '=>', eachComment.data()); 
+                allComments.push(eachComment.data());
+            });
+            res.send(allComments);
+        }) 
+	    .catch(function(error) {
+            console.log("Error Getting Comments:", error);
+            res.status(500).send("Error Getting Comments");
+	   });
+    }
+    
+    function createComment(req, res){
+        var postId = req.params.postId;
+        var authorId = req.body.author;
+        var dateId = req.body.date;
+        var contents = req.body.contents;
+        
+        firebase.firestore().collection('comments').add({
+            author: authorId,
+            date: dateId,
+            content: contents,
+            post: postId
+        })
+        .then(doc => {
+            console.log("Successfully Added New Comment: " + doc.id);
+            res.send({"Comment Id": doc.id});
+        })
+        .catch(function(error) {
+            console.error("Error Writing New Comment ", error);
+            res.status(500).send("Error Adding Comment");
+        });
+    }
+
     app.get('/post/:postId', getPost);
     app.post('/post', createPost);
+    app.get('/post/:postId/comments', getComments);
+    app.post('/post/:postId', createComment);
 }
