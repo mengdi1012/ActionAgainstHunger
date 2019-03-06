@@ -1,11 +1,25 @@
-module.exports = function (app, Users, Reviews) {
+module.exports = function (app, firebase) {
 
     function createPost(req, res){
         var authorId = req.body.author;
         var classroomId = req.body.classroom;
         var contents = req.body.contents;
         var type = req.body.type;
-        console.log(classroomId);
+        
+        firebase.firestore().collection('posts').doc().set({
+            author: authorId,
+            classroom: classroomId,
+            content: contents,
+            type: type
+        })
+        .then(function() {
+            console.log("Successfully Added New Post");
+        })
+        .catch(function(error) {
+            console.error("Error Writing New Post ", error);
+        });
+        console.log(authorId);
+        console.log("too late");
     }
     
     function getPost(req, res){
@@ -14,6 +28,6 @@ module.exports = function (app, Users, Reviews) {
     }
 
 
-    app.get('/post', createPost);
-    app.post('/post', getPost);
+    app.get('/post', getPost);
+    app.post('/post', createPost);
 }
