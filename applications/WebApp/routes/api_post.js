@@ -6,28 +6,36 @@ module.exports = function (app, firebase) {
         var contents = req.body.contents;
         var type = req.body.type;
         
-        firebase.firestore().collection('posts').doc().set({
+        firebase.firestore().collection('posts').add({
             author: authorId,
             classroom: classroomId,
             content: contents,
             type: type
         })
-        .then(function() {
-            console.log("Successfully Added New Post");
+        .then(doc => {
+            console.log("Successfully Added New Post: " + doc.id);
+            res.send({"Post Id": doc.id});
         })
         .catch(function(error) {
             console.error("Error Writing New Post ", error);
+            res.status(500).send("Error Adding Post");
         });
-        console.log(authorId);
-        console.log("too late");
     }
     
     function getPost(req, res){
-        var postId = req.body.post;
-        console.log(postId);
+        var postId = req.params.postId;
+        
+        firebase.firestore().collection("posts").doc(postId).get()
+        .then(posts => {
+            console.log(posts.data());
+            res.send(posts.data());
+        }) 
+	    .catch(function(error) {
+            console.log("Error Getting Post:", error);
+            res.status(500).send("Error Getting Post");
+	   });
     }
 
-
-    app.get('/post', getPost);
+    app.get('/post/:postId', getPost);
     app.post('/post', createPost);
 }
