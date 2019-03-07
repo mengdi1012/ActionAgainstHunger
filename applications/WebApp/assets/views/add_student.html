@@ -11,7 +11,7 @@
 </head>
 <body>
 	<section>
-		<h1>Add a new student account</h1>
+		<h1>Add new student account</h1>
 		<table id="myTable">
   			<tr>
     			<td>
@@ -28,16 +28,21 @@
   			</tr>
 
 		</table>
+		<br>
 		<button id="addmore" onclick="addonestudent()"> Add one more student </button>
 		<button onclick="myDeleteStudent()"> Delete row </button>
+		<br>
 		<br>
 
 
 
 	
 
-		<span class="label"> Password :  </span>
-		<input class="text-input" type="password" id="password" name="password" required="true"/>
+		<span class="label"> Default password :  </span>
+		<input class="text-input" type="password" id="password" name="password" , placeholder="Password" required="true"/>
+		<br>
+		<br>
+		<button onclick="create()"> Create all account</button>
 	</section>
 
 	<script src="../js/add_student.js"></script>
