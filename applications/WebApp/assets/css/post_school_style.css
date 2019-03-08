@@ -53,6 +53,11 @@ body.html{
 
 }
 
+.Userbutton{
+
+	padding-bottom: 10px;
+}
+
 .postTable{
 	width:100%;
 	height:auto;
