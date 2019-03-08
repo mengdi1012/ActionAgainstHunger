@@ -50,9 +50,9 @@ class post{
 // add post into global page
 function add_post(e) {
   e.preventDefault();
-  const  id = "d";
-  const title = "2";
-  const description = "3"
+  const  id = "1";
+  const title = "What is food addiction?";
+  const description = "Food addiction is a disease that causes someone to lose control of being able to stop eating some kinds of food, ...."
   var dateObj = new Date();
   var month = dateObj.getUTCMonth() + 1; //months from 1-12
   var day = dateObj.getUTCDate();
@@ -61,8 +61,8 @@ function add_post(e) {
   newdate = year + "/" + month + "/" + day;
   post_new = new post(id, title, description, newdate);
   const new_p = row.children[0].cloneNode(true);
-  new_p.children[0].children[0].innerText = "2";
-  new_p.children[1].innerText = "3";
+  new_p.children[0].children[0].innerText = title;
+  new_p.children[1].innerText = description;
   new_p.children[2].innerText = newdate;
   row.appendChild(new_p);
 }
