@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Professional post</title>
+    <link rel="stylesheet" type="text/css" href="../css/professional_post.css" />
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+        <div id="bar" class="navbar">
+            <a id="home" class="test" href="">Home</a>
+            <a id="status" class="test" href="">Profile</a>
+        </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h1>Create post</h1>
+                <form>
+                    <div class="form-group has-error">
+                        <label id="type" for="type">Post Type</label>
+                        <input type="text" class="form-control" name="type" />
+                    </div>
+                    <div class="form-group">
+                        <label id="title" for="title">Title
+                        <input type="text" class="form-control" name="title" />
+                    </div>
+                    <div class="form-group">
+                        <label id="description" for="description">Content</label>
+                        <textarea rows="5" class="form-control" name="description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button id="submit" type="submit" class="btn btn-primary">
+                            Create
+                        </button>
+                        <button id="cancel" class="btn btn-default">
+                            Cancel
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
