@@ -49,7 +49,21 @@ $("#submit").click(function(e){
       let content =  $("#content").val()
       const id = 123
       const date = new Date();
-      let post_new = new post(id,title,content,date)
+      let post_new = {
+        type : type,
+        title : title,
+        content : content,
+        id : id,
+      }
+      $.ajax({
+            url: "/post",
+            type: "POST",
+            dataType: "json",
+            data: JSON.stringify(post_new),
+            success: function(response) {
+                window.alert('success');
+            }
+        });
       console.log(date);
     });
 

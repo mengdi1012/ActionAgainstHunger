@@ -2,15 +2,16 @@
 
 // here is the part using the jquery.
 $(document).ready(function(){
-    $(".title").click(function(){
-
+    $(".title").click(function(e){
+      e.preventDefault();
       let title = $(".title").text()
       console.log(title);
       let full_name = "Post_" + title + ".html"
       window.open(full_name);
     });
 
-	$("#search").click(function(){
+	$("#search").click(function(e){
+    e.preventDefault();
 		let title = $("#search_area").val()
 		let full_name = "Post_" + title + ".html"
     	window.open(full_name);
