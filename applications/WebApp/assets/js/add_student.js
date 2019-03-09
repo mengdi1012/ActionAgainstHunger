@@ -20,7 +20,23 @@ function addonestudent(){
 }
 
 function myDeleteStudent() {
-  
-  document.getElementById("myTable").deleteRow(0);
+   document.getElementById("myTable").deleteRow(0);
 }
 
+function createStudent() {
+	var studentTable = table = document.getElementById("myTable");
+
+	for 
+
+	transporter.sendMail(mailOptions, function(error, info){
+		if (error) {
+			console.log(error);
+		} else {
+			console.log('Email sent: ' + info.response);
+		}
+	});
+}
+
+
+app.post('/invite', invite);
+}
