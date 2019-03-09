@@ -1,11 +1,12 @@
 $(document).ready(function() {
+	console.log('Javascript loaded');
 });
 function addonestudent(){
 	var table = document.getElementById("myTable");
 	var studentnum = table.rows.length;
 	var row = table.insertRow(0);
 	var cell1 = row.insertCell(0);
-	var cell2 = row.insertCell(1);;
+	var cell2 = row.insertCell(1);
 	cell1.innerHTML = studentnum + 1;
 
 	var myinput = document.createElement("INPUT");
@@ -15,7 +16,7 @@ function addonestudent(){
 	myinput.setAttribute('placeholder','Nickname');
 	myinput.setAttribute('name','nickname');
 	myinput.setAttribute('required','true');
-	cell2.innerHTML=" Nickname :"
+	cell2.innerHTML=" Nickname :";
 	cell2.appendChild(myinput);
 }
 
@@ -24,19 +25,29 @@ function myDeleteStudent() {
 }
 
 function createStudent() {
-	var studentTable = table = document.getElementById("myTable");
+	var studentTable = document.getElementById("myTable");
 
-	for 
+	const url = '/student';
+	const studentlist = []
 
-	transporter.sendMail(mailOptions, function(error, info){
-		if (error) {
-			console.log(error);
-		} else {
-			console.log('Email sent: ' + info.response);
+	for (let j = 0; j < studentTable.length; j++) {
+		//add students nickname
+		studentlist.push(table.rows[0].cells[1].children[0].value);
 		}
+
+    let data = {
+		studentNickname: studentlist
+	}
+
+    $.ajax({
+    url: "/createstudent",
+    type: "POST",
+    dataType: "json",
+    contentType: "application/json; charset=utf-8",
+    data: JSON.stringify(data),
+    success: function(response) {
+        window.alert('success');
+    	}
 	});
 }
 
-
-app.post('/invite', invite);
-}
