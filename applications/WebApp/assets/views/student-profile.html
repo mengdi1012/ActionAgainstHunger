@@ -7,29 +7,36 @@
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="../css/profile.css" media="screen" />
 	<title>Student - Profile</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
 			integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 			crossorigin="anonymous"></script>
-	<script type="text/javascript" src="assets/js/instructor-profile.js"></script>
+	<script type="text/javascript" src="../js/instructor-profile.js"></script>
 </head>
 <body>
-<header class='topbar'>
-	<h1>Welcome <span id="header-user-name"><%= username %></span></h1>
-	<nav id="menu">
-		<ul>
-			<li>
-				<a href="">Change Your Password</a>
-			</li>
-		</ul>
-	</nav>
-</header>
 
-<main>
+
+	<div>
+		<header class='topbar'>
+			<h1>Welcome <span id="header-user-name"><%= username %></span></h1>
+		</header>
+
+	</div>
+
+
 	<div id = "profileInfo">
 		<img class='img-circle' src="uoft.jpg"/>
-		<p>Nick Name: <span>student1 </span></p>
-		<p>School Name: <span>School1</span></p>
-		<p>School Location: <span>Toronto</span></p>
+		<div class="col-sm-6 col-md-8">
+
+			<small><cite title="school location">Toronto, ON <i class="glyphicon glyphicon-map-marker">
+			</i></cite></small>
+			<p>Nick Name: <span>student1 </span></p>
+			<p>School Name: <span>School1</span></p>
+			<input type="button" onclick="location.href='./update_pw.html';" class="btn btn-outline-secondary btn-sm" value="Change Your Password" />
+
+		</div>
+
 
 	</div>
 
@@ -56,7 +63,6 @@
 
 		</div>
 	</div>
-</main>
 
 </body>
 </html>
