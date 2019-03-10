@@ -65,7 +65,7 @@ $("#submit").click(function(e){
             url: "/post",
             type: "POST",
             dataType: "json",
-             contentType: "application/json; charset=utf-8",
+            contentType: "application/json; charset=utf-8",
             data: JSON.stringify(post_new),
             success: function(response) {
                 window.alert('success');
