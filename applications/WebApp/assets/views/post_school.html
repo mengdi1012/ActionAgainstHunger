@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>Action Against Hunger</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 
+	<link rel="stylesheet" type="text/css" href="../css/post_school_style.css"> 
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<div class = "headerFixedBar">
+	<div class = "row">
+		<div class = "col-lg-6 text-left">
+			<a href="main.php" title="Action Against Hunger" >Action Against Hunger</a>
+		</div>
+
+		<div class = "col-lg-6 text-right">
+			<a class = "btn btn primary themeButton" href="signin.html" title="Logbutton" >Logout</a>
+		</div>
+		<div class = "col-lg-6 text-right">
+				<a class = "btn btn primary themeButton" href="student-profile.html" title = "Userbutton>">View Profile</a>
+		</div>
+		
+	</div>
+</div>
+
+<body>
+	<div class = "container">
+		<div class = "row">
+			<div class = "col-lg-12 pageinationBar postModule postMargin">
+				<a href = "#">Home</a><!-- <a href="#">Category</a> <a href="#"> Discussion</a> -->
+			</div> 
+		</div>
+
+		<div class = "row postModule">
+			<div class = "col-lg-12 columnPad">
+				<div class ="pullLeft">
+					<h1>School Feed </h1>
+				</div>
+				<div class = "pullRight">
+					<a class = "btn btn -primary themeButton" href = "#" onclick="startDiscussion(1)">Create Post</a>
+				</div>
+			</div>
+		</div>
+
+		<div id = "cat_new_discussion_1" class="row postPad" style="display:none;">
+			<div class = "col-lg-12">
+				<form>
+					<div class ="form-group">
+						Title
+						<input type="text" name="newDiscussionTitle" class = "form-control" size="40"></input>
+						Content
+						<textarea style = "width:100%;" name = "newDiscussionText" rows = "10" >test</textarea>
+					</div>
+				</form>
+			</div>
+
+		</div>
+
+		<div class ="row postModule postPad">
+			<table class = "postTable">
+				<thead>
+					<th>
+						Post title
+					</th>
+					<th>
+						Author
+					</th>
+					<th>
+						Replies
+					</th>
+				</thead>
+				<tr>
+				<td>
+					<a href = "#">Discussion name here</a>
+
+				</td>
+				<td>
+					<a href = "#">Author name here</a>
+
+				</td>
+				<td>
+					<a href = "#"> Number of replies </a>
+
+				</td>
+
+
+				</tr>
+
+
+			</table>
+		</div>
+
+	</div>
+</body>
+
+<script>
+
+
+</script>
+
+<script src ="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js" 
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+</html>
+<script src ="../js/post_school.js" type="text/javascript"></script>

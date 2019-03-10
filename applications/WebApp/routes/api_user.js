@@ -151,8 +151,12 @@ function signIn(req, res){
 				username: req.session.username
 			});
 		}
-		else if(req.session.usertype == 'guest'){
-			res.render('instructor-profile', {
+		else if(req.session.usertype == 'teacher'){
+			res.render('teacher-profile', {
+				username: req.session.username
+		});
+		}else if(req.session.usertype == 'guest'){
+			res.render('teacher-profile', {
 				username: req.session.username
 		});    
 		}else if(req.session.usertype == 'admin'){

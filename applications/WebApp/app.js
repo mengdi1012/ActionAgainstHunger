@@ -22,8 +22,22 @@ app.use(session({
 // A middleware that just simplifies things a bit.
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
-    extended: true
+    extended: false
 }));
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PATCH, DELETE, OPTIONS"
+  );
+  next();
+});
+
 
 //firebase initialize
 var firebase = require('firebase-admin'); 
@@ -58,7 +72,9 @@ require('./routes/api_admin')(app, firebase);
 //require('./routes/api_course')(app, Users);
 //require('./routes/api_lecture')(app);
 //require('./routes/api_question')(app, Questions);
-
+require('./routes/api_post')(app, firebase);
+//require('./routes/api_classroom')(app, firebase);
+//require('./routes/api_comments')(app, firebase);
 
 //for session test
 app.get('/test', test);

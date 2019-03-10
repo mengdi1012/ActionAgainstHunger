@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Post sample</title>
+    <link rel="stylesheet" type="text/css" href="../css/Post_sample.css" />
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <div id="total">
+        <div id="bar" class="navbar">
+            <a id="home" class="test" href="">Home</a>
+            <a id="status" class="test" href="">Profile</a>
+            <a class="nav-item">
+                <form class="form-inline my-2 my-lg-0">
+                    <button id="refresh" class="btn btn-outline-success my-2 my-sm-0" type="submit">Refresh</button>
+                </form>
+            </a>
+        </div>
+        <div id="post">
+            <!-- <h2 id = "title" class = "post_s">TITLE HEADING</h2>
+            <h5 id = "description" class = "post_s">Title description, Sep 2, 2017</h5>
+            <p id = "content" class = "post_s">Some text..</p> -->
+            <article id="article">
+                <h1 id="title" class="post_s">Dietary raisin intake has limited effect on gut microbiota composition in adult volunteers</h1>
+                <p id="content" class="post_s">Background Dried fruits, such as raisins, contain phytochemicals and dietary fibers that contribute to maintaining health, potentially at least partially through modification in gut microbiota composition and activities. However, the effects of raisin consumption on gut microbiota have not previously been thoroughly investigated in humans. Therefore, the objective of this study was to determine how adding three servings of sun dried raisin/day to the diet of healthy volunteers affects gut microbiota composition. Methods A 14-day exploratory feeding study was conducted with thirteen healthy individuals between the ages of 18 and 59 years. Participants consumed three servings (28.3 g each) of sun dried raisins daily. Fecal samples were collected prior to raisin consumption (baseline) and after the addition of raisins to the diet (on days 7 and 14). To determine the effects of raisin intake, fecal microbiota composition before and after raisin consumption was characterized for each participant by 16S rRNA gene sequencing.
+                </p>
+                <address id="author"> Author: Tony Stark.
+                <time datetime="2015-05-16 19:00" id="time">May 16</time>
+            </article>
+        </div>
+
+        <div id="row">
+            <div id="first" class="column" style="background-color:#ffecd2;">
+                <div class="upper_comment">
+                    <p>
+                        <a class="a_type"><strong>Student comment :</strong></a>
+                        <a class="comment_text" class="float-left" href="#"><strong>Jerry </strong></a>
+                        <a class="comment_text" class="float-left" href=""><strong>School: </strong> Uoft</a>
+                    </p>
+                    <div class="clearfix"></div>
+                    <p class="comment_content">This is not bad.</p>
+                </div>
+                <div class="follow_up">
+                    <a class="a_type"><strong>Follow up comment :</strong></a>
+                    <a class="comment_text" class="float-left" href="#"><strong>Lee </strong></a>
+                    <a class="comment_text" class="float-left" href=""><strong>School: </strong> Uoft</a>
+                    <div class="clearfix"></div>
+                    <p class="comment_content">Why this is not bad.</p>
+                </div>
+                 <div class="follow_box" class="form-group">
+                        <textarea class = "follow_text" class="form-control" rows="1"></textarea>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
+                </div>
+            </div>
+            <div id="first" class="column" style="background-color:#ffecd2;">
+                <div class="upper_comment">
+                    <p>
+                        <a class="a_type"><strong>Student comment :</strong></a>
+                        <a class="comment_text" class="float-left" href="#"><strong>Jerry </strong></a>
+                        <a class="comment_text" class="float-left" href=""><strong>School: </strong> Uoft</a>
+                    </p>
+                    <div class="clearfix"></div>
+                    <p class="comment_content">This is not bad.</p>
+                </div>
+                <div class="follow_up">
+                    <a class="a_type"><strong>Follow up comment :</strong></a>
+                    <a class="comment_text" class="float-left" href="#"><strong>Lee </strong></a>
+                    <a class="comment_text" class="float-left" href=""><strong>School: </strong> Uoft</a>
+                    <div class="clearfix"></div>
+                    <p class="comment_content">Why this is not bad.</p>
+                    <!-- <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">点击我进行展开</a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                </div>
+                <div class="follow_box" class="form-group">
+                        <textarea class = "follow_text" class="form-control" rows="1"></textarea>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
+                </div>
+            </div>
+            <div id="comment_box" class="form-group">
+                <label for="comment">Comment:</label>
+                <textarea id="comment" class="form-control" rows="5"></textarea>
+                <input type="checkbox" id="post_type"> Open to all school
+                <button id="submit" class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

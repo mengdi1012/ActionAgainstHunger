@@ -1,5 +1,5 @@
 $(function(){
-    // window.history.pushState("", "", '/');
+    window.history.pushState("", "", '/');
 
     $('#invite-button').on('click', function(){
         email = $('#email').val();

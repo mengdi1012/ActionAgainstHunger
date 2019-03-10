@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/addstudent.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="../js/add_student.js"></script>
+
+
+
+</head>
+<body>
+	<section>
+		<h1>Add new student account</h1>
+		<table id="myTable">
+  			<tr>
+    			<td>
+    				<p id="studentIndex">1</p>
+    			</td>
+    			<td>
+    				<form>
+    					<ul>
+							<span class="label"> Nickname : </span>
+							<input class="text-input" type="text" placeholder="Nickname" title="Type in nickname of student" name="nickname" required="true"/>
+						</ul>
+					</form>
+    			</td>
+  			</tr>
+
+		</table>
+		<br>
+		<button id="addmore" onclick="addonestudent()"> Add one more student </button>
+		<button onclick="myDeleteStudent()"> Delete row </button>
+		<br>
+		<br>
+
+
+
+	
+
+		<span class="label"> Default password :  </span>
+		<input class="text-input" type="password" id="password" name="password" , placeholder="Password" required="true"/>
+		<br>
+		<br>
+		<button onclick="create()"> Create all student accounts </button>
+	</section>
+
+</body>
+</html>
