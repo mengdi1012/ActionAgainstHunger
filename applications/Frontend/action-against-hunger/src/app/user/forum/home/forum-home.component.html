@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+      <h4>Topics</h4>
+      <div id="create_topic">
+          <a class="btn btn-large btn-info" routerLink="./topic/new">Create New Topic</a>
+        </div>
+  </div> 
+
+  <div class="card" *ngFor="let eachPost of posts">
+    <div class="card-body">
+      <div class="row">
+
+        <p>
+          <a class="float-left"><strong>{{ eachPost.title }}</strong></a>
+
+        </p>
+      </div>
+      <div class="row">
+        <div class="clearfix"></div>
+        <p>{{ eachPost.content }}</p>
+      </div>
+      <div class="row">
+        <p>
+          <a class="float-right btn btn-outline-primary ml-2"  routerLink="./topic/6">View Post</a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>

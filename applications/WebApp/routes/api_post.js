@@ -35,8 +35,24 @@ module.exports = function (app, firebase) {
             res.status(500).send("Error Getting Post");
 	   });
     }
+    
+    
 
-
+    function getPostsFromUser(req, res){
+        var userId = req.params.userId;
+        
+        firebase.firestore().collection("posts").where('user', '==', userId).get()
+        .then(posts => {
+            console.log(posts);
+            console.log(posts.data());
+            res.send(posts.data());
+        }) 
+	    .catch(function(error) {
+            console.log("Error Getting Post:", error);
+            res.status(500).send("Error Getting Post");
+	   });
+    }
+    
     function getComments(req, res){
         var postId = req.params.postId;
         
@@ -60,6 +76,8 @@ module.exports = function (app, firebase) {
 	   });
     }
     
+    
+    
     function createComment(req, res){
         var postId = req.params.postId;
         var authorId = req.body.author;
@@ -82,6 +100,7 @@ module.exports = function (app, firebase) {
         });
     }
 
+    app.get('/api/user/:userId/posts', getPostsFromUser);
     app.get('/post/:postId', getPost);
     app.post('/post', createPost);
     app.get('/post/:postId/comments', getComments);

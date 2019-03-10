@@ -1,0 +1,14 @@
+<div class="card" *ngFor="let eachComment of comments">
+  <div class="card-body">
+    <div class="row">
+      <p>
+        <a class="float-left"><strong>{{ eachComment.post }}</strong></a>
+      </p>
+    </div>
+    <div class="row">
+      <p>
+        <a class="float-left"><strong>{{ eachComment.content }}</strong></a>
+      </p>
+    </div>
+  </div>
+</div>

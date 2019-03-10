@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-8 col-md-offset-2">
+
+      <h1>Create Post</h1>
+
+      <div class="form-group">
+        <label for="title">Title </label>
+        <input type="text" class="form-control" name="title" #titleInput />
+      </div>
+
+      <div class="form-group">
+        <label for="content">Description</label>
+        <textarea rows="5" class="form-control" name="content" #contentInput></textarea>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" (click)=createPost()>
+          Create Post
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
