@@ -1,7 +1,10 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import { Post } from '../../../model/post.model';
-import { Comment } from '../../../model/comment.model';
-
+import { Comment  } from '../../../model/comment.model';
+import { ActivatedRoute } from '@angular/router';
+import { PostsService } from "../../../service/posts.service";
+import { CommentsService } from "../../../service/comments.service";
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -9,11 +12,11 @@ import { Comment } from '../../../model/comment.model';
   templateUrl: './forum-view-post.component.html',
   styleUrls: ['./forum-view-post.component.css']
 })
-export class ForumViewPostComponent {
-  post: Post = new Post("How to plant a tomato", "Bruhh", "Bruhh", "Bruhh");
-  comments: Comment[] = [
-    new Comment("How to plant a tomato", "Bruhh", "Bruhh"), 
-    new Comment("How to plant a tomato", "Bruhh", "Bruhh")];
+export class ForumViewPostComponent implements OnInit, OnDestroy{
+  post: Post;
+  private postSub: Subscription;
+  comments: Comment[] = [];
+  private commentsSub: Subscription;
 
   @ViewChild('contentInput') contentRef: ElementRef;
   
@@ -21,4 +24,25 @@ export class ForumViewPostComponent {
     const content = this.contentRef.nativeElement.value;
     console.log("Content: " + content);
   }
+
+  constructor(public commentService: CommentsService, public postService: PostsService, private activatedRoute: ActivatedRoute){}
+
+  ngOnInit(){
+    this.commentService.getCommentsFromPost("1");
+    this.postService.getPostById("1")
+    this.commentsSub = this.commentService.getCommentUpdateListener()
+      .subscribe((comments: Comment[]) => {
+        this.comments = comments;
+      });
+      this.postSub = this.postService.getPostUpdateListener()
+      .subscribe((posts: Post[]) => {
+        posts.forEach(eachPost=>
+          this.post = eachPost
+        );});
+  }
+
+  ngOnDestroy() {
+    this.commentsSub.unsubscribe();
+  }
+
 }

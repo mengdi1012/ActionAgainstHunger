@@ -38,16 +38,50 @@ module.exports = function (app, firebase) {
 	   });
     }
     
-    
 
     function getPostsFromUser(req, res){
         var userId = req.params.userId;
+        var userConst = 'user';
+        console.log("Retrieving posts with following attribute: " + userConst + " = " + userId);
         
-        firebase.firestore().collection("posts").where('user', '==', userId).get()
+        firebase.firestore().collection("posts").where(userConst, '==', userId).get()
         .then(posts => {
-            console.log(posts);
-            console.log(posts.data());
-            res.send(posts.data());
+            if (posts.empty) {
+                console.log('No Posts');
+                res.send();
+            } else {
+                var allPosts = [];
+                posts.forEach(eachPost => {
+                    console.log(eachPost.id, '=>', eachPost.data()); 
+                    allPosts.push(eachPost.data());
+                });
+                res.send(allPosts);
+            }  
+        }) 
+	    .catch(function(error) {
+            console.log("Error Getting Post:", error);
+            res.status(500).send("Error Getting Post");
+	   });
+    }
+    
+    function getPostsFromClassroom(req, res){
+        var classroomId = req.params.classroomId;
+        var classroomConst = 'classroom';
+        console.log("Retrieving posts with following attribute: " + classroomConst + " = " + classroomId);
+        
+        firebase.firestore().collection("posts").where(classroomConst, '==', classroomId).get()
+        .then(posts => {
+            if (posts.empty) {
+                console.log('No Posts');
+                res.send();
+            } else {
+                var allPosts = [];
+                posts.forEach(eachPost => {
+                    console.log(eachPost.id, '=>', eachPost.data()); 
+                    allPosts.push(eachPost.data());
+                });
+                res.send(allPosts);
+            }  
         }) 
 	    .catch(function(error) {
             console.log("Error Getting Post:", error);
@@ -103,6 +137,8 @@ module.exports = function (app, firebase) {
     }
 
     app.get('/api/user/:userId/posts', getPostsFromUser);
+    app.get('/api/classroom/:classroomId/posts', getPostsFromClassroom);
+
     app.get('/post/:postId', getPost);
     app.post('/post', createPost);
     app.get('/post/:postId/comments', getComments);
