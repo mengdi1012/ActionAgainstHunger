@@ -26,3 +26,15 @@
   position: absolute;
   margin-left: 60px;
 }
+
+
+
+body{ 
+  background: url(../views/background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
