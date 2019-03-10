@@ -5,12 +5,14 @@ module.exports = function (app, firebase) {
         var classroomId = req.body.classroom;
         var contents = req.body.contents;
         var type = req.body.type;
+        var title = req.body.title;
         
         firebase.firestore().collection('posts').add({
             author: authorId,
             classroom: classroomId,
             content: contents,
-            type: type
+            type: type,
+            title: title
         })
         .then(doc => {
             console.log("Successfully Added New Post: " + doc.id);

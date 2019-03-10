@@ -43,29 +43,82 @@ $.extend(post.prototype, {
 
 
 $("#submit").click(function(e){
-	  e.preventDefault();
-      let type = $("#type_c").val()
+      e.preventDefault() 
+      var type_1 = $("#type_c").val()
+      var type = Number(type_1);
       let title =  $("#type_t").val()
-      let content =  $("#content").val()
-      const id = 123
-      const date = new Date();
-      let post_new = {
+      // $("#content").val()
+      var content = $("#content").val()
+      var id = 1
+      var date = new Date();
+      var author = 1;
+      var classroom = 1;
+      var post_new = {
+        author : author,
+        classroom : classroom,
+        contents : content,
         type : type,
-        title : title,
-        content : content,
-        id : id,
+        title : title
       }
+      console.log(post_new);
       $.ajax({
             url: "/post",
             type: "POST",
             dataType: "json",
+             contentType: "application/json; charset=utf-8",
             data: JSON.stringify(post_new),
             success: function(response) {
                 window.alert('success');
             }
         });
-      console.log(date);
     });
+
+
+
+$("#status").click(function(e){
+      e.preventDefault() 
+      var email = "pan1@mailinator.com"
+      var password = "123456"
+      var check = {
+        email : email,
+        password : password
+      }
+      console.log(check);
+      $.ajax({
+            url: "/signin",
+            type: "POST",
+            dataType: "json",
+             contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(check),
+            success: function(response) {
+            window.alert('success');
+            }
+        });
+    });
+
+
+
+$("#home").click(function(e){
+      e.preventDefault() 
+      var email = "pan1@mailinator.com"
+      var password = "123456"
+      var check = {
+        email : email,
+        password : password
+      }
+      console.log(check);
+      $.ajax({
+            url: "/signin",
+            type: "POST",
+            dataType: "json",
+             contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(check),
+            success: function(response) {
+            window.alert('success');
+            }
+        });
+    });
+
 
 
 
