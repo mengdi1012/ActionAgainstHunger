@@ -19,13 +19,14 @@ function goGuestSignUp(req, res){
 	res.render('guest_signup');
   }
 
-function signUp(req, res) {
+function signUpTeacher(req, res) {
 	signup_email = req.body.email;
 	signup_password = req.body.password;
 	signup_username = req.body.username;
-	signup_type = "teacher"
+	signup_school = req.body.school;
+	signup_usertype = "teacher"
 	console.log(req)
-	console.log("Ready to signup: ", signup_email, signup_password, signup_username)
+	console.log("Ready to signup: ", signup_email, signup_password, signup_username, signup_school)
 
 //--------------------------------
 	var old_doc = undefined
@@ -35,7 +36,6 @@ function signUp(req, res) {
 			if (user.email == signup_email && user.password == ''){
 				console.log("found user", doc)
 				old_doc = doc.id
-				signup_type = user.usertype
 			}
 		});
 
@@ -47,7 +47,60 @@ function signUp(req, res) {
 				email: signup_email,
 				password: signup_password,
 				username: signup_username,
-				usertype: signup_type
+				school: signup_school,
+				usertype: signup_usertype
+				})
+			.then(function() {
+					console.log("Document successfully written!");
+			})
+			.catch(function(error) {
+					console.error("Error writing document: ", error);
+			});
+			res.redirect('/')
+		}).catch(function(error) {
+			console.error("Error removing document: ", error);
+		});	
+	}else{
+		console.log("No such user exist!");
+		res.redirect('/')		
+	}
+	}) 
+	.catch(function(error) {
+		console.log("Error getting document:", error);
+		res.redirect('/')
+	});
+}
+
+function signUpGuest(req, res) {
+	signup_email = req.body.email;
+	signup_password = req.body.password;
+	signup_username = req.body.username;
+	signup_profession = req.body.profession;
+	signup_usertype = "guest"
+	console.log(req)
+	console.log("Ready to signup: ", signup_email, signup_password, signup_username, signup_profession)
+
+//--------------------------------
+	var old_doc = undefined
+	firebase.firestore().collection("users").get().then(function(querySnapshot) {
+		querySnapshot.forEach(function(doc) {
+			user = doc.data()
+			if (user.email == signup_email && user.password == ''){
+				console.log("found user", doc)
+				old_doc = doc.id
+			}
+		});
+
+	if(old_doc){
+		firebase.firestore().collection("users").doc(old_doc).delete().then(function() {
+			console.log("Document successfully deleted!");
+			// link to database 
+			firebase.firestore().collection('users').doc(signup_username).set({
+				email: signup_email,
+				password: signup_password,
+				username: signup_username,
+				profession: signup_profession,
+				usertype: signup_usertype
 				})
 			.then(function() {
 					console.log("Document successfully written!");
@@ -86,7 +139,12 @@ function signIn(req, res){
 
 	if(logged_user){
 		req.session.username = logged_user.username; 
-		req.session.usertype = logged_user.usertype; 
+		req.session.usertype = logged_user.usertype;
+		if (logged_user.school){
+			req.session.school = logged_user.school;
+		}else{
+			req.session.profession = logged_user.profession;
+		}
 		console.log("Create session: ", req.session);
 		if(req.session.usertype == 'student'){
 			res.render('student-profile', {
@@ -115,7 +173,8 @@ function signIn(req, res){
 
 app.get('/teacher_signup', goTeacherSignUp);
 app.get('/guest_signup', goGuestSignUp);
-app.post('/signup', signUp);
+app.post('/signup_teacher', signUpTeacher);
+app.post('/signup_guest', signUpGuest);
 app.post('/signin', signIn);
 //app.post('/password',changePassword);
 app.get('/logout', logout);
