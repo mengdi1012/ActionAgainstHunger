@@ -20,19 +20,27 @@ $("#submit").click(function(e){
       console.log();
       content =  $("#comment_a").val(); 
       index[2].text = content;
+      var post_id = "E9iKbBFqVWPQ1Kw3KfGD";
 
 
-
-      let comment = {
+ 	let comment = {
       	author : name,
       	schoold : school,
       	content : content
       }
+     
+
+      // let comment = {
+      // 	 author: name,
+      // 	  date: school,
+      //     contents: content,
+      //    postId: post_id
+      // }
 
       clone_one.insertBefore("#comment_box");
 
       $.ajax({
-        url: '/post/:postId',
+        url: '/post/E9iKbBFqVWPQ1Kw3KfGD',
         type: 'Post',
        	dataType: "json",
         contentType: "application/json; charset=utf-8",
