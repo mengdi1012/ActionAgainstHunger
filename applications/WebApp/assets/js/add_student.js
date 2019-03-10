@@ -26,8 +26,7 @@ function myDeleteStudent() {
 
 function createStudent() {
 	var studentTable = document.getElementById("myTable");
-
-	const url = '/student';
+	var password = document.getElementById('password').value();
 	const studentlist = []
 
 	for (let j = 0; j < studentTable.length; j++) {
@@ -36,7 +35,8 @@ function createStudent() {
 		}
 
     let data = {
-		studentNickname: studentlist
+		studentnicklist: studentlist,
+		password: password
 	}
 
     $.ajax({
