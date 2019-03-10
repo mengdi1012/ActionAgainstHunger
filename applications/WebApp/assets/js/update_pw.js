@@ -1,14 +1,32 @@
-const setPw= document.querySelector('#set');
-const pw=document.querySelector('#password');
-const rePW = document.querySelector('#password2');
-setPw.addEventListener('click', checkPw)
 
-function checkPw(){
-    console.log("=pw.value==")
-    if(pw.value!==rePW.value){
-        console.log("incorrect re-enter password")
-    }
-    else{
-        location.href = "./student-profile.html";
-    }
-}
+
+$(function(){
+    window.history.pushState("", "", '/');
+
+    $('#set').on('click', function(){
+        const pw=  $('#password').val();
+        const rePW=$('#password2').val();
+        console.log("pw1:",pw,"pw2:",rePW)
+        let data = {
+            password: pw,
+        }
+        if(pw!==rePW){
+            console.log("incorrect re-enter password")
+        }
+        else{
+            console.log("pw1:",pw,"pw2:",rePW)
+            $.ajax({
+                url: "/update_pw",
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(data),
+                success: function(response) {
+                    window.alert('success');
+                }
+            });
+
+
+        }
+    })
+});
