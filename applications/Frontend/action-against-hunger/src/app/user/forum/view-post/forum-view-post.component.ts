@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import { Post } from '../../../model/post.model';
 import { Comment  } from '../../../model/comment.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PostsService } from "../../../service/posts.service";
 import { CommentsService } from "../../../service/comments.service";
 import { Subscription } from 'rxjs';
@@ -17,31 +17,44 @@ export class ForumViewPostComponent implements OnInit, OnDestroy{
   private postSub: Subscription;
   comments: Comment[] = [];
   private commentsSub: Subscription;
+  private classroomId: string;
+  private postId: string;
 
   @ViewChild('contentInput') contentRef: ElementRef;
   
   createComment(){
     const content = this.contentRef.nativeElement.value;
-    console.log("Content: " + content);
+    var postTitle = this.post.postTitle;
+    this.commentService.createComment(null, this.postId, "Admin", content, Date.now().toString(), postTitle);
+    
   }
 
-  constructor(public commentService: CommentsService, public postService: PostsService, private activatedRoute: ActivatedRoute){}
+  constructor(public commentService: CommentsService, public postService: PostsService, private activatedRoute: ActivatedRoute, private router: Router){
+    this.activatedRoute.params.subscribe( params => {
+      this.classroomId = params["classId"];
+      this.postId = params["topicId"];
+    });
+  }
 
   ngOnInit(){
-    this.commentService.getCommentsFromPost("1");
-    this.postService.getPostById("1")
-    this.commentsSub = this.commentService.getCommentUpdateListener()
-      .subscribe((comments: Comment[]) => {
-        this.comments = comments;
-      });
+    
+    this.postService.getPostById(this.postId);
       this.postSub = this.postService.getPostUpdateListener()
       .subscribe((posts: Post[]) => {
-        posts.forEach(eachPost=>
-          this.post = eachPost
-        );});
+        posts.forEach(eachPost=>{
+          this.post = eachPost;
+        });
+      });
+      this.commentService.getCommentsFromPost(this.postId);
+      this.commentsSub = this.commentService.getCommentUpdateListener()
+      .subscribe((comments: Comment[]) => {
+        console.log(comments);
+        this.comments = comments;
+      });
   }
 
   ngOnDestroy() {
+    this.postSub.unsubscribe();
     this.commentsSub.unsubscribe();
   }
 

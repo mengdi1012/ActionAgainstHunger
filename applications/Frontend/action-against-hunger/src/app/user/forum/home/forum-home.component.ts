@@ -1,7 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Post } from '../../../model/post.model';
 import { PostsService } from '../../../service/posts.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -12,20 +12,29 @@ import { Subscription } from 'rxjs';
 export class ForumHomeComponent implements OnInit, OnDestroy{
   posts: Post[] = [];
   private postsSub: Subscription;
+  private classroomId: string;
 
-  constructor(public postService: PostsService, private activatedRoute: ActivatedRoute){}
+  constructor(public postService: PostsService, private activatedRoute: ActivatedRoute, private router: Router){}
 
   ngOnInit(){
-    var classId;
-    this.activatedRoute.params.subscribe( params => classId = params["classId"] );
-    this.postService.getClassroomPosts(classId);
-    this.postsSub = this.postService.getPostUpdateListener()
-      .subscribe((posts: Post[]) => {
-        this.posts = posts;
+
+    this.activatedRoute.params.subscribe( params => {
+      console.log(params["classId"]);
+      this.classroomId = params["classId"];
+      this.postService.getClassroomPosts(this.classroomId);
+      this.postsSub = this.postService.getPostUpdateListener()
+        .subscribe((posts: Post[]) => {
+          this.posts = posts;
       });
+    });
   }
 
   ngOnDestroy() {
     this.postsSub.unsubscribe();
+  }
+
+  redirect(postID: string){
+    console.log(postID);
+    this.router.navigate(['/class/' + this.classroomId + '/topic/' + postID]);
   }
 }

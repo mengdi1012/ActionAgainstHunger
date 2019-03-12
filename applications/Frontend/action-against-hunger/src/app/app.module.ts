@@ -13,10 +13,12 @@ import { ForumHomeComponent } from './user/forum/home/forum-home.component';
 import { ForumCreatePostComponent } from './user/forum/create-post/forum-create-post.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ForumViewPostComponent } from './user/forum/view-post/forum-view-post.component';
-import { LoginComponent } from './auth/login/login.component';
+import { LoginComponent } from './home/login.component';
 import { ProfileActivityCommentsComponent } from './user/profile/profile-activity/profile-activity-comments/profile-activity-comments.component';
 import { ProfileActivityPostsComponent } from './user/profile/profile-activity/profile-activity-posts/profile-activity-posts.component';
-import { ProfileActivityUsersComponent } from './user/profile/profile-activity/profile-activity-users/profile-activity-users.component';
+import { ProfileActivityAllUsersComponent } from './user/profile/profile-activity/profile-activity-all-users/profile-activity-all-users.component';
+import { ProfileActivityNewUserComponent } from './user/profile/profile-activity/profile-activity-new-user/profile-activity-new-user.component';
+import { AuthGuardService } from './service/auth-gaurd.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { ProfileActivityUsersComponent } from './user/profile/profile-activity/p
     ProfileActivityComponent,
     ProfileActivityCommentsComponent,
     ProfileActivityPostsComponent,
-    ProfileActivityUsersComponent,
+    ProfileActivityAllUsersComponent,
+    ProfileActivityNewUserComponent,
     ProfileOverviewComponent,
     ForumComponent,
     ForumHomeComponent,
@@ -39,7 +42,7 @@ import { ProfileActivityUsersComponent } from './user/profile/profile-activity/p
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

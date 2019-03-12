@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from '../../../model/user.model';
+import { AuthService } from '../../../service/auth.service';
+
 
 @Component({
   selector: 'app-profile-overview',
@@ -10,4 +12,6 @@ export class ProfileOverviewComponent {
   user: User = new User("Joshua", "Westview", "Teacher");
   students: User[] = [new User("Student1", "Westview", "Student"),
   new User("Student2", "Westview", "Student")];
+
+  constructor(private authService: AuthService){}
 }

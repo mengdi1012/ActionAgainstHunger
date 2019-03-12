@@ -15,12 +15,19 @@ export class CommentsService {
     getCommentsFromPost(postId: string){
         this.http.get<Array<JSON>>('http://localhost:3000/api/post/' + postId + "/comments")
         .subscribe((commentData) => {
+
             console.log(commentData);
             this.postComments = [];
-            commentData.forEach(eachComment => {
-                this.postComments.push(new Comment(eachComment["content"], eachComment["content"], eachComment["content"]));
-            });
-            this.commentsUpdates.next([...this.postComments]);
+            if(commentData != null){
+                commentData.forEach(eachComment => {
+                    console.log("New Comment: " + eachComment);
+                    var eachCommentData = eachComment["data"]
+                    this.postComments.push(new Comment(
+                        eachComment["commentID"], eachCommentData["postID"], eachCommentData["userID"],
+                        eachCommentData["commentContent"], eachCommentData["dateCreated"], eachCommentData["postTitle"]));
+                });
+            }
+            this.commentsUpdates.next([...this.postComments]);        
         });
     }
 
@@ -32,17 +39,23 @@ export class CommentsService {
         this.http.get<Array<JSON>>('http://localhost:3000/api/user/' + userId + "/comments")
         .subscribe((commentData) => {
             console.log(commentData);
-            this.postComments = [];
-            commentData.forEach(eachComment => {
-                this.postComments.push(new Comment(eachComment["content"], eachComment["content"], eachComment["content"]));
-            });
-            this.commentsUpdates.next([...this.postComments]);
+            this.userPosts = [];
+            if(commentData != null){
+                commentData.forEach(eachComment => {
+                    console.log("New Comment: " + eachComment);
+                    var eachCommentData = eachComment["data"]
+                    this.userPosts.push(new Comment(
+                        eachComment["commentID"], eachCommentData["postID"], eachCommentData["userID"],
+                        eachCommentData["commentContent"], eachCommentData["dateCreated"], eachCommentData["postTitle"]));
+                });
+            }
+            this.commentsUpdates.next([...this.userPosts]); 
         });
     }
 
-    createComment(title: string, post: string, content: string){
-        const newComment: Comment = {username: content, content: content, post: post};
-        this.http.post<Array<JSON>>("http://localhost:3000/api/post/"+ post + "/comments", newComment)
+    createComment(commentID: string, postID: string, userID: string, commentContent: string, dateCreated: string, postTitle: string){
+        const newComment: Comment = {commentID: commentID, postID: postID, userID: userID, commentContent: commentContent, dateCreated: dateCreated, postTitle: postTitle};
+        this.http.post<Array<JSON>>("http://localhost:3000/api/post/"+ postID + "/comments", newComment)
           .subscribe(responseData => {
             console.log(responseData);
             this.postComments.push(newComment);

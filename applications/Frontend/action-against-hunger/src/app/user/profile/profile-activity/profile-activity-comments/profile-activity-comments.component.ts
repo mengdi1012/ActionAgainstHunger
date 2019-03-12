@@ -3,6 +3,7 @@ import { Comment } from '../../../../model/comment.model';
 import { ActivatedRoute } from '@angular/router';
 import { CommentsService } from "../../../../service/comments.service";
 import { Subscription } from 'rxjs';
+import { AuthService } from '../../../../service/auth.service';
 
 @Component({
   selector: 'app-profile-activity-comments',
@@ -13,12 +14,14 @@ export class ProfileActivityCommentsComponent implements OnInit, OnDestroy{
   comments: Comment[] = [];
   private commentsSub: Subscription;
 
-  constructor(public commentService: CommentsService, private activatedRoute: ActivatedRoute){}
+  constructor(public commentService: CommentsService, private activatedRoute: ActivatedRoute, private authService: AuthService){}
 
   ngOnInit(){
-    this.commentService.getUserComments("1");
+    var userID = this.authService.getUserID();
+    this.commentService.getUserComments(userID.toString());
     this.commentsSub = this.commentService.getCommentUpdateListener()
       .subscribe((comments: Comment[]) => {
+        console.log(comments);
         this.comments = comments;
       });
   }

@@ -7,28 +7,30 @@ import { ForumComponent } from './user/forum/forum.component';
 import { ForumHomeComponent } from './user/forum/home/forum-home.component';
 import { ForumCreatePostComponent } from './user/forum/create-post/forum-create-post.component';
 import { ForumViewPostComponent } from './user/forum/view-post/forum-view-post.component';
-import { LoginComponent } from './auth/login/login.component';
+import { LoginComponent } from './home/login.component';
 import { ProfileActivityCommentsComponent } from './user/profile/profile-activity/profile-activity-comments/profile-activity-comments.component';
 import { ProfileActivityPostsComponent } from './user/profile/profile-activity/profile-activity-posts/profile-activity-posts.component';
-import { ProfileActivityUsersComponent } from './user/profile/profile-activity/profile-activity-users/profile-activity-users.component';
+import { ProfileActivityAllUsersComponent } from './user/profile/profile-activity/profile-activity-all-users/profile-activity-all-users.component';
+import { ProfileActivityNewUserComponent } from './user/profile/profile-activity/profile-activity-new-user/profile-activity-new-user.component';
+import { AuthGuardService } from './service/auth-gaurd.service';
 
 const appRoutes: Routes = [
-  { path: '', component: ProfileComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'profile', component: ProfileComponent , 
+  { path: '', component: ProfileComponent, 
   children: [
-      { path: '', component: ProfileActivityPostsComponent  },
-      { path: '1', component: ProfileActivityPostsComponent },
-      { path: '2', component: ProfileActivityCommentsComponent },
-      { path: '3', component: ProfileActivityUsersComponent },
-  ] },
+      { path: '', component: ProfileActivityPostsComponent },
+      { path: 'topics', component: ProfileActivityPostsComponent },
+      { path: 'comments', component: ProfileActivityCommentsComponent },
+      { path: 'allUsers', component: ProfileActivityAllUsersComponent },
+      { path: 'newUser', component: ProfileActivityNewUserComponent },
+  ], canActivate: [AuthGuardService], },
   { path: 'class', component: ForumComponent, 
     children: [
         { path: '', component: ForumHomeComponent },
         { path: ':classId', component: ForumHomeComponent },
         { path: ':classId/topic/new', component: ForumCreatePostComponent },
         { path: ':classId/topic/:topicId', component: ForumViewPostComponent },
-    ] },
+    ], canActivate: [AuthGuardService], },
 ];
 
 @NgModule({

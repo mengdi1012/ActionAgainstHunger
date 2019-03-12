@@ -1,14 +1,19 @@
+
+
 <div class="container">
   <nav class="navbar">
     <ul class="navbar-nav nav-fill w-100">
       <li class="nav-item">
-        <a routerLink="./1">My Posts</a>
+        <a routerLink="/topics">My Topics</a>
       </li>
       <li class="nav-item">
-        <a routerLink="./2">My Comments</a>
+        <a routerLink="/comments">My Comments</a>
       </li>
-      <li class="nav-item">
-        <a routerLink="./3">Users</a>
+      <li class="nav-item" *ngIf="authService.isTeacher() || authService.isAdmin()">
+        <a routerLink="/allUsers">View Users</a>
+      </li>
+      <li class="nav-item" *ngIf="authService.isTeacher() || authService.isAdmin()">
+        <a routerLink="/newUser">New User</a>
       </li>
     </ul>
   </nav>
