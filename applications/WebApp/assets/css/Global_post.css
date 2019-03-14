@@ -1,3 +1,27 @@
+#nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+#nav li {
+	float: left;
+}
+
+#nav li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 12px;
+	text-decoration: none;
+}
+
+#nav li a:hover {
+	background-color: #111;
+}
+
 #bar {
 	background-color: #CCFFFF;
 	-webkit-border-radius: 5px;
@@ -70,7 +94,7 @@
 	text-shadow: 0px 15px 5px rgba(0,0,0,0.1), 10px 20px 5px rgba(0,0,0,0.05), -10px 20px 5px rgba(0,0,0,0.05); 
 }
 html { 
-  background: url(../views/background.jpg) no-repeat center center fixed; 
+  background: url(../../image/background.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

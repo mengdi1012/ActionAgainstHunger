@@ -11,6 +11,10 @@
 
 </head>
 <body>
+
+	<!--Navigation bar-->
+	<div id="nav-placeholder"></div>
+
 	<section>
 		<h1>Add new student account</h1>
 		<table id="myTable">
@@ -22,7 +26,7 @@
     				<form>
     					<ul>
 							<span class="label"> Nickname : </span>
-							<input class="text-input" type="text" placeholder="Nickname" title="Type in nickname of student" name="nickname" required="true"/>
+							<input id="nickname1" class="text-input" type="text" placeholder="Nickname" title="Type in nickname of student" name="nickname" required="true"/>
 						</ul>
 					</form>
     			</td>
@@ -31,7 +35,7 @@
 		</table>
 		<br>
 		<button id="addmore" onclick="addonestudent()"> Add one more student </button>
-		<button onclick="myDeleteStudent()"> Delete row </button>
+		<button onclick="deleteonestudent()"> Delete row </button>
 		<br>
 		<br>
 
@@ -43,7 +47,7 @@
 		<input class="text-input" type="password" id="password" name="password" , placeholder="Password" required="true"/>
 		<br>
 		<br>
-		<button onclick="create()"> Create all student accounts </button>
+		<button onclick="createstudent()"> Create all student accounts </button>
 	</section>
 
 </body>

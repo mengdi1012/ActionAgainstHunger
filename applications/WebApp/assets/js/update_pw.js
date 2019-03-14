@@ -2,6 +2,8 @@
 
 $(function(){
     window.history.pushState("", "", '/');
+    $("#nav-placeholder").load("assets/views/navigation.html");
+
 
     $('#set').on('click', function(){
         const pw=  $('#password').val();
@@ -23,6 +25,7 @@ $(function(){
                 data: JSON.stringify(data),
                 success: function(response) {
                     window.alert('success');
+                    location.href = '/profile';
                 }
             });
 

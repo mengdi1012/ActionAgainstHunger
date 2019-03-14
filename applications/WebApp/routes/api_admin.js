@@ -1,12 +1,12 @@
 module.exports = function (app, firebase) {
 
 function invite(req, res) {
-	if(req.session.username){
+	if(req.session.username == "admin"){
 		var invite_email = req.body.email;
 		var usertype = req.body.usertype
-		var signup_url =  "http://localhost:3000/teacher_signup"
+		var hostname = req.headers.host; // hostname = 'localhost:8080'
 		console.log("invite usertype: ", req.body.usertype )
-		signup_url =  "http://localhost:3000/" + usertype +"_signup"
+		signup_url =  'http://' + hostname + "/" + usertype +"_signup"
 
 		// link to database 
 		firebase.firestore().collection('users').doc().set({

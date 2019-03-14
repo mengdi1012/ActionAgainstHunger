@@ -1,11 +1,14 @@
 export class User {
-    public name: string;
+    public username: string;
     public school: string;
-    public role: string;
+    public usertype: string;
+    public profession: string;
 
-    constructor(name: string, school: string, role: string){
-        this.name = name;
+
+    constructor(username: string, school: string, usertype: string, profession: string){
+        this.username = username;
         this.school = school;
-        this.role = role;
+        this.usertype = usertype;
+        this.profession = profession;
     }
 }

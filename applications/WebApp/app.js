@@ -1,21 +1,27 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-
+var cors = require('cors');
 
 var app = express();
+
+app.use(cors({origin: [
+  "http://localhost:4200"
+], credentials: true}));
+
 app.use(express.static(__dirname + '/'));
 app.use(express.static(__dirname + '/assets'));
 app.engine('.html', require('ejs').__express);
 app.set('views', __dirname + '/assets/views');
 app.set('view engine', 'html');
 
+
 // Set up to use a session
 app.use(session({
   secret: 'super_secret',
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false }
+  cookie: { secure: false}
 }));
 
 // The request body is received on GET or POST.
@@ -26,16 +32,13 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 }));
 
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PATCH, DELETE, OPTIONS"
-  );
-  next();
+  if (req.body) {
+	  next();
+	} else {
+	  res.status(403).send({
+		errorMessage: 'You need a payload'
+	  });
+	}
 });
 
 
@@ -65,7 +68,6 @@ function test(req, res){
 // Routes
 // Serve the index page
 app.get(['/', '/index', '/signin'], goSigninpage);
-
 //users routers
 require('./routes/api_user')(app, firebase);
 require('./routes/api_admin')(app, firebase);

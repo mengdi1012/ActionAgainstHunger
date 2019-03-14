@@ -1,7 +1,14 @@
 $(document).ready(function() {
 	console.log('Javascript loaded');
+	window.history.pushState("", "", '/');
+
+	$("#nav-placeholder").load("assets/views/navigation.html");
+
 });
+var count = 1
+
 function addonestudent(){
+	count += 1
 	var table = document.getElementById("myTable");
 	var studentnum = table.rows.length;
 	var row = table.insertRow(0);
@@ -16,28 +23,33 @@ function addonestudent(){
 	myinput.setAttribute('placeholder','Nickname');
 	myinput.setAttribute('name','nickname');
 	myinput.setAttribute('required','true');
+	myinput.setAttribute('id',"nickname" + count);
 	cell2.innerHTML=" Nickname :";
 	cell2.appendChild(myinput);
 }
 
-function myDeleteStudent() {
+function deleteonestudent() {
+   count -= 1
    document.getElementById("myTable").deleteRow(0);
 }
 
-function createStudent() {
+function createstudent() {
 	var studentTable = document.getElementById("myTable");
-	var password = document.getElementById('password').value();
-	const studentlist = []
+	var password = document.getElementById('password').value;
+	var studentlist = []
 
-	for (let j = 0; j < studentTable.length; j++) {
+	for (let j = 1; j <= count; j++) {
 		//add students nickname
-		studentlist.push(table.rows[0].cells[1].children[0].value);
+		student = document.getElementById("nickname" + j).value;
+		console.log(student);
+		studentlist.push(student);
 		}
 
     let data = {
-		studentnicklist: studentlist,
+		studentlist: studentlist,
 		password: password
 	}
+	console.log("ready to create students: ", data);
 
     $.ajax({
     url: "/createstudent",
@@ -46,7 +58,9 @@ function createStudent() {
     contentType: "application/json; charset=utf-8",
     data: JSON.stringify(data),
     success: function(response) {
-        window.alert('success');
+		window.alert('success');
+		location.href = '/profile';
+		console.log(response);
     	}
 	});
 }

@@ -13,14 +13,15 @@
 	</head>
 	<body>
 		<div id="bar" class="navbar">
-			<a id = "home" class = "test" href="">Home</a>
-			<a class = "test" id="status" href="">Profile</a>
+			<a id = "home" class = "test" href="/global_post">Home</a>
+			<a class = "test" id="status" onclick="location.href = '/profile'">Profile</a>
 			<a class="nav-item">
 				<form class="form-inline my-2 my-lg-0">
 					<button id = "refresh" class="btn btn-outline-success my-2 my-sm-0" type="submit">Refresh</button>
-					<button id = "newpost" class="btn btn-outline-success my-2 my-sm-0" type="submit">New Post</button>
+					<button id = "newpost" class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="location.href = '/professionalpost'">New Post</button>
 					<input id = "search_area"class="form-control mr-sm-2" type="search" placeholder="Sreach the post" aria-label="Search post" />
-					<button id = "search" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+					<button id = "search" class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="location.href = '/postPage'">Search</button>
+					<button class="btn btn-outline-success my-2 my-sm-0" onclick="location.href = '/logout'">Logout</button>
 
 
 				</form>
@@ -51,6 +52,6 @@
 		</div>
 
 
-		<script src="../js/Global_post.js"></script>
+		<script src="assets/js/Global_post.js"></script>
 	</body>
 </html>

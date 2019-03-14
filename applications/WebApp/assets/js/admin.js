@@ -1,5 +1,7 @@
 $(function(){
     window.history.pushState("", "", '/');
+    $("#nav-placeholder").load("assets/views/admin_navigation.html");
+
 
     $('#invite-button').on('click', function(){
         email = $('#email').val();

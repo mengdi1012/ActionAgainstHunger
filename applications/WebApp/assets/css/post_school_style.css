@@ -58,21 +58,21 @@ body.html{
 	padding-bottom: 10px;
 }
 
-.postTable{
+#postTable{
 	width:100%;
 	height:auto;
 	border:1px solid #562e72;;
 
 }
 
-.postTable th{
+#postTable th{
 	padding: 5px;
 }
-.postTable tr{
+#postTable tr{
 	border: 1px solid black;
 }
 
-.postTable td{
+#postTable td{
 	padding:5px;
 }
 .paginationBar{

@@ -44,11 +44,12 @@
 		<div id = "cat_new_discussion_1" class="row postPad" style="display:none;">
 			<div class = "col-lg-12">
 				<form>
-					<div class ="form-group">
+					<div id ="form-group">
 						Title
-						<input type="text" name="newDiscussionTitle" class = "form-control" size="40"></input>
+						<input type="text" id="newDiscussionTitle" class = "form-control" size="40"></input>
 						Content
-						<textarea style = "width:100%;" name = "newDiscussionText" rows = "10" >test</textarea>
+						<textarea style = "width:100%;" id = "newDiscussionText" rows = "10" >test</textarea>
+						<input type = "button" value = "Submit Post" onclick="write_post();"/>
 					</div>
 				</form>
 			</div>
@@ -56,7 +57,7 @@
 		</div>
 
 		<div class ="row postModule postPad">
-			<table class = "postTable">
+			<table id = "postTable">
 				<thead>
 					<th>
 						Post title
@@ -89,11 +90,19 @@
 			</table>
 		</div>
 
+
+
+		<div id = "posts">
+			
+			
+
+			
+		</div>
+
 	</div>
 </body>
 
 <script>
-
 
 </script>
 

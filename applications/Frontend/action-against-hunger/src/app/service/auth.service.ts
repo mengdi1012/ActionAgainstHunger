@@ -1,44 +1,45 @@
-import { Comment } from "../model/comment.model";
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { Subject } from "rxjs";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
+
+
 
 @Injectable({providedIn: "root"})
 export class AuthService {
-    private userID: String;
-    private classroomID: String;
-    private role: String;
 
     constructor(private http: HttpClient){}
 
-    isAuthenticated(){
-        return true;
+    login(username: string, password: string): Observable<any> {
+        const httpOptions = {
+            headers: new HttpHeaders({ 'Content-Type': 'application/json' }), withCredentials: true
+          };
+        const credential = {username: username, password: password};
+        return this.http.post<Array<JSON>>(environment.APIEndpoint + "/api/signin", credential, httpOptions)
+        .pipe(
+            catchError(this.handleError('getHeroes', []))
+        );
+    }
+    
+    /**
+     * Handle Http operation that failed.
+     * Let the app continue.
+     * @param operation - name of the operation that failed
+     * @param result - optional value to return as the observable result
+     */
+    private handleError<T> (operation = 'operation', result?: T) {
+        return (error: any): Observable<T> => {
+    
+        // TODO: send the error to remote logging infrastructure
+        console.error(error); // log to console instead
+        
+        // Let the app keep running by returning an empty result.
+        return of(result as T);
+        };
     }
 
     getUserID(){
-        this.userID = "Admin";
-        return this.userID;
+        return 1;
     }
-
-    getClassroomID(){
-        this.classroomID = "private";
-        return this.classroomID;
-    }
-
-    isTeacher(){
-        return true;
-    }
-
-    isStudent(){
-        return false;
-    }
-
-    isGuest(){
-        return false;
-    }
-
-    isAdmin(){
-        return false;
-    }
-
 }

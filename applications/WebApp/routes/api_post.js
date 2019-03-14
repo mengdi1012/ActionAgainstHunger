@@ -1,45 +1,36 @@
 module.exports = function (app, firebase) {
 
-    function createClassroomPost(req, res){
-        var userID = req.body.userID;
-        var classroomID = req.body.classroomID;
-        var postTitle = req.body.postTitle;
-        var postContent = req.body.postContent;
-        var dateCreated = req.body.dateCreated;
-        var dateUpdated = req.body.dateUpdated;
-        var postType = req.body.postType;
+    function createPost(req, res){
+        var authorId = req.body.author;
+        var classroomId = req.body.classroom;
+        var contents = req.body.contents;
+        var type = req.body.type;
+        var title = req.body.title;
         
-        if(classroomID == req.params.classroomID){
-            firebase.firestore().collection('posts').add({
-                userID: userID,
-                classroomID: classroomID,
-                postTitle: postTitle,
-                postContent: postContent,
-                dateCreated: dateCreated,
-                dateUpdated: dateUpdated,
-                postType: postType
-            })
-            .then(doc => {
-                console.log("Successfully Added New Post: " + doc.id);
-                res.send({"Post Id": doc.id});
-            })
-            .catch(function(error) {
-                console.error("Error Writing New Post ", error);
-                res.status(500).send("Error Adding Post");
-            });
-            }
-        else{
+        firebase.firestore().collection('posts').add({
+            author: authorId,
+            classroom: classroomId,
+            content: contents,
+            type: type,
+            title: title
+        })
+        .then(doc => {
+            console.log("Successfully Added New Post: " + doc.id);
+            res.send({"Post Id": doc.id});
+        })
+        .catch(function(error) {
+            console.error("Error Writing New Post ", error);
             res.status(500).send("Error Adding Post");
-        }
+        });
     }
     
-    function getPostFromId(req, res){
+    function getPost(req, res){
         var postId = req.params.postId;
         
         firebase.firestore().collection("posts").doc(postId).get()
         .then(posts => {
-            console.log(posts.id, '=>', posts.data()); 
-            res.send({"postID": posts.id, "data": posts.data()});
+            console.log(posts.data());
+            res.send(posts.data());
         }) 
 	    .catch(function(error) {
             console.log("Error Getting Post:", error);
@@ -49,11 +40,11 @@ module.exports = function (app, firebase) {
     
 
     function getPostsFromUser(req, res){
-        var userID = req.params.userId;
-        var userIDConst = 'userID';
-        console.log("Retrieving posts with following attribute: " + userIDConst + " = " + userID);
+        var userId = req.params.userId;
+        var userConst = 'user';
+        console.log("Retrieving posts with following attribute: " + userConst + " = " + userId);
         
-        firebase.firestore().collection("posts").where(userIDConst, '==', userID).get()
+        firebase.firestore().collection("posts").where(userConst, '==', userId).get()
         .then(posts => {
             if (posts.empty) {
                 console.log('No Posts');
@@ -62,7 +53,7 @@ module.exports = function (app, firebase) {
                 var allPosts = [];
                 posts.forEach(eachPost => {
                     console.log(eachPost.id, '=>', eachPost.data()); 
-                    allPosts.push({"postID": eachPost.id, "data": eachPost.data()});
+                    allPosts.push(eachPost.data());
                 });
                 res.send(allPosts);
             }  
@@ -74,11 +65,11 @@ module.exports = function (app, firebase) {
     }
     
     function getPostsFromClassroom(req, res){
-        var classroomID = req.params.classroomID;
-        var classroomIDConst = 'classroomID';
-        console.log("Retrieving posts with following attribute: " + classroomIDConst + " = " + classroomID);
+        var classroomId = req.params.classroomId;
+        var classroomConst = 'classroom';
+        console.log("Retrieving posts with following attribute: " + classroomConst + " = " + classroomId);
         
-        firebase.firestore().collection("posts").where(classroomIDConst, '==', classroomID).get()
+        firebase.firestore().collection("posts").where(classroomConst, '==', classroomId).get()
         .then(posts => {
             if (posts.empty) {
                 console.log('No Posts');
@@ -87,7 +78,7 @@ module.exports = function (app, firebase) {
                 var allPosts = [];
                 posts.forEach(eachPost => {
                     console.log(eachPost.id, '=>', eachPost.data()); 
-                    allPosts.push({"postID": eachPost.id, "data": eachPost.data()});
+                    allPosts.push(eachPost.data());
                 });
                 res.send(allPosts);
             }  
@@ -98,96 +89,84 @@ module.exports = function (app, firebase) {
 	   });
     }
     
-    function getCommentsFromUser(req, res){
-        var userID = req.params.userID;
-        var userIDconst = 'userID';
-        console.log("Retrieving comments with following attribute: " + userIDconst + " = " + userID);
+    function getComments(req, res){
+        var postId = req.params.postId;
         
-        firebase.firestore().collection("comments").where(userIDconst, '==', userID).get()
+        firebase.firestore().collection("comments").where('post', '==', postId).get()
         .then(comments => {
             if ( comments.empty){
                 console.log("No Comments");
                 res.send();
             }
-            else{
-                var allComments = [];
-                comments.forEach(eachComment => {
-                    console.log(eachComment.id, '=>', eachComment.data()); 
-                    allComments.push({"commentID": eachComment.id, "data": eachComment.data()});
-                });
-                res.send(allComments);
-            }
-
-        }) 
-	    .catch(function(error) {
-            console.log("Error Getting Comments:", error);
-            res.status(500).send("Error Getting Comments");
-	   });
-    }
-    
-        function getCommentsFromPost(req, res){
-        var postID = req.params.postID;
-        var postIDconst = 'postID';
-        console.log("Retrieving comments with following attribute: " + postIDconst + " = " + postID);
-        
-        firebase.firestore().collection("comments").where(postIDconst, '==', postID).get()
-        .then(comments => {
-            if ( comments.empty){
-                console.log("No Comments");
-                res.send();
-            }
-            else{
-                var allComments = [];
-                comments.forEach(eachComment => {
-                    console.log(eachComment.id, '=>', eachComment.data()); 
-                    allComments.push({"commentID": eachComment.id, "data": eachComment.data()});
-                });
-                res.send(allComments);
-            }
-
-        }) 
-	    .catch(function(error) {
-            console.log("Error Getting Comments:", error);
-            res.status(500).send("Error Getting Comments");
-	   });
-    }
-    
-    
-    
-    function createNewComment(req, res){
-        var postID = req.body.postID;
-        var userID = req.body.userID;
-        var dateCreated = req.body.dateCreated;
-        var commentContent = req.body.commentContent;
-        console.log(postID);
-        if(postID == req.params.postID){
-            firebase.firestore().collection('comments').add({
-                userID: userID,
-                dateCreated: dateCreated,
-                commentContent: commentContent,
-                postID: postID
-            })
-            .then(doc => {
-                console.log("Successfully Added New Comment: " + doc.id);
-                res.send({"Comment Id": doc.id});
-            })
-            .catch(function(error) {
-                console.error("Error Writing New Comment ", error);
-                res.status(500).send("Error Adding Comment");
+            
+            var allComments = [];
+            comments.forEach(eachComment => {
+                console.log(eachComment.id, '=>', eachComment.data()); 
+                allComments.push(eachComment.data());
             });
+            res.send(allComments);
+        }) 
+	    .catch(function(error) {
+            console.log("Error Getting Comments:", error);
+            res.status(500).send("Error Getting Comments");
+	   });
+    }
+    
+    function Jumptopost(req, res){
+        if(req.session.username){
+            console.log("go to update password page");
+            res.render('Post_sample');
+        }else{
+            return res.sendStatus(404)
         }
-        else{
-            console.log("Here");
+    }
+    function JumptoGlobal(req, res){
+        if(req.session.username){
+            console.log("go to update password page");
+            res.render('Global_post');
+        }else{
+            return res.sendStatus(404)
+        }
+    }
+
+
+
+    function makeprofessionalpost(req, res){
+        /// here should have someway to jump to a certain post page.
+        console.log("go to update password page");
+        res.render('Professional_post');
+    }
+    
+    function createComment(req, res){
+        var postId = req.params.postId;
+        var authorId = req.body.author;
+        var dateId = req.body.date;
+        var contents = req.body.contents;
+        
+        firebase.firestore().collection('comments').add({
+            author: authorId,
+            date: dateId,
+            content: contents,
+            post: postId
+        })
+        .then(doc => {
+            console.log("Successfully Added New Comment: " + doc.id);
+            res.send({"Comment Id": doc.id});
+        })
+        .catch(function(error) {
+            console.error("Error Writing New Comment ", error);
             res.status(500).send("Error Adding Comment");
-        }
+        });
     }
 
     app.get('/api/user/:userId/posts', getPostsFromUser);
-    app.get('/api/classroom/:classroomID/posts', getPostsFromClassroom);
-    app.post('/api/classroom/:classroomID/posts', createClassroomPost);
-    app.get('/api/post/:postId', getPostFromId);
-    app.post('/api/post/:postID/comments', createNewComment);
-    app.get('/api/post/:postID/comments', getCommentsFromPost);
-    app.get('/api/user/:userID/comments', getCommentsFromUser);
- 
+    app.get('/api/classroom/:classroomId/posts', getPostsFromClassroom);
+    app.get('/postPage', Jumptopost);
+    app.get('/professionalpost', makeprofessionalpost);
+    app.get('/global_post', JumptoGlobal);
+
+    app.get('/post/:postId', getPost);
+    app.post('/post', createPost);
+    app.get('/post/:postId/comments', getComments);
+    app.post('/post/:postId', createComment);
 }

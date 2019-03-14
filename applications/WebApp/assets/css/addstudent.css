@@ -1,33 +1,34 @@
+#nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+#nav li {
+	float: left;
+}
+
+#nav li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 12px;
+	text-decoration: none;
+}
+
+#nav li a:hover {
+	background-color: #111;
+}
+
 body{
-    -webkit-animation-name: color_change; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 9s; /* Safari 4.0 - 8.0 */
-    -webkit-animation-delay: 3s;
-    -webkit-animation-timing-function: ease-out;
-    -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
-    animation-name: color_change;
-    animation-duration: 9s;
-    animation-delay: 3s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-out;
+    background: url(http://i.imgur.com/GHr12sH.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
-
-/* Safari 4.0 - 8.0 */
-@-webkit-keyframes color_change {
-    0%   {background-color: #ADFF2F;}
-    25%  {background-color: #F08080;}
-    50%  {background-color: #FFB6C1;}
-    100% {background-color: #F08080;}
-}
-
-/* Standard syntax */
-@keyframes color_change {
-    0%   {background-color: #ADFF2F;}
-    25%  {background-color: #F08080;}
-    50%  {background-color: #FFB6C1;}
-    100% {background-color: #F08080;}
-}
-
-
 
 
 h1 {

@@ -2,12 +2,9 @@ module.exports = function (app, firebase) {
 
 // Set the username to empty by clearing the session
 function logout(req, res) {
-  console.log('logging out ' + req.session.name);
+  console.log('logging out ' + req.session.username);
   req.session.destroy(function(err) {
-    if (!err) {
-      return res.json({});
-		}
-		res.redirect('/')
+	res.redirect('/')
   })
 }
 
@@ -17,7 +14,52 @@ function goTeacherSignUp(req, res){
 
 function goGuestSignUp(req, res){
 	res.render('guest_signup');
-  }
+}
+
+function goCreatestudent(req, res){
+	console.log("go to create student page");
+	res.render('add_student');
+}
+
+function goProfile(req, res){
+	console.log('go profile usertype: ', req.session.usertype == 'teacher');
+	if(req.session.usertype == 'student'){
+		res.render('student_profile', {
+			username: req.session.username,
+			school: req.session.school
+		});
+	}
+	else if(req.session.usertype == 'teacher'){
+		res.render('teacher_profile', {
+			username: req.session.username,
+			school: req.session.school
+		});
+	}
+	else if(req.session.usertype == 'guest'){
+		res.render('guest_profile', {
+			username: req.session.username
+		});
+	}else{
+		res.redirect('/')
+	}
+	
+}
+
+function getUserInfo(req, res){
+	console.log("request user info", req.session);
+	let user = {username: "", usertype: "", profession: "", school: ""}
+	if(req.session.username){
+		user.username = req.session.username;
+		user.usertype = req.session.usertype;
+		if(req.session.usertype == 'student' || req.session.usertype == 'teacher'){
+			user.school = req.session.school;
+		}
+		if(req.session.usertype == 'guest'){
+			user.profession = req.session.profession;
+		}
+	}
+	res.send(user);
+}
 
 function signUpTeacher(req, res) {
 	signup_email = req.body.email;
@@ -80,7 +122,6 @@ function signUpGuest(req, res) {
 	console.log(req)
 	console.log("Ready to signup: ", signup_email, signup_password, signup_username, signup_profession)
 
-//--------------------------------
 	var old_doc = undefined
 	firebase.firestore().collection("users").get().then(function(querySnapshot) {
 		querySnapshot.forEach(function(doc) {
@@ -124,62 +165,81 @@ function signUpGuest(req, res) {
 }
 
 function signIn(req, res){
-	var email = req.body.email;
+	var username = req.body.username;
 	var password = req.body.password;
+	console.log("authenticate: ", username, password);
 	
-	var logged_user = undefined
-	firebase.firestore().collection("users").get().then(function(querySnapshot) {
-		querySnapshot.forEach(function(doc) {
-			user = doc.data()
-			if (user.email == email && user.password != '' && user.password == password){
-				console.log("found user", user)
-				logged_user = user
-			}
-		});
+	var user_doc = firebase.firestore().collection("users").doc(username);
 
-	if(logged_user){
-		req.session.username = logged_user.username; 
-		req.session.usertype = logged_user.usertype;
-		if (logged_user.school){
-			req.session.school = logged_user.school;
-		}else{
-			req.session.profession = logged_user.profession;
+	user_doc.get().then(function(doc) {
+		if (doc.exists && doc.data().password != "" && doc.data().password == password) {
+			user = doc.data()
+			console.log("Document data:", doc.data());
+			req.session.username = user.username; 
+			req.session.usertype = user.usertype;
+			if (user.school){
+				req.session.school = user.school;
+			}else{
+				req.session.profession = user.profession;
+			}
+			console.log("Create session: ", req.session);
+			res.status(200).send({result:"success"})
+		} else {
+			// doc.data() will be undefined in this case
+			console.log("No such document!");
+			res.status(403).send({result:"fail"})
 		}
-		console.log("Create session: ", req.session);
-		if(req.session.usertype == 'student'){
-			res.render('student-profile', {
-				username: req.session.username
-			});
-		}
-		else if(req.session.usertype == 'teacher'){
-			res.render('teacher-profile', {
-				username: req.session.username
-		});
-		}else if(req.session.usertype == 'guest'){
-			res.render('teacher-profile', {
-				username: req.session.username
-		});    
-		}else if(req.session.usertype == 'admin'){
-			res.render('admin')
-		}else{
-			res.redirect('/')
-		}	
-	}else{
-		console.log("No such user exist!");
-		res.redirect('/')		
-	}
-	}) 
-	.catch(function(error) {
+	}).catch(function(error) {
 		console.log("Error getting document:", error);
-		res.redirect('/')
+		res.send({result:"fail"})
 	});
 }
 
-app.get('/teacher_signup', goTeacherSignUp);
-app.get('/guest_signup', goGuestSignUp);
-app.post('/signup_teacher', signUpTeacher);
-app.post('/signup_guest', signUpGuest);
-app.post('/signin', signIn);
-//app.post('/password',changePassword);
-app.get('/logout', logout);
+function createstudent(req, res) {
+	console.log("ready to create new students", req.body)
+	var studentlist = req.body.studentlist;
+	var password = req.body.password;
+	var school = req.session.school;
+	// link to database 
+	var usernames = [];
+	for (let i = 0; i < studentlist.length; i++) {
+		nickname = studentlist[i]
+		username = school + '_student_' + i
+		usernames.push(username)
+		firebase.firestore().collection('users').doc(username).set({
+			password: password,
+			username: username,
+			usertype: "student",
+			school: school
+		})
+		.then(function() {
+				console.log("Document successfully written!" + username );
+		})
+		.catch(function(error) {
+				console.error("Error writing document: ", error);
+		});
+		firebase.firestore().collection(school).doc(username).set({
+			nickname: nickname
+		})
+		.then(function() {
+			console.log("Document successfully written!" + nickname );
+		})
+		.catch(function(error) {
+				console.error("Error writing document: ", error);
+		});
+	}
+	res.send({result:"suceess"})
+}
+
+app.get('/api/user', getUserInfo);
+app.get('/api/profile', goProfile);
+app.get('/api/teacher_signup', goTeacherSignUp);
+app.get('/api/guest_signup', goGuestSignUp);
+app.post('/api/signup_teacher', signUpTeacher);
+app.post('/api/signup_guest', signUpGuest);
+app.post('/api/signin', signIn);
+app.get('/api/logout', logout);
+app.get('/api/createstudent', goCreatestudent);
+app.post('/api/createstudent', createstudent);
+
 }
