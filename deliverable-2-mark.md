@@ -20,3 +20,18 @@ _Reminder:_ The 0-4 marking scale means:
  * 1 : Below Expectations (50%)
  * 0 : Missing (0%)
 
+Product
+- No means of easily testing out the Android app. Not deployed. No activity since Feb. 27.
+- `ng serve` did not work for `project-team-06/applications/Frontend/action-against-hunger`. Not deployed.
+- I was able to `npm start` the `project-team-06/applications/WebApp` but nothing other than the sign-in page appears. Other routes crash. Effectively not working. Requires technical knowledge to test.
+- Team must contact the TAs and setup a time to demo the application for an accurate grade as well as provide the deliverable documents.
+
+README.md
+- I am unable to find this file in the `deliverables` folder on master as specified in the instructions for D2. I also looked at all Active branches on GitHub and all other branches are behind master, asides from the D1 mark which is only Adam submitting the marks. I was also unable to find anything which followed the expected format in root or `applications/`. All other root directories have not had any updates for 26+ days.
+
+plan.md
+- I am unable to find this file in the `deliverables` folder on master as specified in the instructions for D2. I also looked at all Active branches on GitHub and all other branches are behind master, asides from the D1 mark which is only Adam submitting the marks. I was also unable to find anything which followed the expected format in root or `applications/`. All other root directories have not had any updates for 26+ days.
+
+
+review.md
+- I am unable to find this file in the `deliverables` folder on master as specified in the instructions for D2. I also looked at all Active branches on GitHub and all other branches are behind master, asides from the D1 mark which is only Adam submitting the marks. I was also unable to find anything which followed the expected format in root or `applications/`. All other root directories have not had any updates for 26+ days.
