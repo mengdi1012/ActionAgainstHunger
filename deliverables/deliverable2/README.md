@@ -29,7 +29,7 @@ Post:
 ## Instructions
 - Access: 
     The application has already deployed on Heroku with the following url  
-http://dry-woodland-49846.herokuapp.com/
+    https://action-against-hunger.herokuapp.com/
 
 - Accounts:   
     admin account are pre-created:   
