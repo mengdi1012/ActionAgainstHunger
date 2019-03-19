@@ -77,7 +77,7 @@ Steps:
 8. Click the success button in alert window and the page will redirect to profile
 9. You can now review the just added students list in table on left side
 
-For Post, we implment most functions in backend. But the corresponding front end are implmented in another angular project. We plan to move all current front end to angular in next iteration. Therefore the current web app's front end is a legacy, we just provide a bref idea about how this will work.
+For Post, we implement most functions in backend. But the corresponding front end are implemented in another angular project. We plan to move all current front end to angular in next iteration. Therefore the current web app's front end is a legacy, we just provide a brief idea about how this will work.
 
 As a teacher: View post and create post  
    Create the post:
