@@ -7,23 +7,16 @@ import { environment } from '../../environments/environment';
 
 
 @Injectable({providedIn: "root"})
-export class AuthService {
+export class EmailService {
 
     constructor(private http: HttpClient){}
 
-    login(username: string, password: string): Observable<any> {
+    sendInivationEmail(email: string, usertype: string): Observable<any> {
         const httpOptions = {
             headers: new HttpHeaders({ 'Content-Type': 'application/json' }), withCredentials: true
           };
-        const credential = {username: username, password: password};
-        return this.http.post<Array<JSON>>(environment.APIEndpoint + "/api/signin", credential, httpOptions);
-    }
+        const credential = {email: email, usertype: usertype};
+        return this.http.post<Array<JSON>>(environment.APIEndpoint + "/api/invite", credential, httpOptions);
+    }    
 
-    getUserID(){
-        return 1;
-    }
-
-    logout(){
-        return this.http.get(environment.APIEndpoint + "/api/logout"); 
-    }
 }

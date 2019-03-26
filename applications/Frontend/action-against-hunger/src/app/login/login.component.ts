@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
     console.log("Creating Login Component");
   }
   ngOnInit() {
+    this.logout();
   }
 
   login(): void {
@@ -25,21 +26,44 @@ export class LoginComponent implements OnInit {
     .subscribe((res: string) => {
       console.log("get authenticate result:", res)
       if(res["result"] == "success"){
-        this.gotoPost();
+        if(res["usertype"] == "admin"){
+          this.gotoAdmin();
+        }else{
+          this.gotoPost();
+        }
       }else{
         window.alert("wrong username or password");
       }
     });
   }
 
+  gotoAdmin() {
+    const url = "admin";
+    this.router.navigate([url]).then( (e) => {
+      if (e) {
+        console.log("Navigation to admin is successful!");
+      } else {
+        console.log("Navigation to admin has failed!");
+      }
+    });
+}
+
   gotoPost() {
     const url = "profile";
     this.router.navigate([url]).then( (e) => {
       if (e) {
-        console.log("Navigation is successful!");
+        console.log("Navigation to post is successful!");
       } else {
-        console.log("Navigation has failed!");
+        console.log("Navigation to posthas failed!");
       }
     });
-}
+  }
+
+  logout(): void {
+    console.log("try clean session");
+    this.authService.logout()
+      .subscribe((res: string) => {
+        console.log("clean session result:", res)
+      });
+    }
 }

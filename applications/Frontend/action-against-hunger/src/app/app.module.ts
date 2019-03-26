@@ -20,6 +20,8 @@ import { ProfileActivityAllUsersComponent } from './user/profile/profile-activit
 import { ProfileActivityNewUserComponent } from './user/profile/profile-activity/profile-activity-new-user/profile-activity-new-user.component';
 // import { AuthGuardService } from './service/auth-gaurd.service';
 import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminNavigationComponent } from './admin-navigation/admin-navigation.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { LoginComponent } from './login/login.component';
     ForumHomeComponent,
     ForumCreatePostComponent,
     ForumViewPostComponent,
-    LoginComponent
+    LoginComponent,
+    AdminComponent,
+    AdminNavigationComponent
   ],
   imports: [
     BrowserModule,
