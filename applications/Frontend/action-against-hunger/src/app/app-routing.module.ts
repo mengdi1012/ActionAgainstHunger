@@ -24,8 +24,8 @@ const appRoutes: Routes = [
       { path: 'allUsers', component: ProfileActivityAllUsersComponent },
       { path: 'newUser', component: ProfileActivityNewUserComponent },
   // ], canActivate: [AuthGuardService], },
-  ]},
-  // { path: 'class', component: ForumComponent, 
+  ]},{path: 'resetPW', component: ProfileComponent},
+// { path: 'class', component: ForumComponent,
   //   children: [
   //       { path: '', component: ForumHomeComponent },
   //       { path: ':classId', component: ForumHomeComponent },

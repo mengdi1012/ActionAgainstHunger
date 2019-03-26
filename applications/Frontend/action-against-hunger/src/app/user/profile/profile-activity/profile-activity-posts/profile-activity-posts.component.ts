@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Post } from '../../../../model/post.model';
 import { ActivatedRoute } from '@angular/router';
-import { PostsService } from "../../../../service/posts.service";
+import { PostsService } from '../../../../service/posts.service';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../../../service/auth.service';
 

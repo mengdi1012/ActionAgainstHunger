@@ -20,16 +20,16 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-  console.log("try login", this.username);
-  this.authService.login(this.username, this.password)
-    .subscribe((res: string) => {
-      console.log("get authenticate result:", res)
-      if(res["result"] == "success"){
-        this.gotoPost();
-      }else{
-        window.alert("wrong username or password");
-      }
-    });
+    console.log("try login", this.username);
+    this.authService.login(this.username, this.password)
+        .subscribe((res: string) => {
+          console.log("get authenticate result:", res)
+          if(res["result"] == "success"){
+            this.gotoPost();
+          }else{
+            window.alert("wrong username or password");
+          }
+        });
   }
 
   gotoPost() {
