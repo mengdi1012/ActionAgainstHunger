@@ -8,8 +8,6 @@ import { AuthService } from '../../service/auth.service';
 })
 export class NavigationBarComponent {
 
-  constructor(private authService: AuthService){
-
-  }
+  constructor(private authService: AuthService){}
 
 }

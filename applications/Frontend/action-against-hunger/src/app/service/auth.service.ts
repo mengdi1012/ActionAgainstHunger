@@ -6,7 +6,7 @@ import { environment } from '../../environments/environment';
 
 
 
-@Injectable({providedIn: 'root'})
+@Injectable({providedIn: "root"})
 export class AuthService {
 
     constructor(private http: HttpClient){}
@@ -21,6 +21,7 @@ export class AuthService {
             catchError(this.handleError('getHeroes', []))
         );
     }
+<<<<<<< HEAD
 
     resetPW(password1: string, password2: string): Observable<any> {
         const httpOptions = {
@@ -34,6 +35,9 @@ export class AuthService {
     }
 
 
+=======
+    
+>>>>>>> parent of 38c6b6a... backend of the profile angular change password
     /**
      * Handle Http operation that failed.
      * Let the app continue.
@@ -42,20 +46,16 @@ export class AuthService {
      */
     private handleError<T> (operation = 'operation', result?: T) {
         return (error: any): Observable<T> => {
-
+    
         // TODO: send the error to remote logging infrastructure
         console.error(error); // log to console instead
-
+        
         // Let the app keep running by returning an empty result.
         return of(result as T);
         };
     }
 
-    getUserID() {
+    getUserID(){
         return 1;
-    }
-
-    isAuthenticated() {
-        return true;
     }
 }

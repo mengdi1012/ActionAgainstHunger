@@ -11,6 +11,6 @@ export class ProfileActivityNewUserComponent {
   childUsers: User[] = [];
 
   createUser(){
-    console.log('Creating New User');
+    console.log("Creating New User");
   }
 }

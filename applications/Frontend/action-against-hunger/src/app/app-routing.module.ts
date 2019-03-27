@@ -12,18 +12,18 @@ import { ProfileActivityCommentsComponent } from './user/profile/profile-activit
 import { ProfileActivityPostsComponent } from './user/profile/profile-activity/profile-activity-posts/profile-activity-posts.component';
 import { ProfileActivityAllUsersComponent } from './user/profile/profile-activity/profile-activity-all-users/profile-activity-all-users.component';
 import { ProfileActivityNewUserComponent } from './user/profile/profile-activity/profile-activity-new-user/profile-activity-new-user.component';
-import {ProfileActivityUpdateComponent} from './user/profile/profile-activity/profile-updatePW/profile-activity-updatePW.component';
 // import { AuthGuardService } from './service/auth-gaurd.service';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent},
-  { path: 'profile', component: ProfileComponent,
+  { path: 'profile', component: ProfileComponent, 
   children: [
       { path: 'profile2', component: ProfileActivityPostsComponent },
       { path: 'topics', component: ProfileActivityPostsComponent },
       { path: 'comments', component: ProfileActivityCommentsComponent },
       { path: 'allUsers', component: ProfileActivityAllUsersComponent },
       { path: 'newUser', component: ProfileActivityNewUserComponent },
+<<<<<<< HEAD
    ], // canActivate: [AuthGuardService],
   },
   // ]},
@@ -38,6 +38,19 @@ const appRoutes: Routes = [
      // canActivate: [AuthGuardService], }
      // };
 ]}];
+=======
+  // ], canActivate: [AuthGuardService], },
+  ]},{path: 'resetPW', component: ProfileComponent},
+// { path: 'class', component: ForumComponent,
+  //   children: [
+  //       { path: '', component: ForumHomeComponent },
+  //       { path: ':classId', component: ForumHomeComponent },
+  //       { path: ':classId/topic/new', component: ForumCreatePostComponent },
+  //       { path: ':classId/topic/:topicId', component: ForumViewPostComponent },
+  //   // ], canActivate: [AuthGuardService], },
+  //   ]},
+];
+>>>>>>> parent of 38c6b6a... backend of the profile angular change password
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],

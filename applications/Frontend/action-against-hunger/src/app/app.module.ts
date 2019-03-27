@@ -48,8 +48,8 @@ import {ActivityComponent} from './user/activity/activity.component';
     AppRoutingModule,
     HttpClientModule
   ],
-   //providers: [AuthGuardService],
-  // providers: [],
+  // providers: [AuthGuardService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
