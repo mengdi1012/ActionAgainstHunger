@@ -30,6 +30,9 @@ function changePW(req, res) {
 }
 
 
+
+
+
 function getStudentInfo(req, res){
     school = req.session.school;
     firebase.firestore().collection(school).get().then(function(querySnapshot) {
@@ -49,7 +52,7 @@ function getStudentInfo(req, res){
 }
 
 app.get('/updatepassword', goUpdatePassword);
-app.post('/update_PW', changePW);
+app.get('/api/resetPW', changePW);
 app.get('/get_student_info', getStudentInfo);
 
 

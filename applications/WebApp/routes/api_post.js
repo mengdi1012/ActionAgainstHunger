@@ -164,7 +164,6 @@ module.exports = function (app, firebase) {
     app.get('/postPage', Jumptopost);
     app.get('/professionalpost', makeprofessionalpost);
     app.get('/global_post', JumptoGlobal);
-
     app.get('/post/:postId', getPost);
     app.post('/post', createPost);
     app.get('/post/:postId/comments', getComments);

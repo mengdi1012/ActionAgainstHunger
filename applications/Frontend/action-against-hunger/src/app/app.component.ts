@@ -9,6 +9,8 @@ import { AuthService } from './service/auth.service';
 export class AppComponent {
   title = 'action-against-hunger';
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService){
+
+  }
 
 }

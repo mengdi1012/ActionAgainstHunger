@@ -33,10 +33,10 @@ export class LoginComponent implements OnInit {
   }
 
   gotoPost() {
-    const url = "profile";
+    const url = 'profile';
     this.router.navigate([url]).then( (e) => {
       if (e) {
-        console.log("Navigation is successful!");
+        console.log("Navigation is successful!",e);
       } else {
         console.log("Navigation has failed!");
       }
