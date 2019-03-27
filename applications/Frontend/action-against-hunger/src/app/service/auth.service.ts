@@ -22,6 +22,18 @@ export class AuthService {
         );
     }
 
+    resetPW(password1: string, password2: string): Observable<any> {
+        const httpOptions = {
+            headers: new HttpHeaders({ 'Content-Type': 'application/json' }), withCredentials: true
+        };
+        const credential = {password1: password1, password2: password2};
+        return this.http.post<Array<JSON>>(environment.APIEndpoint + "/api/update_pw", credential, httpOptions)
+            .pipe(
+                catchError(this.handleError('getHeroes', []))
+            );
+    }
+
+
     /**
      * Handle Http operation that failed.
      * Let the app continue.

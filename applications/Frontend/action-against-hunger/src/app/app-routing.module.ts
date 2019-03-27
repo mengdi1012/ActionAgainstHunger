@@ -27,7 +27,7 @@ const appRoutes: Routes = [
    ], // canActivate: [AuthGuardService],
   },
   // ]},
-    { path: 'resetPW', component: ProfileActivityUpdateComponent},
+    { path: 'update_pw', component: ProfileActivityUpdateComponent},
  { path: 'class', component: ForumComponent,
      children: [
          { path: '', component: ForumHomeComponent },

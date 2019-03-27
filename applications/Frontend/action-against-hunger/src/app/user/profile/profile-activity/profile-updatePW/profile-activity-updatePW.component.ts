@@ -10,7 +10,8 @@ import {Router} from '@angular/router';
 
 
 export class ProfileActivityUpdateComponent implements OnInit {
-  password = '';
+  password1 = '';
+  password2 = '';
 
   constructor(private authService: AuthService, private router: Router) {
     console.log('Creating Login Component');
@@ -20,9 +21,9 @@ export class ProfileActivityUpdateComponent implements OnInit {
   }
 
   reset(): void {
-    console.log('try login', this.password);
+    console.log('try login', this.password1, this.password2);
     // @ts-ignore
-    this.authService.login(this.password)
+    this.authService.resetPW(this.password1, this.password2)
         .subscribe((res: string) => {
           console.log('get authenticate result:', res)
           if (res['result'] === 'success') {

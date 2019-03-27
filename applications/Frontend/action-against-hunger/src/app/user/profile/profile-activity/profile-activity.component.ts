@@ -15,7 +15,7 @@ export class ProfileActivityComponent implements OnInit {
   ngOnInit() {
   }
   goReset() {
-    const url = 'resetPW';
+    const url = 'update_pw';
     this.router.navigate([url]).then((e) => {
       if (e) {
         console.log('Navigation is successful!');
