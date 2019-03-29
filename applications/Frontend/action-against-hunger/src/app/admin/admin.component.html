@@ -1,12 +1,13 @@
 <app-admin-navigation></app-admin-navigation>
 
-<div *ngIf="user">
+<div *ngIf="user" class="container">
   <h1> Invitation Page </h1>
+  <div class="login-item">
   <form>
     <ul>
       <li>
-              <span class="label"> Email : </span>
-              <input [(ngModel)]="email" class="text-input" type="email" id="email" placeholder="Email"  name="email" required="true"/><br>
+              <span class="label"> New user email : </span>
+              <input [(ngModel)]="email" class="text-input" type="email" id="email" placeholder="email"  name="email" required="true"/><br>
           </li>
 
       <li>
@@ -17,6 +18,6 @@
     </ul>
 
     <input id="invite-button" type="submit" value="Send invitation" (click)="sendInvitation()">
-
   </form>
+</div>
 </div>	
