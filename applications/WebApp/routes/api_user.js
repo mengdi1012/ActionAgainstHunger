@@ -231,7 +231,6 @@ function createstudent(req, res) {
 	res.send({result:"suceess"})
 }
 
-<<<<<<< HEAD
 // function Jumptoreset(req, res){
 //         if(req.session.username){
 //             console.log("go to update password page");
