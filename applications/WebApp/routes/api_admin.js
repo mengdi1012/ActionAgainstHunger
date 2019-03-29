@@ -25,7 +25,7 @@ function invite(req, res) {
 		});
 		res.status(200).send({result:"success"})
 	}else{
-		res.status(403).send({result:"fail"})
+		res.status(200).send({result:"fail"})
 	}
 }
 

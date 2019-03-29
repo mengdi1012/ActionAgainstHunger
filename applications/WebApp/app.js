@@ -55,32 +55,16 @@ function goSigninpage(req, res){
   res.render('signin');
 }
 
-function test(req, res){
-  console.log(req.session);
-  console.log(req.session.email);
-   if (req.session.email) {
-      res.send("Hello!" + req.session.username + "\n");
-   }else{
-    res.send("who are you?");
-   }
-}
-
 // Routes
 // Serve the index page
 app.get(['/', '/index', '/signin'], goSigninpage);
 //users routers
 require('./routes/api_user')(app, firebase);
 require('./routes/api_admin')(app, firebase);
-//require('./routes/api_course')(app, Users);
-//require('./routes/api_lecture')(app);
-//require('./routes/api_question')(app, Questions);
 require('./routes/api_post')(app, firebase);
 require('./routes/api_profile')(app, firebase);
 //require('./routes/api_classroom')(app, firebase);
 //require('./routes/api_comments')(app, firebase);
-
-//for session test
-app.get('/test', test);
  
  
 app.listen(3000);

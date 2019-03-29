@@ -2,10 +2,9 @@ module.exports = function (app, firebase) {
 
 // Set the username to empty by clearing the session
 function logout(req, res) {
-  console.log('logging out ' + req.session.username);
-  req.session.destroy(function(err) {
-	res.status(200).send({result:"success"})
-})
+  console.log('logging out session' + req);
+  req.session.destroy();  
+  res.status(200).send({result:"success"})
 }
 
 function goTeacherSignUp(req, res){
@@ -183,11 +182,11 @@ function signIn(req, res){
 				req.session.profession = user.profession;
 			}
 			console.log("Create session: ", req.session);
-			res.status(200).send({result:"success", usertype:user.usertype})
+			res.send({result:"success", usertype:user.usertype})
 		} else {
 			// doc.data() will be undefined in this case
 			console.log("No such document!");
-			res.status(403).send({result:"fail"})
+			res.send({result:"fail"})
 		}
 	}).catch(function(error) {
 		console.log("Error getting document:", error);

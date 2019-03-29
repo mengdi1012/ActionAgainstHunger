@@ -33,6 +33,6 @@ export class AuthService {
     }
 
     logout(){
-        return this.http.get(environment.APIEndpoint + "/api/logout"); 
+        return this.http.get(environment.APIEndpoint + "/api/logout", {withCredentials: true}); 
     }
 }
