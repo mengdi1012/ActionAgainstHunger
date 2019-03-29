@@ -12,8 +12,9 @@
   }
   
   .logo{
-	font-family: "museo-slab";  
-	font-size:30px;
+	font-family: Impact, sans-serif;
+	color: #fff;
+	text-shadow: 2px 2px 2px #000000;	font-size:30px;
 	text-align: center;
 	padding: 20px 20px 0;
 	margin:0;
@@ -54,9 +55,7 @@
   }
   
   .form-login label,
-  .form-login input[type="email"],
-  .form-login input[type="password"],
-  .form-login input[type="submit"] {
+  .form-login input{
 	border-radius: 0.25rem;
 	padding: 1rem;
 	color: #3A3F44;  
@@ -76,7 +75,7 @@
 	border-top-left-radius: 0;
   }
   .form-login input:focus, .form-login input:hover {
-	background-color: #eeeeee;
+	background-color:lightgreen;
   }
   .form-login input[type="submit"] {
 	background-color: rgb(86, 69, 238);

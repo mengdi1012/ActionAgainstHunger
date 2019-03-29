@@ -1,34 +1,36 @@
-<div>
-    <h1>Signup New Account </h1>
+<div class="container">
+    <div class="logo">Signup New Account</div>
+    <div class="login-item">
+        <form #myform="ngForm" (ngSubmit)="signup(myform)" class="form form-login">
+            <div class="form-field">
+                <label class="user" for="login-username"><span class="hidden">Email</span></label>
+                <input name="email" id="login-username" type="text" class="form-input" placeholder="Email" ngModel required>
+          </div>
+          <div class="form-field">
+              <label class="user" for="login-username"><span class="hidden">Nickname</span></label>
+              <input [(ngModel)]="nickname" name="nickname" id="login-username" type="text" class="form-input" placeholder="Nickname" ngModel required>
+          </div>
+          <div class="form-field">
+              <label class="user" for="login-username"><span class="hidden">Password</span></label>
+              <input name="password" id="login-username" type="text" class="form-input" placeholder="Password" ngModel required>
+          </div>
+          <div class="form-field">
+              <label class="user" for="login-username"><span class="hidden">School</span></label>
+              <input [(ngModel)]="school" name="school" id="login-username" type="text" class="form-input" placeholder="School(Teacher only)" ngModel required>
+          </div>
+          <div class="form-field">
+            <label class="user" for="login-username"><span class="hidden">Field:</span></label>
+            <input [(ngModel)]="profession" name="profession" id="login-username" type="text" class="form-input" placeholder="Field(Profession only)" ngModel required>
+          </div>
 
-		<form>
-			<ul>
-				<li>
-          <span class="label"> Email : </span>
-          <input [(ngModel)]="email" class="text-input" type="text"  placeholder="Email" name="email" required="true"/>
-				</li>
-				<li>
-					<span class="label"> Nickname : </span>
-					<input [(ngModel)]="nickname" class="text-input" type="text" name="nickname" required="true"/>
-				</li>
-				<li>
-					<span class="label"> Password :  </span>
-					<input [(ngModel)]="password" class="text-input" type="password" name="password" required="true"/>
-        <li>
-          <span class="label"> School :  </span>
-          <input [(ngModel)]="schoolname" class="text-input" type="password" name="password" required="true"/>
-        </li>
-        <li>
-          <span class="label"> Field :  </span>
-          <input [(ngModel)]="field" class="text-input" type="password" name="password" required="true"/>
-        </li>
-      </ul>
+        <button class="button"  type="button" (click)="createUsername()">Create my unique username</button><br>
 
-      <button class="button" onclick="createUsername()">Create my unique username</button><br>
+        <div class="namedisplay"> 
+          Username: <span> {{username}}</span>
+        </div>
 
-      <span>Username: {{Username}}</span> <br>
-
-			<button class="signup-button">Sign up</button>
-	
-		</form>
+        <button class="button" type="submit">Sign up</button>
+    
+      </form>
+    </div>
 </div>
