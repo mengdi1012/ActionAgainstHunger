@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { AuthService } from '../../../service/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-profile-activity',
   templateUrl: './profile-activity.component.html',
   styleUrls: ['./profile-activity.component.css']
 })
-export class ProfileActivityComponent {
+export class ProfileActivityComponent implements OnInit {
 
-<<<<<<< HEAD
   constructor(private authService: AuthService, private router: Router) {
     console.log('Creating activity Component');
   }
@@ -24,7 +24,4 @@ export class ProfileActivityComponent {
       }
     });
   }
-=======
-  constructor(private authService: AuthService){console.log("Creating Profile Activity Component")}
->>>>>>> parent of 38c6b6a... backend of the profile angular change password
 }

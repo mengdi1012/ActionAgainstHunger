@@ -44,7 +44,7 @@ import { SignupComponent } from './signup/signup.component';
     ForumCreatePostComponent,
     ForumViewPostComponent,
     LoginComponent,
-    ActivityComponent
+    ActivityComponent,
     AdminComponent,
     AdminNavigationComponent,
     SignupComponent
