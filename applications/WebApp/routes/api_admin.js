@@ -4,9 +4,10 @@ function invite(req, res) {
 	if(req.session.username == "admin"){
 		var invite_email = req.body.email;
 		var usertype = req.body.usertype
-		var hostname = req.headers.host; // hostname = 'localhost:8080'
+		// var hostname = req.headers.host;
+		var hostname = req.headers.origin
 		console.log("invite usertype: ", req.body.usertype )
-		signup_url =  'http://' + hostname + "/" + usertype +"_signup"
+		signup_url =  hostname + "/" +"signup"
 
 		// link to database 
 		firebase.firestore().collection('users').doc().set({
@@ -22,9 +23,7 @@ function invite(req, res) {
 		.catch(function(error) {
 				console.error("Error writing document: ", error);
 		});
-		res.send({result:"success"})
 		res.status(200).send({result:"success"})
-
 	}else{
 		res.status(403).send({result:"fail"})
 	}
