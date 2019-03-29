@@ -54,8 +54,6 @@ function getStudentInfo(req, res){
 }
 
 app.post('/api/update_pw', changePW);
-app.get('/updatepassword', goUpdatePassword);
-app.post('/update_PW', changePW);
 app.get('/get_student_info', getStudentInfo);
 
 
