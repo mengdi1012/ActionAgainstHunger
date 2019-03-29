@@ -1,48 +1,111 @@
-body {
-    background: url(../../assets/background.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
+.container {
+	border-radius: 5px;
+	box-shadow: 0 1.5px 0 0 rgba(0,0,0,0.1);
+	width:409px;
+	display: flex;  
+	flex-direction: column;
+  }
 
-.signin {
+  .error{
+	  color: red;
+  }
+  
+  .logo{
+	font-family: "museo-slab";  
+	font-size:30px;
+	text-align: center;
+	padding: 20px 20px 0;
+	margin:0;
+  }
+  
+  .login-item {
+	  color: #000000;
+	  padding:25px 25px 0;
+	  margin: 20px 20px 0;	
+	  border-radius: 3px;
+  }
+  
+  input {
+	border: 0;
+	color: inherit;
+	font: inherit;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	-webkit-transition: background-color .3s;
+	transition: background-color .3s;
+  }
+  
+  .user:before {
+	content: '\f007';
+	font: 14px fontawesome;
+	  color: #5b5b5b;
+  }
+  
+  .lock:before {
+	content: '\f023';
+	font: 14px fontawesome;
+	  color: #5b5b5b;
+  }
+  
+  .form input {
+	width: 100%;
+  }
+  
+  .form-login label,
+  .form-login input[type="email"],
+  .form-login input[type="password"],
+  .form-login input[type="submit"] {
+	border-radius: 0.25rem;
+	padding: 1rem;
+	color: #3A3F44;  
+  }
+  
+  .form-login label {
+	background-color: #222222;
+	border-bottom-right-radius: 0;
+	border-top-right-radius: 0;
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+  }
+  
+  .form-login input {
+	background-color: #ffffff;
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+  }
+  .form-login input:focus, .form-login input:hover {
+	background-color: #eeeeee;
+  }
+  .form-login input[type="submit"] {
+	background-color: rgb(86, 69, 238);
+	color: #eee;
+	font-weight: bold;
+	text-transform: uppercase;
+  }
+  .form-login input[type="submit"]:focus, .form-login input[type="submit"]:hover {
+	background-color: #120a2e;
+  }
+  .form-field {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	margin-bottom: 2rem;
+  }
+  
+  
+  .hidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
 	position: absolute;
-	min-width: 200px;
-	width: 30%;
-	z-index: 15;
-	top: 25%;
-	margin-left: 35%;
-	padding: 0px 0px;
-	border: 1px;	
-}
-
-.signin h1 {
-	font-size: 2em;
-	font-family: Impact, sans-serif;
-	width: 100%;
-	float: center;
-	color: #fff;
-    text-shadow: 2px 2px 2px #000000;
-	clear: both;
-}
-
-.signin input, .signin button {
-	width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.signin input {
-	width: 70%;
-	margin-left: 0%;
-}
-
-.signin button {
-	width: 50%;
-	margin-left: 25%;
-}
+	width: 1px;
+  }
+  
+  .text--center {
+	text-align: center;
+  }

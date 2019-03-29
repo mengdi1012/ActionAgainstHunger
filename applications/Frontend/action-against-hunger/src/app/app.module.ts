@@ -24,6 +24,7 @@ import { LoginComponent } from './login/login.component';
 import {ActivityComponent} from './user/activity/activity.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminNavigationComponent } from './admin-navigation/admin-navigation.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { AdminNavigationComponent } from './admin-navigation/admin-navigation.co
     LoginComponent,
     ActivityComponent
     AdminComponent,
-    AdminNavigationComponent
+    AdminNavigationComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
