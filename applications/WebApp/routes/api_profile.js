@@ -53,12 +53,9 @@ function getStudentInfo(req, res){
     });
 }
 
-<<<<<<< HEAD
 app.post('/api/update_pw', changePW);
-=======
 app.get('/updatepassword', goUpdatePassword);
 app.post('/update_PW', changePW);
->>>>>>> parent of 38c6b6a... backend of the profile angular change password
 app.get('/get_student_info', getStudentInfo);
 
 
