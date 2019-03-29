@@ -22,6 +22,7 @@ import { ProfileActivityNewUserComponent } from './user/profile/profile-activity
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminNavigationComponent } from './admin-navigation/admin-navigation.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AdminNavigationComponent } from './admin-navigation/admin-navigation.co
     ForumViewPostComponent,
     LoginComponent,
     AdminComponent,
-    AdminNavigationComponent
+    AdminNavigationComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
