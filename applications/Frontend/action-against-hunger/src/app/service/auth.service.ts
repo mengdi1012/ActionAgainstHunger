@@ -19,6 +19,15 @@ export class AuthService {
         return this.http.post<Array<JSON>>(environment.APIEndpoint + "/api/signin", credential, httpOptions);
     }
 
+    resetPW(password1: string, password2: string): Observable<any> {
+        const httpOptions = {
+            headers: new HttpHeaders({ 'Content-Type': 'application/json' }), withCredentials: true
+        };
+        const credential = {password1: password1, password2: password2};
+        return this.http.post<Array<JSON>>(environment.APIEndpoint + "/api/update_pw", credential, httpOptions);
+    }
+
+
     getUserID(){
         return 1;
     }

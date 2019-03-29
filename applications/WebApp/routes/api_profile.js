@@ -1,17 +1,15 @@
 module.exports = function (app, firebase) {
 
 
-function goUpdatePassword(req, res){
-    console.log("go to update password page");
-    res.render('update_pw');
-}
     
 
 function changePW(req, res) {
-    const password = req.body.password;
+    const password1 = req.body.password1;
+    const password2 = req.body.password2;
     const signup_username = req.session.username;
     console.log("signup_username:",signup_username)
-    console.log("Ready to signup: ", password)
+    console.log("Ready to signup: ", password1)
+    console.log("get body",req.body)
 
 
 //--------------------------------
@@ -20,13 +18,20 @@ function changePW(req, res) {
     let usertype= undefined
     let school = undefined
     // To update age and favorite color:
-    firebase.firestore().collection("users").doc(signup_username).update({
-        "password": password
+    if(password1 === password2){
+        firebase.firestore().collection("users").doc(signup_username).update({
+        "password": password1
     })
     .then(function() {
         console.log("Document successfully updated!");
-        res.send({result:"suceess"})
+        res.send({result:"success"})
     });
+
+    }else{
+        console.log("password unmatch!");
+
+    }
+    
 }
 
 
@@ -48,8 +53,12 @@ function getStudentInfo(req, res){
     });
 }
 
+<<<<<<< HEAD
+app.post('/api/update_pw', changePW);
+=======
 app.get('/updatepassword', goUpdatePassword);
 app.post('/update_PW', changePW);
+>>>>>>> parent of 38c6b6a... backend of the profile angular change password
 app.get('/get_student_info', getStudentInfo);
 
 

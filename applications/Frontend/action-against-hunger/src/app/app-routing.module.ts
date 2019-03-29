@@ -24,9 +24,25 @@ const appRoutes: Routes = [
       { path: 'comments', component: ProfileActivityCommentsComponent },
       { path: 'allUsers', component: ProfileActivityAllUsersComponent },
       { path: 'newUser', component: ProfileActivityNewUserComponent },
+<<<<<<< HEAD
+   ], // canActivate: [AuthGuardService],
+  },
+  // ]},
+    { path: 'update_pw', component: ProfileActivityUpdateComponent},
+ { path: 'class', component: ForumComponent,
+     children: [
+         { path: '', component: ForumHomeComponent },
+         { path: ':classId', component: ForumHomeComponent },
+         { path: ':classId/topic/new', component: ForumCreatePostComponent },
+         { path: ':classId/topic/:topicId', component: ForumViewPostComponent }
+
+     // canActivate: [AuthGuardService], }
+     // };
+]}];
+=======
   // ], canActivate: [AuthGuardService], },
-  ]},
-  // { path: 'class', component: ForumComponent, 
+  ]},{path: 'resetPW', component: ProfileComponent},
+// { path: 'class', component: ForumComponent,
   //   children: [
   //       { path: '', component: ForumHomeComponent },
   //       { path: ':classId', component: ForumHomeComponent },
@@ -35,6 +51,7 @@ const appRoutes: Routes = [
   //   // ], canActivate: [AuthGuardService], },
   //   ]},
 ];
+>>>>>>> parent of 38c6b6a... backend of the profile angular change password
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],

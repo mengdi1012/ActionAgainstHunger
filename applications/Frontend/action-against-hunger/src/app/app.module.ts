@@ -18,10 +18,13 @@ import { ProfileActivityCommentsComponent } from './user/profile/profile-activit
 import { ProfileActivityPostsComponent } from './user/profile/profile-activity/profile-activity-posts/profile-activity-posts.component';
 import { ProfileActivityAllUsersComponent } from './user/profile/profile-activity/profile-activity-all-users/profile-activity-all-users.component';
 import { ProfileActivityNewUserComponent } from './user/profile/profile-activity/profile-activity-new-user/profile-activity-new-user.component';
+import {ProfileActivityUpdateComponent} from './user/profile/profile-activity/profile-updatePW/profile-activity-updatePW.component';
 // import { AuthGuardService } from './service/auth-gaurd.service';
 import { LoginComponent } from './login/login.component';
+import {ActivityComponent} from './user/activity/activity.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminNavigationComponent } from './admin-navigation/admin-navigation.component';
+
 
 @NgModule({
   declarations: [
@@ -34,11 +37,13 @@ import { AdminNavigationComponent } from './admin-navigation/admin-navigation.co
     ProfileActivityAllUsersComponent,
     ProfileActivityNewUserComponent,
     ProfileOverviewComponent,
+    ProfileActivityUpdateComponent,
     ForumComponent,
     ForumHomeComponent,
     ForumCreatePostComponent,
     ForumViewPostComponent,
     LoginComponent,
+    ActivityComponent
     AdminComponent,
     AdminNavigationComponent
   ],

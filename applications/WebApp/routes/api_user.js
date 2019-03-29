@@ -231,8 +231,22 @@ function createstudent(req, res) {
 	res.send({result:"suceess"})
 }
 
+<<<<<<< HEAD
+// function Jumptoreset(req, res){
+//         if(req.session.username){
+//             console.log("go to update password page");
+//             res.render('resetPW');
+//         }else{
+//             return res.sendStatus(404)
+//         }
+//     }
+
+app.get('/api/user', getUserInfo);
+//app.get('/api/resetPW', Jumptoreset);
+=======
 app.get('/api/user', getUserInfo);
 app.get('/api/profile', goProfile);
+>>>>>>> parent of 38c6b6a... backend of the profile angular change password
 app.get('/api/teacher_signup', goTeacherSignUp);
 app.get('/api/guest_signup', goGuestSignUp);
 app.post('/api/signup_teacher', signUpTeacher);
