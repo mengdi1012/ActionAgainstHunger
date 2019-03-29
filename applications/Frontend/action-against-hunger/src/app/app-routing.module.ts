@@ -12,10 +12,11 @@ import { ProfileActivityCommentsComponent } from './user/profile/profile-activit
 import { ProfileActivityPostsComponent } from './user/profile/profile-activity/profile-activity-posts/profile-activity-posts.component';
 import { ProfileActivityAllUsersComponent } from './user/profile/profile-activity/profile-activity-all-users/profile-activity-all-users.component';
 import { ProfileActivityNewUserComponent } from './user/profile/profile-activity/profile-activity-new-user/profile-activity-new-user.component';
-// import { AuthGuardService } from './service/auth-gaurd.service';
+import { AdminComponent } from './admin/admin.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent},
+  { path: 'admin', component: AdminComponent},
   { path: 'profile', component: ProfileComponent, 
   children: [
       { path: 'profile2', component: ProfileActivityPostsComponent },

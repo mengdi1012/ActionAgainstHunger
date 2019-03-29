@@ -16,46 +16,23 @@ export class AuthService {
             headers: new HttpHeaders({ 'Content-Type': 'application/json' }), withCredentials: true
           };
         const credential = {username: username, password: password};
-        return this.http.post<Array<JSON>>(environment.APIEndpoint + "/api/signin", credential, httpOptions)
-        .pipe(
-            catchError(this.handleError('getHeroes', []))
-        );
+        return this.http.post<Array<JSON>>(environment.APIEndpoint + "/api/signin", credential, httpOptions);
     }
-<<<<<<< HEAD
 
     resetPW(password1: string, password2: string): Observable<any> {
         const httpOptions = {
             headers: new HttpHeaders({ 'Content-Type': 'application/json' }), withCredentials: true
         };
         const credential = {password1: password1, password2: password2};
-        return this.http.post<Array<JSON>>(environment.APIEndpoint + "/api/update_pw", credential, httpOptions)
-            .pipe(
-                catchError(this.handleError('getHeroes', []))
-            );
+        return this.http.post<Array<JSON>>(environment.APIEndpoint + "/api/update_pw", credential, httpOptions);
     }
 
-
-=======
-    
->>>>>>> parent of 38c6b6a... backend of the profile angular change password
-    /**
-     * Handle Http operation that failed.
-     * Let the app continue.
-     * @param operation - name of the operation that failed
-     * @param result - optional value to return as the observable result
-     */
-    private handleError<T> (operation = 'operation', result?: T) {
-        return (error: any): Observable<T> => {
-    
-        // TODO: send the error to remote logging infrastructure
-        console.error(error); // log to console instead
-        
-        // Let the app keep running by returning an empty result.
-        return of(result as T);
-        };
-    }
 
     getUserID(){
         return 1;
+    }
+
+    logout(){
+        return this.http.get(environment.APIEndpoint + "/api/logout"); 
     }
 }

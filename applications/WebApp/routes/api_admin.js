@@ -23,8 +23,10 @@ function invite(req, res) {
 				console.error("Error writing document: ", error);
 		});
 		res.send({result:"success"})
+		res.status(200).send({result:"success"})
+
 	}else{
-		return res.sendStatus(404)
+		res.status(403).send({result:"fail"})
 	}
 }
 
@@ -57,5 +59,5 @@ function sendInvitationEmail(invite_email, signup_url) {
 }
 
 
-app.post('/invite', invite);
+app.post('/api/invite', invite);
 }

@@ -1,0 +1,120 @@
+.headerFixedBar{
+
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: white;
+	position: fixed;
+	top: 0;
+	left:0;
+	right:0;
+	width: 100%;
+	height:auto;
+}
+
+body.html{
+	background-color: red;
+}
+
+.themeButton{
+	background-color: #562e72;
+	color: white;
+	border-color: black;
+	border-width: thin;
+	padding:5px;
+	font-weight: 500;
+}
+.themeButton:hover{
+	background-color: white;
+	color: #562e72;
+	border-width: thin;
+	border-color: #562e72;
+	font-weight: 700;
+}
+.postModule{
+
+	background-color: white;
+	color: black;
+	overflow: none;
+
+}
+
+.postMargin{
+	margin-bottom:10px;
+}
+
+.postPad{
+
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left:5px;
+	padding-right: 5px;
+
+}
+
+.Userbutton{
+
+	padding-bottom: 10px;
+}
+
+#postTable{
+	width:100%;
+	height:auto;
+	border:1px solid #562e72;;
+
+}
+
+#postTable th{
+	padding: 5px;
+}
+#postTable tr{
+	border: 1px solid black;
+}
+
+#postTable td{
+	padding:5px;
+}
+.paginationBar{
+	padding: 15px;
+}
+
+.pullLeft{
+	float:left;
+	display: inline-block;
+}
+.pullRight{
+	float:right;
+	display: inline-block;
+}
+
+
+.columnPad{
+	margin-top: 15px;
+	margin-left:5px;
+}
+body{
+	background-color: #f2f2f2;
+	margin-top:75px;
+	margin-bottom: 25px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+
+h1{
+	font-size:1.7em;
+	color: #562e72;
+}
+h2{
+	font-size:1.5em;
+	color: #562e72;
+}
+h3{
+	font-size:1.3em;
+	color: #562e72;
+}
+h4{
+	font-size:1.1em;
+	color: #562e72;
+}
