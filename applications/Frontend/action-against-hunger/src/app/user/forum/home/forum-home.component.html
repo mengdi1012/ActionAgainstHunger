@@ -1,9 +1,10 @@
+<!-- <link rel="stylesheet" type="text/css" href="./forum-home.component.css"> -->
 <div class="container">
   <div class="row">
       <h4>Topics</h4>
       <div id="create_topic">
-          <a class="btn btn-large btn-info" routerLink="./topic/new">Create New Topic</a>
-        </div>
+          <a  id = "create" class="btn btn-large btn-info" routerLink="./topic/new">Create New Topic</a>
+      </div>
   </div> 
   <div class="card" *ngFor="let eachPost of posts">
     <div class="card-body">
