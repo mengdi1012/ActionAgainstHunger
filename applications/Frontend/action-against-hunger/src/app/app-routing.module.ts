@@ -11,7 +11,7 @@ import { ForumViewPostComponent } from './user/forum/view-post/forum-view-post.c
 import { ProfileActivityCommentsComponent } from './user/profile/profile-activity/profile-activity-comments/profile-activity-comments.component';
 import { ProfileActivityPostsComponent } from './user/profile/profile-activity/profile-activity-posts/profile-activity-posts.component';
 import { ProfileActivityAllUsersComponent } from './user/profile/profile-activity/profile-activity-all-users/profile-activity-all-users.component';
-import { ProfileActivityNewUserComponent } from './user/profile/profile-activity/profile-activity-new-user/profile-activity-new-user.component';
+import { ProfileActivityNewStudentComponent } from './user/profile/profile-activity/profile-activity-new-student/profile-activity-new-student.component';
 import {ProfileActivityUpdateComponent} from './user/profile/profile-activity/profile-updatePW/profile-activity-updatePW.component';
 import { AdminComponent } from './admin/admin.component';
 import { SignupComponent } from './signup/signup.component';
@@ -21,13 +21,14 @@ const appRoutes: Routes = [
   { path: '', component: LoginComponent},
   { path: 'admin', component: AdminComponent},
   { path: 'signup', component: SignupComponent},
+  { path: 'newstudent', component: ProfileActivityNewStudentComponent },
   { path: 'profile', component: ProfileComponent, 
   children: [
       { path: 'profile2', component: ProfileActivityPostsComponent },
       { path: 'topics', component: ProfileActivityPostsComponent },
       { path: 'comments', component: ProfileActivityCommentsComponent },
       { path: 'allUsers', component: ProfileActivityAllUsersComponent },
-      { path: 'newUser', component: ProfileActivityNewUserComponent },
+      { path: 'newstudent', component: ProfileActivityNewStudentComponent },
    ], // canActivate: [AuthGuardService],
   },
   // ]},
