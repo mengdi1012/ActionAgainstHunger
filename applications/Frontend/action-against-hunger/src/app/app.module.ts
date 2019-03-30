@@ -25,6 +25,7 @@ import {ActivityComponent} from './user/activity/activity.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminNavigationComponent } from './admin-navigation/admin-navigation.component';
 import { SignupComponent } from './signup/signup.component';
+import { ProfileActivityNotificationComponent } from './user/profile/profile-activity/profile-activity-notification/profile-activity-notification.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { SignupComponent } from './signup/signup.component';
     ActivityComponent,
     AdminComponent,
     AdminNavigationComponent,
-    SignupComponent
+    SignupComponent,
+    ProfileActivityNotificationComponent
   ],
   imports: [
     BrowserModule,
