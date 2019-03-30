@@ -26,7 +26,8 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminNavigationComponent } from './admin-navigation/admin-navigation.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProfileActivityNotificationComponent } from './user/profile/profile-activity/profile-activity-notification/profile-activity-notification.component';
-
+import { MatNativeDateModule } from '@angular/material';
+import {DemoMaterialModule} from './material-module';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,9 @@ import { ProfileActivityNotificationComponent } from './user/profile/profile-act
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatNativeDateModule,
+    DemoMaterialModule
   ],
   // providers: [AuthGuardService],
   providers: [],

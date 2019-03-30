@@ -13,6 +13,8 @@ import { ProfileActivityPostsComponent } from './user/profile/profile-activity/p
 import { ProfileActivityAllUsersComponent } from './user/profile/profile-activity/profile-activity-all-users/profile-activity-all-users.component';
 import { ProfileActivityNewUserComponent } from './user/profile/profile-activity/profile-activity-new-user/profile-activity-new-user.component';
 import {ProfileActivityUpdateComponent} from './user/profile/profile-activity/profile-updatePW/profile-activity-updatePW.component';
+import { ProfileActivityNotificationComponent } from './user/profile/profile-activity/profile-activity-notification/profile-activity-notification.component';
+
 import { AdminComponent } from './admin/admin.component';
 import { SignupComponent } from './signup/signup.component';
 
@@ -28,6 +30,7 @@ const appRoutes: Routes = [
       { path: 'comments', component: ProfileActivityCommentsComponent },
       { path: 'allUsers', component: ProfileActivityAllUsersComponent },
       { path: 'newUser', component: ProfileActivityNewUserComponent },
+      { path: 'notification', component: ProfileActivityNotificationComponent },
    ], // canActivate: [AuthGuardService],
   },
   // ]},
