@@ -15,11 +15,6 @@ function goGuestSignUp(req, res){
 	res.render('guest_signup');
 }
 
-function goCreatestudent(req, res){
-	console.log("go to create student page");
-	res.render('add_student');
-}
-
 function goProfile(req, res){
 	console.log('go profile usertype: ', req.session.usertype == 'teacher');
 	if(req.session.usertype == 'student'){
@@ -155,7 +150,7 @@ function createstudent(req, res) {
 		// link to database 
 		var usernames = [];
 		for (let i = 0; i < studentlist.length; i++) {
-			nickname = studentlist[i]
+			nickname = studentlist[i].nickname
 			username = school + '_student_' + i
 			usernames.push(username)
 			firebase.firestore().collection('users').doc(username).set({
@@ -170,6 +165,7 @@ function createstudent(req, res) {
 			.catch(function(error) {
 					console.error("Error writing document: ", error);
 			});
+
 			firebase.firestore().collection(school).doc(username).set({
 				nickname: nickname
 			})
@@ -204,7 +200,6 @@ app.get('/api/guest_signup', goGuestSignUp);
 app.post('/api/signup', signUp);
 app.post('/api/signin', signIn);
 app.get('/api/logout', logout);
-app.get('/api/createstudent', goCreatestudent);
 app.post('/api/createstudent', createstudent);
 
 }
