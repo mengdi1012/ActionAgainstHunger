@@ -9,10 +9,8 @@ Plan
 
 ## Iteration 03
 
- * Start date: FILL IN THE DATE WHEN YOU HAD YOUR FIRST TEAM PLANNING MEETING
-March 10
- * End date: FILL IN THE DATE WHEN YOU ARE PLANNING TO HAVE YOUR REVIEW MEETING
-March 31
+ * Start date: March 10
+ * End date: March 31
 
 ## Process
 
