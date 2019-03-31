@@ -33,20 +33,20 @@ export class ProfileActivityNewStudentComponent {
   }
 
   createNewStudent() {
-      if(this.password1 != this.password2){
-            alert("Passwords do not match!");
-      }else{
+      if (this.password1 !== this.password2) {
+            alert('Passwords do not match!');
+      } else {
             console.log(this.newStudents, this.password1);
             this.authService.createStudents(this.newStudents, this.password1)
             .subscribe((res: string) => {
-            console.log("get authenticate result:", res)
-            if(res["result"] == "success"){
-              window.alert("success");
+            console.log("get authenticate result:", res);
+            if (res["result"] === "success"){
+              window.alert('success');
               window.location.reload();
-            }else{
-              window.alert("something wrong, please try again");
+            } else {
+              window.alert('something wrong, please try again');
             }
-        }
-      });
+        }); }
   }
 }
+

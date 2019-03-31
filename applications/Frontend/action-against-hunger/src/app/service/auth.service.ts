@@ -27,7 +27,7 @@ export class AuthService {
             password: password,
             username: username,
             school: school,
-            profession: profession 
+            profession: profession
         };
         return this.http.post<Array<JSON>>(environment.APIEndpoint + "/api/signup", credential, httpOptions);
     }
