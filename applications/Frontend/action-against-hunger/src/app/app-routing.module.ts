@@ -26,7 +26,7 @@ const appRoutes: Routes = [
   { path: 'homepage', component: HomeComponent},
   { path: 'public', component: ForumHomeComponent},
   { path: 'private', component: PrivateComponent},
-  { path: 'createpost', component: ForumCreatePostComponent}，
+  { path: 'createpost', component: ForumCreatePostComponent },
   { path: 'profile', component: ProfileComponent, 
   children: [
       { path: 'profile2', component: ProfileActivityPostsComponent },
