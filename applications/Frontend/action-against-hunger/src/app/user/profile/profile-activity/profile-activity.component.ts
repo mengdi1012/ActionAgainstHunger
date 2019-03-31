@@ -37,16 +37,4 @@ export class ProfileActivityComponent implements OnInit {
       
       });
   }
-  goReset() {
-    console.log("go to reset")
-    const url = '/update_pw';
-    console.log(url)
-    this.router.navigate([url]).then((e) => {
-      if (e) {
-        console.log('Navigation is successful!');
-      } else {
-        console.log('Navigation has failed!');
-      }
-    });
-  }
 }

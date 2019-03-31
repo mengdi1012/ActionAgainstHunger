@@ -1,4 +1,4 @@
-<!-- <link rel="stylesheet" type="text/css" href="./navigation-bar.component.css"> -->
+﻿<!-- <link rel="stylesheet" type="text/css" href="./navigation-bar.component.css"> -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,14 +6,15 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" />
   </head>
   <body ng-app>
-    <nav id = "nav" class="{{active}}" ng-click="$event.preventDefault()">
-       <a href="/homepage/public" class="home" >public </a>
-      <a href="/homepage/private" class="home">private </a>
-      <a href="#" class="home" >activity</a>
-      <a href="/profile" class="home" >Profile</a>
-       <a href="/homepage/createpost" class="home" >New Post</a>
-       <a href="/" class="home" >log out</a>
-    </nav>
+      <nav id="nav" class="{{active}}" ng-click="$event.preventDefault()">
+          <a routerLink="/homepage/public" class="home">public </a>
+          <a routerLink="/homepage/private" class="home">private </a>
+          <a routerLink="#" class="home">activity</a>
+          <a routerLink="/homepage/createpost" class="home">New Post</a>
+          <a routerLink="/homepage/postdetail" style="visibility: hidden">ViewPost</a>
+          <a routerLink="/" class="home right">log out</a>
+          <a routerLink="/homepage/profile" class="home right">Profile</a>
+      </nav>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 </html>

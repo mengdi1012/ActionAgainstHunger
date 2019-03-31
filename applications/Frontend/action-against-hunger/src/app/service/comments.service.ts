@@ -18,11 +18,11 @@ export class CommentsService {
 
 
 
-    createComment(postId: string, content: string) {
+    createComment(postId: string, content: string): Observable<any> {
         const httpOptions = {
             headers: new HttpHeaders({ 'Content-Type': 'application/json' }), withCredentials: true
           };
         const credential = {postId: postId, content: content};
-        return this.http.post<Array<JSON>>(environment.APIEndpoint + "/api/comment" + postId, credential, httpOptions);
+        return this.http.post<Array<JSON>>(environment.APIEndpoint + "/api/comment/" + postId, credential, httpOptions);
     }
 }

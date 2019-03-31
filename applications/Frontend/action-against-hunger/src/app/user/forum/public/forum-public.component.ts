@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './forum-public.component.html',
   styleUrls: ['./forum-public.component.css']
 })
-export class ForumPublicComponent implements OnInit, OnDestroy{
+export class ForumPublicComponent{
   posts: Post[] = [];
   private postsSub: Subscription;
   private classroomId: string;
@@ -17,18 +17,25 @@ export class ForumPublicComponent implements OnInit, OnDestroy{
   constructor(public postService: PostsService, private activatedRoute: ActivatedRoute, private router: Router){}
 
   ngOnInit(){
-  this.getPost();
-
+    this.getPost();
   }
 
   getPost(): void {
-    console.log("try to post list");
+    console.log("try to load post list");
     this.postService.getPublicPosts()
       .subscribe(posts => this.posts = posts)
   };
 
-
-  ngOnDestroy() {
-    this.postsSub.unsubscribe();
-  }
+    goPostDetail(postId: string) {
+        console.log("go to post detail");
+        const url = '/postdetail/' + postId;
+        console.log(url)
+        this.router.navigate([url]).then((e) => {
+            if (e) {
+                console.log('Navigation is successful!');
+            } else {
+                console.log('Navigation has failed!');
+            }
+        });
+    }
 }

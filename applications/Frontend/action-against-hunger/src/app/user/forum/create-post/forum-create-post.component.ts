@@ -18,13 +18,24 @@ export class ForumCreatePostComponent {
     });
   }
 
-  createPost(){
-    const title = this.titleRef.nativeElement.value;
-    const content = this.contentRef.nativeElement.value;
-    const type = this.typeRef.nativeElement.value;
-    this.postService.createPost(title, content, content)
-    .subscribe((res: JSON[]) => {
-    console.log(res);
-        });
+  createPost(form): void {
+      console.log("try create new post", form.value);
+      var title = form.value['title'];
+      var content = form.value['content'];
+      var type = form.value['type'];
+      console.log(title);
+    this.postService.createPost(title, content, type)
+    .subscribe(
+      (res: JSON[]) => {
+        console.log("new post creation result:", res)
+          window.alert("success");
+          this.router.navigate(["/homepage/public"]).then( (e) => {
+            if (e) {
+              console.log("Navigation to login is successful!");
+            } else {
+              console.log("Navigation to login has failed!");
+            }
+          });
+      });
   }
 }

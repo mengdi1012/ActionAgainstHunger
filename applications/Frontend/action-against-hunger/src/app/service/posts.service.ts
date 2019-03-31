@@ -20,7 +20,7 @@ export class PostsService {
     }
 
     getPostsBySchool(school: string): Observable<Post[]>{
-        const url = environment.APIEndpoint + "/api/post/school" + school;
+        const url = environment.APIEndpoint + "/api/post/school/" + school;
         return this.http.get<Post[]>(url, {withCredentials: true});
     }
 
@@ -34,11 +34,12 @@ export class PostsService {
         return this.http.get<Post>(url, {withCredentials: true});
     }
     
-    createPost(title: string, content: string, type: string) {
+    createPost(title: string, content: string, type: string): Observable<any> {
         const httpOptions = {
             headers: new HttpHeaders({ 'Content-Type': 'application/json' }), withCredentials: true
           };
         const credential = {title: title, content: content, type:type};
         return this.http.post<Array<JSON>>(environment.APIEndpoint + "/api/post", credential, httpOptions);
     }
+    
 }

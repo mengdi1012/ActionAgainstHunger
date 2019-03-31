@@ -15,33 +15,21 @@
 
       <a class="col-1-2" *ngIf="isTeacher">
       <div class="module act" >
-        <a routerLink="/profile/newstudent" class="btn btn-info">New Students</a>
+        <a routerLink="/homepage/profile/newstudent" class="btn btn-info">New Students</a>
       </div>
       </a>
 
       <a class="col-1-2">
         <div class="module act">
-          <a  class="btn btn-info" routerLink="/profile/update_pw">Reset Password</a>
+          <a  class="btn btn-info" routerLink="/homepage/profile/update_pw">Reset Password</a>
         </div>
       </a>
 
       <a class="col-1-2">
         <div class="module act">
-          <button class="btn btn-info" mat-raised-button matBadge="0" routerLink="/notification">My Messages</button>
+          <button class="btn btn-info" mat-raised-button matBadge="0" routerLink="/homepage/profile/notification">My Messages</button>
         </div>
       </a>
-
-    <a class="col-1-2">
-        <div class="module act">
-            <button class="btn btn-info" routerLink="/homepage">Home Page</button>
-        </div>
-    </a>
-
-    <a class="col-1-2">
-        <div class="module act">
-            <button class="btn btn-info" routerLink="/">Log out</button>
-        </div>
-    </a>
 
       <router-outlet></router-outlet>
 </div>
