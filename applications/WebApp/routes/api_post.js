@@ -31,6 +31,7 @@ module.exports = function (app, firebase) {
         }else{
             res.status(500).send("Please Login!");
         }
+    }
 
     function getPublicPosts(req, res){        
        console.log("ready to get all posts");
@@ -78,53 +79,65 @@ module.exports = function (app, firebase) {
     
 
     function getPostsByUser(req, res){
-        var user = req.params.user;
-        var userConst = 'author';
-        console.log("Retrieving posts with following attribute: " + userConst + " = " + user);
-        
-        firebase.firestore().collection("posts").where(userConst, '==', user).get()
-        .then(posts => {
-            if (posts.empty) {
-                console.log('No Posts');
-                res.send();
-            } else {
-                var allPosts = [];
-                posts.forEach(eachPost => {
-                    console.log(eachPost.id, '=>', eachPost.data()); 
-                    allPosts.push(eachPost.data());
-                });
-                res.send(allPosts);
-            }  
-        }) 
-	    .catch(function(error) {
-            console.log("Error Getting Post:", error);
-            res.status(500).send("Error Getting Post");
-	   });
-    }
+        // if(req.session.username){
+            var user = req.params.user;
+            var userConst = 'author';
+            console.log("Retrieving posts with following attribute: " + userConst + " = " + user);
+            
+            firebase.firestore().collection("posts").where(userConst, '==', user).get()
+            .then(posts => {
+                if (posts.empty) {
+                    console.log('No Posts');
+                    res.send();
+                } else {
+                    var allPosts = [];
+                    posts.forEach(eachPost => {
+                        var post = eachPost.data()
+                        post['postId'] = eachPost.id;
+                        console.log(eachPost.id, '=>', eachPost.data()); 
+                        allPosts.push(post);
+                    });
+                    res.send(allPosts);
+                }  
+            }) 
+            .catch(function(error) {
+                console.log("Error Getting Post:", error);
+                res.status(500).send("Error Getting Post");
+        });
+        // }else{
+        //     res.status(500).send("Please Login!");
+        }
     
     function getPostsBySchool(req, res){
-        var school = req.params.school;
-        var schoolConst = 'school';
-        console.log("Retrieving posts with following attribute: " + schoolConst + " = " + classroomId);
-        
-        firebase.firestore().collection("posts").where(schoolConst, '==', school).get()
-        .then(posts => {
-            if (posts.empty) {
-                console.log('No Posts');
-                res.send();
-            } else {
-                var allPosts = [];
-                posts.forEach(eachPost => {
-                    console.log(eachPost.id, '=>', eachPost.data()); 
-                    allPosts.push(eachPost.data());
-                });
-                res.send(allPosts);
-            }  
-        }) 
-	    .catch(function(error) {
-            console.log("Error Getting Post:", error);
-            res.status(500).send("Error Getting Post");
-	   });
+        if(req.session.username){
+            var school = req.params.school;
+            var schoolConst = 'school';
+            console.log("Retrieving posts with following attribute: " + schoolConst + " = " + classroomId);
+            
+            firebase.firestore().collection("posts").where(schoolConst, '==', school).get()
+            .then(posts => {
+                if (posts.empty) {
+                    console.log('No Posts');
+                    res.send();
+                } else {
+                    var allPosts = [];
+                    posts.forEach(eachPost => {
+                        var post = eachPost.data()
+                        post['postId'] = eachPost.id;
+                        console.log(eachPost.id, '=>', eachPost.data()); 
+                        allPosts.push(post);
+                    });
+                    res.send(allPosts);
+                }  
+            }) 
+            .catch(function(error) {
+                console.log("Error Getting Post:", error);
+                res.status(500).send("Error Getting Post");
+        });
+        }
+        else{
+            res.status(500).send("Please Login!");
+        }
     }
     
     function getCommentsByPost(req, res){
@@ -175,9 +188,9 @@ module.exports = function (app, firebase) {
     app.get('/api/post/', getPublicPosts);
     app.get('/api/post/:postId', getPostById);
 
-    app.get('/api/post/user/:userId/', getPostsByUser);
-    app.get('/api/post/school/:school/', getPostsBySchool);
+    app.get('/api/post/user/:user', getPostsByUser);
+    app.get('/api/post/school/:school', getPostsBySchool);
 
     app.post('/api/comment/:postId', createComment);
-    app.get('/api/comment/post/:postId/', getCommentsByPost);
+    app.get('/api/comment/post/:postId', getCommentsByPost);
 }
