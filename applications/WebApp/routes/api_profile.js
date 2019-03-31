@@ -35,26 +35,36 @@ function changePW(req, res) {
 }
 
 
+
+
+
 function getStudentInfo(req, res){
-    school = req.session.school;
-    firebase.firestore().collection(school).get().then(function(querySnapshot) {
-        var students = [];
-        querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
-            var student = []
-            console.log(doc.id, " => ", doc.data().nickname);
-            student.push(doc.data().nickname);
-            student.push(doc.id);
-            console.log(student);
-            students.push(student);
+    console.log("ready to get student info");
+    var students = [];
+    if(req.session.usertype == "teacher"){
+        school = req.session.school;
+        firebase.firestore().collection(school).get().then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                // doc.data() is never undefined for query doc snapshots
+                var student = {}
+                console.log(doc.id, " => ", doc.data().nickname);
+                student['nickname'] = doc.data().nickname;
+                student['username'] = doc.id;
+                console.log(student);
+                students.push(student);
+            });
+            console.log("found students", students);
+            res.send(students);	
         });
-        console.log("found students", students);
-        res.send({"students": students});	
-    });
+    }else{
+        res.send(students);
+    }
 }
 
 app.post('/api/update_pw', changePW);
-app.get('/get_student_info', getStudentInfo);
+
+app.get('/api/get_students', getStudentInfo);
+
 
 
 };

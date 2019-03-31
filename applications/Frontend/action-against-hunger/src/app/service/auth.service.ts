@@ -32,6 +32,14 @@ export class AuthService {
         return this.http.post<Array<JSON>>(environment.APIEndpoint + "/api/signup", credential, httpOptions);
     }
 
+    createStudents(newstudents: Array<any>, password: string): Observable<any> {
+        const httpOptions = {
+            headers: new HttpHeaders({ 'Content-Type': 'application/json' }), withCredentials: true
+          };
+        const credential = {studentlist: newstudents , password: password};
+        return this.http.post<Array<JSON>>(environment.APIEndpoint + "/api/createstudent", credential, httpOptions);
+    }
+
     resetPW(password1: string, password2: string): Observable<any> {
         const httpOptions = {
             headers: new HttpHeaders({ 'Content-Type': 'application/json' }), withCredentials: true
