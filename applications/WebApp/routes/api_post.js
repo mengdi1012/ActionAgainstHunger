@@ -6,6 +6,7 @@ module.exports = function (app, firebase) {
         var content = req.body.content;
         var type = req.body.type;
         var title = req.body.title;
+        console.log("creating pose", req.body);
         
         firebase.firestore().collection('posts').add({
             author: author,
@@ -28,7 +29,7 @@ module.exports = function (app, firebase) {
     function getPublicPosts(req, res){        
        console.log("ready to get all posts");
        var posts = [];
-       if(req.session.usertype == "teacher"){
+       if(req.session.username){
            firebase.firestore().collection("posts").get().then(function(querySnapshot) {
                querySnapshot.forEach(function(doc) {
                    // doc.data() is never undefined for query doc snapshots
@@ -51,16 +52,22 @@ module.exports = function (app, firebase) {
     
     function getPostById(req, res){
         var postId = req.params.postId;
-        
-        firebase.firestore().collection("posts").doc(postId).get()
-        .then(posts => {
-            console.log(posts.data());
-            res.send(posts.data());
-        }) 
-	    .catch(function(error) {
-            console.log("Error Getting Post:", error);
-            res.status(500).send("Error Getting Post");
-	   });
+        if(req.session.username){
+            firebase.firestore().collection("posts").doc(postId).get()
+            .then(doc => {
+                console.log(doc.data());
+                var post = doc.data()
+                post['postId'] = doc.id;
+                console.log(post);
+                res.send(post);
+            }) 
+            .catch(function(error) {
+                console.log("not post found:", error);
+                res.status(500).send("No post found");
+        });
+        }else{
+            res.status(500).send("Permission denied");
+        }
     }
     
 
@@ -157,7 +164,6 @@ module.exports = function (app, firebase) {
             res.status(500).send("Error Adding Comment");
         });
     }
-
 
     app.post('/api/post', createPost);
     app.get('/api/post/', getPublicPosts);

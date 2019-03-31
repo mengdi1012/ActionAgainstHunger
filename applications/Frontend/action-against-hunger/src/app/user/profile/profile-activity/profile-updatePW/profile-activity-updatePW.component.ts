@@ -33,16 +33,5 @@ export class ProfileActivityUpdateComponent implements OnInit {
           }
         });
   }
-
-  resetPW() {
-    const url = 'profile';
-    this.router.navigate([url]).then((e) => {
-      if (e) {
-        console.log('Navigation is successful!');
-      } else {
-        console.log('Navigation has failed!');
-      }
-    });
-  }
 }
 
