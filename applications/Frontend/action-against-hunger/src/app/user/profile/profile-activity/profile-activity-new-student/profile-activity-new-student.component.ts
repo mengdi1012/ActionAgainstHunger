@@ -10,7 +10,8 @@ import { AuthService } from '../../../../service/auth.service';
   styleUrls: ['./profile-activity-new-student.component.css']
 })
 export class ProfileActivityNewStudentComponent {
-  private password="";
+  private password1="";
+  private password2="";
   private newStudents: Array<any> = [];
   private newAttribute: any = {};
 
@@ -32,15 +33,19 @@ export class ProfileActivityNewStudentComponent {
   }
 
   createNewStudent() {
-      console.log(this.newStudents, this.password);
-      this.authService.createStudents(this.newStudents, this.password)
-      .subscribe((res: string) => {
-        console.log("get authenticate result:", res)
-        if(res["result"] == "success"){
-          window.alert("success");
-          window.location.reload();
-        }else{
-          window.alert("something wrong, please try again");
+      if(this.password1 != this.password2){
+            alert("Passwords do not match!");
+      }else{
+            console.log(this.newStudents, this.password1);
+            this.authService.createStudents(this.newStudents, this.password1)
+            .subscribe((res: string) => {
+            console.log("get authenticate result:", res)
+            if(res["result"] == "success"){
+              window.alert("success");
+              window.location.reload();
+            }else{
+              window.alert("something wrong, please try again");
+            }
         }
       });
   }
