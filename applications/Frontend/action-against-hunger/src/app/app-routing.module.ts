@@ -33,9 +33,8 @@ const appRoutes: Routes = [
       { path: 'topics', component: ProfileActivityPostsComponent },
       { path: 'comments', component: ProfileActivityCommentsComponent },
       { path: 'allUsers', component: ProfileActivityAllUsersComponent },
-
-      { path: 'newUser', component: ProfileActivityNewUserComponent },
-
+      { path: 'notification', component: ProfileActivityNotificationComponent },
+      
    ],
   },{ path: 'profile/update_pw', component: ProfileActivityUpdateComponent},
 
