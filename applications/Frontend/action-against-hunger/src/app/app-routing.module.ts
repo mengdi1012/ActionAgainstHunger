@@ -23,7 +23,6 @@ const appRoutes: Routes = [
   { path: '', component: LoginComponent},
   { path: 'admin', component: AdminComponent},
   { path: 'signup', component: SignupComponent},
-  { path: 'newstudent', component: ProfileActivityNewStudentComponent },
   { path: 'homepage', component: HomeComponent},
   { path: 'public', component: ForumHomeComponent},
   { path: 'private', component: PrivateComponent},
@@ -35,9 +34,8 @@ const appRoutes: Routes = [
       { path: 'comments', component: ProfileActivityCommentsComponent },
       { path: 'allUsers', component: ProfileActivityAllUsersComponent },
       { path: 'newstudent', component: ProfileActivityNewStudentComponent },
-   ], // canActivate: [AuthGuardService],
+   ],
   },
-  // ]},
     { path: 'update_pw', component: ProfileActivityUpdateComponent},
  { path: 'class', component: ForumComponent,
      children: [
@@ -45,9 +43,6 @@ const appRoutes: Routes = [
          { path: ':classId', component: ForumHomeComponent },
          { path: ':classId/topic/new', component: ForumCreatePostComponent },
          { path: ':classId/topic/:topicId', component: ForumViewPostComponent }
-
-     // canActivate: [AuthGuardService], }
-     // };
 ]}];
 
 @NgModule({
