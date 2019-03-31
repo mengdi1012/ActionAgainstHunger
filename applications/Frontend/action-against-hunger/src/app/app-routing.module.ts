@@ -5,13 +5,15 @@ import { ActivatedRoute } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { ForumComponent } from './user/forum/forum.component';
-import { ForumHomeComponent } from './user/forum/home/forum-home.component';
+import { ForumHomeComponent } from './user/forum/public/forum-home.component';
+import { HomeComponent } from './user/forum/homepage/home.component';
+import { PrivateComponent } from './user/forum/private/private.component';
 import { ForumCreatePostComponent } from './user/forum/create-post/forum-create-post.component';
 import { ForumViewPostComponent } from './user/forum/view-post/forum-view-post.component';
 import { ProfileActivityCommentsComponent } from './user/profile/profile-activity/profile-activity-comments/profile-activity-comments.component';
 import { ProfileActivityPostsComponent } from './user/profile/profile-activity/profile-activity-posts/profile-activity-posts.component';
 import { ProfileActivityAllUsersComponent } from './user/profile/profile-activity/profile-activity-all-users/profile-activity-all-users.component';
-import { ProfileActivityNewUserComponent } from './user/profile/profile-activity/profile-activity-new-user/profile-activity-new-user.component';
+import { ProfileActivityNewStudentComponent } from './user/profile/profile-activity/profile-activity-new-student/profile-activity-new-student.component';
 import {ProfileActivityUpdateComponent} from './user/profile/profile-activity/profile-updatePW/profile-activity-updatePW.component';
 import { AdminComponent } from './admin/admin.component';
 import { SignupComponent } from './signup/signup.component';
@@ -21,26 +23,28 @@ const appRoutes: Routes = [
   { path: '', component: LoginComponent},
   { path: 'admin', component: AdminComponent},
   { path: 'signup', component: SignupComponent},
+  { path: 'homepage', component: HomeComponent},
+  { path: 'public', component: ForumHomeComponent},
+  { path: 'private', component: PrivateComponent},
+  { path: 'createpost', component: ForumCreatePostComponent },
   { path: 'profile', component: ProfileComponent, 
   children: [
       { path: 'profile2', component: ProfileActivityPostsComponent },
       { path: 'topics', component: ProfileActivityPostsComponent },
       { path: 'comments', component: ProfileActivityCommentsComponent },
       { path: 'allUsers', component: ProfileActivityAllUsersComponent },
+
       { path: 'newUser', component: ProfileActivityNewUserComponent },
 
-   ], // canActivate: [AuthGuardService],
+   ],
   },{ path: 'profile/update_pw', component: ProfileActivityUpdateComponent},
-  // ]},
+
  { path: 'class', component: ForumComponent,
      children: [
          { path: '', component: ForumHomeComponent },
          { path: ':classId', component: ForumHomeComponent },
          { path: ':classId/topic/new', component: ForumCreatePostComponent },
          { path: ':classId/topic/:topicId', component: ForumViewPostComponent }
-
-     // canActivate: [AuthGuardService], }
-     // };
 ]}];
 
 @NgModule({

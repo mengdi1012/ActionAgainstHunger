@@ -18,9 +18,13 @@
       <thead>
       <tr>
 
-        <th scope="col">Student Name</th>
-        <th scope="col">User name</th>
+        <th scope="col">Nickname</th>
+        <th scope="col">Username</th>
 
+      </tr>
+      <tr *ngFor="let student of students">
+        <th>{{student.nickname}}</th>
+        <th>{{student.username}}</th>
       </tr>
       </thead>
 

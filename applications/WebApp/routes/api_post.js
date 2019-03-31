@@ -1,18 +1,19 @@
 module.exports = function (app, firebase) {
 
     function createPost(req, res){
-        var authorId = req.body.author;
-        var classroomId = req.body.classroom;
-        var contents = req.body.contents;
+        var author = req.session.username;
+        var school = req.session.school;
+        var content = req.body.content;
         var type = req.body.type;
         var title = req.body.title;
         
         firebase.firestore().collection('posts').add({
-            author: authorId,
-            classroom: classroomId,
-            content: contents,
+            author: author,
+            school: school,
+            content: content,
             type: type,
-            title: title
+            title: title,
+            dateCreated: firebase.database.ServerValue.TIMESTAMP,
         })
         .then(doc => {
             console.log("Successfully Added New Post: " + doc.id);
@@ -23,8 +24,32 @@ module.exports = function (app, firebase) {
             res.status(500).send("Error Adding Post");
         });
     }
+
+    function getPublicPosts(req, res){        
+       console.log("ready to get all posts");
+       var posts = [];
+       if(req.session.usertype == "teacher"){
+           firebase.firestore().collection("posts").get().then(function(querySnapshot) {
+               querySnapshot.forEach(function(doc) {
+                   // doc.data() is never undefined for query doc snapshots
+                   console.log(doc.id, " => ", doc.data());
+                   var post = doc.data()
+                   if(post.type == "global"){
+                    post['postId'] = doc.id;
+                    post['content'] = ''
+                    console.log(post);
+                    posts.push(post);
+                   }
+               });
+               console.log("found posts", posts);
+               res.send(posts);	
+           });
+       }else{
+           res.send(posts);
+       }
+    }
     
-    function getPost(req, res){
+    function getPostById(req, res){
         var postId = req.params.postId;
         
         firebase.firestore().collection("posts").doc(postId).get()
@@ -39,12 +64,12 @@ module.exports = function (app, firebase) {
     }
     
 
-    function getPostsFromUser(req, res){
-        var userId = req.params.userId;
-        var userConst = 'user';
-        console.log("Retrieving posts with following attribute: " + userConst + " = " + userId);
+    function getPostsByUser(req, res){
+        var user = req.params.user;
+        var userConst = 'author';
+        console.log("Retrieving posts with following attribute: " + userConst + " = " + user);
         
-        firebase.firestore().collection("posts").where(userConst, '==', userId).get()
+        firebase.firestore().collection("posts").where(userConst, '==', user).get()
         .then(posts => {
             if (posts.empty) {
                 console.log('No Posts');
@@ -64,12 +89,12 @@ module.exports = function (app, firebase) {
 	   });
     }
     
-    function getPostsFromClassroom(req, res){
-        var classroomId = req.params.classroomId;
-        var classroomConst = 'classroom';
-        console.log("Retrieving posts with following attribute: " + classroomConst + " = " + classroomId);
+    function getPostsBySchool(req, res){
+        var school = req.params.school;
+        var schoolConst = 'school';
+        console.log("Retrieving posts with following attribute: " + schoolConst + " = " + classroomId);
         
-        firebase.firestore().collection("posts").where(classroomConst, '==', classroomId).get()
+        firebase.firestore().collection("posts").where(schoolConst, '==', school).get()
         .then(posts => {
             if (posts.empty) {
                 console.log('No Posts');
@@ -89,7 +114,7 @@ module.exports = function (app, firebase) {
 	   });
     }
     
-    function getComments(req, res){
+    function getCommentsByPost(req, res){
         var postId = req.params.postId;
         
         firebase.firestore().collection("comments").where('post', '==', postId).get()
@@ -111,43 +136,17 @@ module.exports = function (app, firebase) {
             res.status(500).send("Error Getting Comments");
 	   });
     }
-    
-    function Jumptopost(req, res){
-        if(req.session.username){
-            console.log("go to update password page");
-            res.render('Post_sample');
-        }else{
-            return res.sendStatus(404)
-        }
-    }
-    function JumptoGlobal(req, res){
-        if(req.session.username){
-            console.log("go to update password page");
-            res.render('Global_post');
-        }else{
-            return res.sendStatus(404)
-        }
-    }
 
-
-
-    function makeprofessionalpost(req, res){
-        /// here should have someway to jump to a certain post page.
-        console.log("go to update password page");
-        res.render('Professional_post');
-    }
-    
     function createComment(req, res){
+        var author = req.session.username;
         var postId = req.params.postId;
-        var authorId = req.body.author;
-        var dateId = req.body.date;
-        var contents = req.body.contents;
+        var content = req.body.content;
         
         firebase.firestore().collection('comments').add({
-            author: authorId,
-            date: dateId,
-            content: contents,
-            post: postId
+            author: author,
+            content: content,
+            postId: postId,
+            dateCreated: firebase.database.ServerValue.TIMESTAMP 
         })
         .then(doc => {
             console.log("Successfully Added New Comment: " + doc.id);
@@ -159,14 +158,14 @@ module.exports = function (app, firebase) {
         });
     }
 
-    app.get('/api/user/:userId/posts', getPostsFromUser);
-    app.get('/api/classroom/:classroomId/posts', getPostsFromClassroom);
-    app.get('/postPage', Jumptopost);
-    app.get('/professionalpost', makeprofessionalpost);
-    app.get('/global_post', JumptoGlobal);
 
-    app.get('/post/:postId', getPost);
-    app.post('/post', createPost);
-    app.get('/post/:postId/comments', getComments);
-    app.post('/post/:postId', createComment);
+    app.post('/api/post', createPost);
+    app.get('/api/post/', getPublicPosts);
+    app.get('/api/post/:postId', getPostById);
+
+    app.get('/api/post/user/:userId/', getPostsByUser);
+    app.get('/api/post/school/:school/', getPostsBySchool);
+
+    app.post('/api/comment/:postId', createComment);
+    app.get('/api/comment/post/:postId/', getCommentsByPost);
 }

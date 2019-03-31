@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient} from "@angular/common/http";
 import { User } from "../model/user.model";
+import { Student } from "../model/student.model"
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
@@ -14,5 +15,10 @@ export class UsersService {
     getUserInfo(): Observable<any> {
         const url = environment.APIEndpoint + "/api/user";
         return this.http.get<User>(url, {withCredentials: true});
+    }
+
+    getStudents(): Observable<Student[]> {
+        const url = environment.APIEndpoint + "/api/get_students";
+        return this.http.get<Student[]>(url, {withCredentials: true});
     }
 }

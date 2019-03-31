@@ -1,6 +1,22 @@
-<div class="signin">
-    <h1> Action Against Hunder</h1>
-    <input [(ngModel)]="username" placeholder="username" required/>
-    <input [(ngModel)]="password" placeholder="password" required/>
-    <input id="signin" type="submit" value="SignIn" (click)="login()"/>
-</div>
+<div class="container">
+        <div class="logo">Action Against Hunger</div>
+        <div class="login-item">
+          <form #myform="ngForm" (ngSubmit)="login(myform)" class="form form-login">
+    
+            <div class="form-field">
+                  <label class="user" for="login-username"><span class="hidden">Username</span></label>
+                  <input name="username" id="login-username" type="text" class="form-input" placeholder="Username" ngModel required>
+            </div>
+            <div class="form-field">
+              <label class="user" for="login-password"><span class="hidden">Password</span></label>
+              <input name="password" id="login-password" type="text" class="form-input" placeholder="Password" ngModel required>
+            </div>
+            <div *ngIf="missing_value">
+                <span class="error">Missing value!</span>
+            </div>
+            <div class="form-field">
+              <input type="submit" value="Login">
+            </div>
+          </form>
+        </div>
+    </div>

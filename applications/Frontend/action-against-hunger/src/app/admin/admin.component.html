@@ -1,15 +1,16 @@
 <app-admin-navigation></app-admin-navigation>
 
-<div *ngIf="user">
-  <h1> Teacher Invitation Page </h1>
+<div *ngIf="user" class="container">
+  <h1> Invitation Page </h1>
+  <div class="login-item">
   <form>
     <ul>
-      <li class="ss-item-required">
-              <span class="label"> Email : </span>
-              <input [(ngModel)]="email" class="text-input" type="email" id="email" placeholder="Email"  name="email" required="true"/><br>
+      <li>
+              <span class="label"> New user email : </span>
+              <input [(ngModel)]="email" class="text-input" type="email" id="email" placeholder="email"  name="email" required="true"/><br>
           </li>
 
-      <li class="ss-item-required">
+      <li>
           <p>Choise Account Type</p>
           <input type="radio" [ngModel]="{checked: usertype == 'teacher'}" (ngModelChange)="usertype='teacher'" name="teacher" value="teacher">Teacher
           <input type="radio" [ngModel]="{checked: usertype == 'guest'}" (ngModelChange)="usertype='guest'"  name="guest" value="guest">Guest
@@ -17,6 +18,6 @@
     </ul>
 
     <input id="invite-button" type="submit" value="Send invitation" (click)="sendInvitation()">
-
   </form>
+</div>
 </div>	
