@@ -21,11 +21,11 @@ export class PrivateComponent implements OnInit, OnDestroy{
     this.activatedRoute.params.subscribe( params => {
       console.log(params["classId"]);
       this.classroomId = params["classId"];
-      this.postService.getClassroomPosts(this.classroomId);
-      this.postsSub = this.postService.getPostUpdateListener()
-        .subscribe((posts: Post[]) => {
-          this.posts = posts;
-      });
+      // this.postService.getClassroomPosts(this.classroomId);
+      // this.postsSub = this.postService.getPostUpdateListener()
+      //   .subscribe((posts: Post[]) => {
+      //     this.posts = posts;
+      // });
     });
   }
 

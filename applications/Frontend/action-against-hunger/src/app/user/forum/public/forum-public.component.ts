@@ -5,11 +5,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-forum-home',
-  templateUrl: './forum-home.component.html',
-  styleUrls: ['./forum-home.component.css']
+  selector: 'app-forum-pubcli',
+  templateUrl: './forum-public.component.html',
+  styleUrls: ['./forum-public.component.css']
 })
-export class ForumHomeComponent implements OnInit, OnDestroy{
+export class ForumPublicComponent implements OnInit, OnDestroy{
   posts: Post[] = [];
   private postsSub: Subscription;
   private classroomId: string;
@@ -21,11 +21,11 @@ export class ForumHomeComponent implements OnInit, OnDestroy{
     this.activatedRoute.params.subscribe( params => {
       console.log(params["classId"]);
       this.classroomId = params["classId"];
-      this.postService.getClassroomPosts(this.classroomId);
-      this.postsSub = this.postService.getPostUpdateListener()
-        .subscribe((posts: Post[]) => {
-          this.posts = posts;
-      });
+      // this.postService.getClassroomPosts(this.classroomId);
+      // this.postsSub = this.postService.getPostUpdateListener()
+      //   .subscribe((posts: Post[]) => {
+      //     this.posts = posts;
+      // });
     });
   }
 

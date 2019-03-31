@@ -25,7 +25,7 @@ export class ForumViewPostComponent implements OnInit, OnDestroy{
   createComment(){
     const content = this.contentRef.nativeElement.value;
     var postTitle = this.post.title;
-    this.commentService.createComment(null, this.postId, "Admin", content, Date.now().toString(), postTitle);
+    // this.commentService.createComment(null, this.postId, "Admin", content, Date.now().toString(), postTitle);
     
   }
 
@@ -38,19 +38,19 @@ export class ForumViewPostComponent implements OnInit, OnDestroy{
 
   ngOnInit(){
     
-    this.postService.getPostById(this.postId);
-      this.postSub = this.postService.getPostUpdateListener()
-      .subscribe((posts: Post[]) => {
-        posts.forEach(eachPost=>{
-          this.post = eachPost;
-        });
-      });
-      this.commentService.getCommentsFromPost(this.postId);
-      this.commentsSub = this.commentService.getCommentUpdateListener()
-      .subscribe((comments: Comment[]) => {
-        console.log(comments);
-        this.comments = comments;
-      });
+    // this.postService.getPostById(this.postId);
+    //   this.postSub = this.postService.getPostUpdateListener()
+    //   .subscribe((posts: Post[]) => {
+    //     posts.forEach(eachPost=>{
+    //       this.post = eachPost;
+    //     });
+    //   });
+    //   this.commentService.getCommentsFromPost(this.postId);
+    //   this.commentsSub = this.commentService.getCommentUpdateListener()
+    //   .subscribe((comments: Comment[]) => {
+    //     console.log(comments);
+    //     this.comments = comments;
+    //   });
   }
 
   ngOnDestroy() {
