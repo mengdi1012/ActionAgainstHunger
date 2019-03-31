@@ -10,7 +10,7 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { ProfileActivityComponent } from './user/profile/profile-activity/profile-activity.component';
 import { ProfileOverviewComponent } from './user/profile/profile-overview/profile-overview.component';
 import { ForumComponent } from './user/forum/forum.component';
-import { ForumHomeComponent } from './user/forum/home/forum-home.component';
+import { ForumHomeComponent } from './user/forum/public/forum-home.component';
 import { ForumCreatePostComponent } from './user/forum/create-post/forum-create-post.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ForumViewPostComponent } from './user/forum/view-post/forum-view-post.component';
@@ -25,6 +25,8 @@ import {ActivityComponent} from './user/activity/activity.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminNavigationComponent } from './admin-navigation/admin-navigation.component';
 import { SignupComponent } from './signup/signup.component';
+import { HomeComponent } from './user/forum/homepage/home.component';
+import { PrivateComponent } from './user/forum/private/private.component';
 
 
 @NgModule({
@@ -39,6 +41,8 @@ import { SignupComponent } from './signup/signup.component';
     ProfileActivityNewStudentComponent,
     ProfileOverviewComponent,
     ProfileActivityUpdateComponent,
+    HomeComponent,
+    PrivateComponent,
     ForumComponent,
     ForumHomeComponent,
     ForumCreatePostComponent,

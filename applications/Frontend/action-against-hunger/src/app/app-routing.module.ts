@@ -5,7 +5,9 @@ import { ActivatedRoute } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { ForumComponent } from './user/forum/forum.component';
-import { ForumHomeComponent } from './user/forum/home/forum-home.component';
+import { ForumHomeComponent } from './user/forum/public/forum-home.component';
+import { HomeComponent } from './user/forum/homepage/home.component';
+import { PrivateComponent } from './user/forum/private/private.component';
 import { ForumCreatePostComponent } from './user/forum/create-post/forum-create-post.component';
 import { ForumViewPostComponent } from './user/forum/view-post/forum-view-post.component';
 import { ProfileActivityCommentsComponent } from './user/profile/profile-activity/profile-activity-comments/profile-activity-comments.component';
@@ -22,9 +24,11 @@ const appRoutes: Routes = [
   { path: 'admin', component: AdminComponent},
   { path: 'signup', component: SignupComponent},
   { path: 'newstudent', component: ProfileActivityNewStudentComponent },
-  { path: 'profile', component: ProfileComponent}, 
-  { path: 'createpost', component: ForumCreatePostComponent},
-  { path: 'globalpost', component: ForumHomeComponent, 
+  { path: 'homepage', component: HomeComponent},
+  { path: 'public', component: ForumHomeComponent},
+  { path: 'private', component: PrivateComponent},
+  { path: 'createpost', component: ForumCreatePostComponent}，
+  { path: 'profile', component: ProfileComponent, 
   children: [
       { path: 'profile2', component: ProfileActivityPostsComponent },
       { path: 'topics', component: ProfileActivityPostsComponent },
