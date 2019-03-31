@@ -12,11 +12,15 @@ import { ProfileActivityCommentsComponent } from './user/profile/profile-activit
 import { ProfileActivityPostsComponent } from './user/profile/profile-activity/profile-activity-posts/profile-activity-posts.component';
 import { ProfileActivityAllUsersComponent } from './user/profile/profile-activity/profile-activity-all-users/profile-activity-all-users.component';
 import { ProfileActivityNewUserComponent } from './user/profile/profile-activity/profile-activity-new-user/profile-activity-new-user.component';
-import {ProfileActivityUpdateComponent} from "./user/profile/profile-activity/profile-updatePW/profile-activity-updatePW.component";
-// import { AuthGuardService } from './service/auth-gaurd.service';
+import {ProfileActivityUpdateComponent} from './user/profile/profile-activity/profile-updatePW/profile-activity-updatePW.component';
+import { AdminComponent } from './admin/admin.component';
+import { SignupComponent } from './signup/signup.component';
+
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent},
+  { path: 'admin', component: AdminComponent},
+  { path: 'signup', component: SignupComponent},
   { path: 'profile', component: ProfileComponent, 
   children: [
       { path: 'profile2', component: ProfileActivityPostsComponent },
@@ -24,10 +28,10 @@ const appRoutes: Routes = [
       { path: 'comments', component: ProfileActivityCommentsComponent },
       { path: 'allUsers', component: ProfileActivityAllUsersComponent },
       { path: 'newUser', component: ProfileActivityNewUserComponent },
+
    ], // canActivate: [AuthGuardService],
-  },
+  },{ path: 'profile/update_pw', component: ProfileActivityUpdateComponent},
   // ]},
-    { path: 'update_pw', component: ProfileActivityUpdateComponent},
  { path: 'class', component: ForumComponent,
      children: [
          { path: '', component: ForumHomeComponent },
@@ -37,8 +41,7 @@ const appRoutes: Routes = [
 
      // canActivate: [AuthGuardService], }
      // };
-]},{path: 'resetPW', component: ProfileComponent}
-];
+]}];
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
