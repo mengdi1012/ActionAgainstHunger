@@ -27,7 +27,7 @@ export class ProfileActivityUpdateComponent implements OnInit {
         .subscribe((res: string) => {
           console.log('get authenticate result:', res)
           if (res['result'] === 'success') {
-            this.resetPW();
+            window.alert('success');
           } else {
             window.alert('change password fail');
           }

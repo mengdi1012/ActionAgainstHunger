@@ -1,30 +1,36 @@
 module.exports = function (app, firebase) {
 
     function createPost(req, res){
-        var author = req.session.username;
-        var school = req.session.school;
-        var content = req.body.content;
-        var type = req.body.type;
-        var title = req.body.title;
-        console.log("creating pose", req.body);
-        
-        firebase.firestore().collection('posts').add({
-            author: author,
-            school: school,
-            content: content,
-            type: type,
-            title: title,
-            dateCreated: firebase.database.ServerValue.TIMESTAMP,
-        })
-        .then(doc => {
-            console.log("Successfully Added New Post: " + doc.id);
-            res.send({"Post Id": doc.id});
-        })
-        .catch(function(error) {
-            console.error("Error Writing New Post ", error);
-            res.status(500).send("Error Adding Post");
-        });
-    }
+        if(req.session.username){
+            var author = req.session.username;
+            var school = 'default';
+            if (req.session.school){
+                school = req.session.school;
+            }
+            var content = req.body.content;
+            var type = req.body.type;
+            var title = req.body.title;
+            console.log("creating pose", req.body);
+            
+            firebase.firestore().collection('posts').add({
+                author: author,
+                school: school,
+                content: content,
+                type: type,
+                title: title,
+                dateCreated: firebase.database.ServerValue.TIMESTAMP,
+            })
+            .then(doc => {
+                console.log("Successfully Added New Post: " + doc.id);
+                res.send({"Post Id": doc.id});
+            })
+            .catch(function(error) {
+                console.error("Error Writing New Post ", error);
+                res.status(500).send("Error Adding Post");
+            });
+        }else{
+            res.status(500).send("Please Login!");
+        }
 
     function getPublicPosts(req, res){        
        console.log("ready to get all posts");
@@ -66,7 +72,7 @@ module.exports = function (app, firebase) {
                 res.status(500).send("No post found");
         });
         }else{
-            res.status(500).send("Permission denied");
+            res.status(500).send("Please Login!");
         }
     }
     
