@@ -8,9 +8,9 @@ REVIEW
 > _Suggestion:_ Have your review meeting a day or two before the due date. This way you will have some time to go over (and edit) this document, and all team members should have a chance to make their contribution.
 
 
-## Iteration XX - Review & Retrospect
+## Iteration 03 - Review & Retrospect
 
-* When: March 9th
+* When: March 29th
 * Where: Online skype meeting
 ## Process - Reflection
 
