@@ -10,7 +10,8 @@ import { Router } from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  missing_value = false
+  missing_username = false;
+  missing_password = false;
   constructor(private authService: AuthService, private router: Router){
     console.log("Creating Login Component");
   }
@@ -22,10 +23,15 @@ export class LoginComponent implements OnInit {
   console.log("try login", form.value);
   var username = form.value['username'];
   var password = form.value['password'];
-  if (!username || !password){
-      this.missing_value = true
+  if (!username){
+      this.missing_username = true;
   }else{
-    this.missing_value = false
+      this.missing_username = false;
+  }
+  if (!password){
+      this.missing_password = true;
+  }else{
+    this.missing_password = false;
     this.authService.login(username, password)
       .subscribe((res: string) => {
         console.log("get authenticate result:", res)
