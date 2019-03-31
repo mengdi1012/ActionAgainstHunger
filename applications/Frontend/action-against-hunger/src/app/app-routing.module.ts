@@ -26,7 +26,7 @@ const appRoutes: Routes = [
   { path: 'homepage', component: HomeComponent},
   { path: 'public', component: ForumHomeComponent},
   { path: 'private', component: PrivateComponent},
-
+  { path: 'createpost', component: ForumCreatePostComponent },
   { path: 'profile', component: ProfileComponent, 
   children: [
       { path: 'profile2', component: ProfileActivityPostsComponent },
@@ -36,9 +36,8 @@ const appRoutes: Routes = [
 
       { path: 'newUser', component: ProfileActivityNewUserComponent },
 
-   ], // canActivate: [AuthGuardService],
+   ],
   },{ path: 'profile/update_pw', component: ProfileActivityUpdateComponent},
-  // ]},
 
  { path: 'class', component: ForumComponent,
      children: [
