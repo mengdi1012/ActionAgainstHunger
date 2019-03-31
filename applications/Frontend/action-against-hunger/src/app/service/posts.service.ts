@@ -25,7 +25,7 @@ export class PostsService {
     }
 
     getPostsByUser(user: string): Observable<Post[]>{
-        const url = environment.APIEndpoint + "/api/post/user" + user;
+        const url = environment.APIEndpoint + "/api/post/user/" + user;
         return this.http.get<Post[]>(url, {withCredentials: true});
     }
 

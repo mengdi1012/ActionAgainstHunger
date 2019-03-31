@@ -2,7 +2,7 @@ h4 {
 	color: #369;
    font-family: Arial, Helvetica, sans-serif;
    font-size: 250%;
-   margin-left: 20%;
+   margin-left: 40%;
 }
 
 p{
@@ -13,6 +13,7 @@ p{
 	line-height: 48px; 
 	margin: 0;
 	margin-left: 20%;
+	float: left ;
 
 
 }
@@ -22,6 +23,10 @@ p{
 	border: 3px solid #555;
 	height: 100px;
 	width: 200px;
+}
+
+.card-body {
+	 border-style: outset;
 }
 
 .card {
@@ -37,5 +42,4 @@ background-color: #ECEAE0;
 }
 
 .row {
-	margin-left: 30%;
 }
