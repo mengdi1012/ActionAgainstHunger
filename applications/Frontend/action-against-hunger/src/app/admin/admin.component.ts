@@ -44,16 +44,19 @@ getUser(): void {
 }
 
   sendInvitation(): void {
-    console.log("email is:", this.email);
-    console.log("usertype is:", this.usertype);
-    this.emailService.sendInivationEmail(this.email, this.usertype)
-    .subscribe((res: string) => {
-      console.log("sending invitation email result:", res)
-      if(res["result"] == "success"){
-        window.alert("success");
-      }else{
-        window.alert("something wrong, please try again");
-      }
-    });
-  }
+    if(!this.email){
+      window.alert("missing email")
+    }else{
+      console.log("email is:", this.email);
+      this.emailService.sendInivationEmail(this.email, this.usertype)
+      .subscribe((res: string) => {
+        console.log("sending invitation email result:", res)
+        if(res["result"] == "success"){
+          window.alert("success");
+        }else{
+          window.alert("something wrong, please try again");
+        }
+      });
+    }
+}
 }

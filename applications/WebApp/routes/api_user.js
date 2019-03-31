@@ -2,10 +2,9 @@ module.exports = function (app, firebase) {
 
 // Set the username to empty by clearing the session
 function logout(req, res) {
-  console.log('logging out ' + req.session.username);
-  req.session.destroy(function(err) {
-	res.status(200).send({result:"success"})
-})
+  console.log('logging out session' + req);
+  req.session.destroy();  
+  res.status(200).send({result:"success"})
 }
 
 function goTeacherSignUp(req, res){
@@ -14,11 +13,6 @@ function goTeacherSignUp(req, res){
 
 function goGuestSignUp(req, res){
 	res.render('guest_signup');
-}
-
-function goCreatestudent(req, res){
-	console.log("go to create student page");
-	res.render('add_student');
 }
 
 function goProfile(req, res){
@@ -61,11 +55,12 @@ function getUserInfo(req, res){
 	res.send(user);
 }
 
-function signUpTeacher(req, res) {
+function signUp(req, res) {
 	signup_email = req.body.email;
 	signup_password = req.body.password;
 	signup_username = req.body.username;
 	signup_school = req.body.school;
+	signup_profession = req.body.profession;
 	signup_usertype = "teacher"
 	console.log(req)
 	console.log("Ready to signup: ", signup_email, signup_password, signup_username, signup_school)
@@ -78,6 +73,7 @@ function signUpTeacher(req, res) {
 			if (user.email == signup_email && user.password == ''){
 				console.log("found user", doc)
 				old_doc = doc.id
+				signup_usertype = user.usertype;
 			}
 		});
 
@@ -90,56 +86,6 @@ function signUpTeacher(req, res) {
 				password: signup_password,
 				username: signup_username,
 				school: signup_school,
-				usertype: signup_usertype
-				})
-			.then(function() {
-					console.log("Document successfully written!");
-			})
-			.catch(function(error) {
-					console.error("Error writing document: ", error);
-			});
-			res.redirect('/')
-		}).catch(function(error) {
-			console.error("Error removing document: ", error);
-		});	
-	}else{
-		console.log("No such user exist!");
-		res.redirect('/')		
-	}
-	}) 
-	.catch(function(error) {
-		console.log("Error getting document:", error);
-		res.redirect('/')
-	});
-}
-
-function signUpGuest(req, res) {
-	signup_email = req.body.email;
-	signup_password = req.body.password;
-	signup_username = req.body.username;
-	signup_profession = req.body.profession;
-	signup_usertype = "guest"
-	console.log(req)
-	console.log("Ready to signup: ", signup_email, signup_password, signup_username, signup_profession)
-
-	var old_doc = undefined
-	firebase.firestore().collection("users").get().then(function(querySnapshot) {
-		querySnapshot.forEach(function(doc) {
-			user = doc.data()
-			if (user.email == signup_email && user.password == ''){
-				console.log("found user", doc)
-				old_doc = doc.id
-			}
-		});
-
-	if(old_doc){
-		firebase.firestore().collection("users").doc(old_doc).delete().then(function() {
-			console.log("Document successfully deleted!");
-			// link to database 
-			firebase.firestore().collection('users').doc(signup_username).set({
-				email: signup_email,
-				password: signup_password,
-				username: signup_username,
 				profession: signup_profession,
 				usertype: signup_usertype
 				})
@@ -149,13 +95,13 @@ function signUpGuest(req, res) {
 			.catch(function(error) {
 					console.error("Error writing document: ", error);
 			});
-			res.redirect('/')
+			res.status(200).send({result:"success"})
 		}).catch(function(error) {
 			console.error("Error removing document: ", error);
 		});	
 	}else{
 		console.log("No such user exist!");
-		res.redirect('/')		
+		res.status(200).send({result:"fail"})	
 	}
 	}) 
 	.catch(function(error) {
@@ -183,11 +129,11 @@ function signIn(req, res){
 				req.session.profession = user.profession;
 			}
 			console.log("Create session: ", req.session);
-			res.status(200).send({result:"success", usertype:user.usertype})
+			res.send({result:"success", usertype:user.usertype})
 		} else {
 			// doc.data() will be undefined in this case
 			console.log("No such document!");
-			res.status(403).send({result:"fail"})
+			res.send({result:"fail"})
 		}
 	}).catch(function(error) {
 		console.log("Error getting document:", error);
@@ -196,39 +142,44 @@ function signIn(req, res){
 }
 
 function createstudent(req, res) {
-	console.log("ready to create new students", req.body)
-	var studentlist = req.body.studentlist;
-	var password = req.body.password;
-	var school = req.session.school;
-	// link to database 
-	var usernames = [];
-	for (let i = 0; i < studentlist.length; i++) {
-		nickname = studentlist[i]
-		username = school + '_student_' + i
-		usernames.push(username)
-		firebase.firestore().collection('users').doc(username).set({
-			password: password,
-			username: username,
-			usertype: "student",
-			school: school
-		})
-		.then(function() {
-				console.log("Document successfully written!" + username );
-		})
-		.catch(function(error) {
-				console.error("Error writing document: ", error);
-		});
-		firebase.firestore().collection(school).doc(username).set({
-			nickname: nickname
-		})
-		.then(function() {
-			console.log("Document successfully written!" + nickname );
-		})
-		.catch(function(error) {
-				console.error("Error writing document: ", error);
-		});
+	if(req.session.usertype == 'teacher'){
+		console.log("ready to create new students", req.body)
+		var studentlist = req.body.studentlist;
+		var password = req.body.password;
+		var school = req.session.school;
+		// link to database 
+		var usernames = [];
+		for (let i = 0; i < studentlist.length; i++) {
+			nickname = studentlist[i].nickname
+			username = school + '_student_' + i
+			usernames.push(username)
+			firebase.firestore().collection('users').doc(username).set({
+				password: password,
+				username: username,
+				usertype: "student",
+				school: school
+			})
+			.then(function() {
+					console.log("Document successfully written!" + username );
+			})
+			.catch(function(error) {
+					console.error("Error writing document: ", error);
+			});
+
+			firebase.firestore().collection(school).doc(username).set({
+				nickname: nickname
+			})
+			.then(function() {
+				console.log("Document successfully written!" + nickname );
+			})
+			.catch(function(error) {
+					console.error("Error writing document: ", error);
+			});
+		}
+		res.send({result:"success"})
+	}else{
+		res.send({result:"fail"})
 	}
-	res.send({result:"suceess"})
 }
 
 // function Jumptoreset(req, res){
@@ -246,11 +197,9 @@ app.get('/api/user', getUserInfo);
 app.get('/api/profile', goProfile);
 app.get('/api/teacher_signup', goTeacherSignUp);
 app.get('/api/guest_signup', goGuestSignUp);
-app.post('/api/signup_teacher', signUpTeacher);
-app.post('/api/signup_guest', signUpGuest);
+app.post('/api/signup', signUp);
 app.post('/api/signin', signIn);
 app.get('/api/logout', logout);
-app.get('/api/createstudent', goCreatestudent);
 app.post('/api/createstudent', createstudent);
 
 }

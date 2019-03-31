@@ -24,7 +24,7 @@ export class ForumViewPostComponent implements OnInit, OnDestroy{
   
   createComment(){
     const content = this.contentRef.nativeElement.value;
-    var postTitle = this.post.postTitle;
+    var postTitle = this.post.title;
     this.commentService.createComment(null, this.postId, "Admin", content, Date.now().toString(), postTitle);
     
   }

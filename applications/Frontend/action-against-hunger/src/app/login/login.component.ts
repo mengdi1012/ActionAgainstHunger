@@ -10,9 +10,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username = "";
-  password = "";
-
+  missing_value = false
   constructor(private authService: AuthService, private router: Router){
     console.log("Creating Login Component");
   }
@@ -20,21 +18,28 @@ export class LoginComponent implements OnInit {
     this.logout();
   }
 
-  login(): void {
-  console.log("try login", this.username);
-  this.authService.login(this.username, this.password)
-    .subscribe((res: string) => {
-      console.log("get authenticate result:", res)
-      if(res["result"] == "success"){
-        if(res["usertype"] == "admin"){
-          this.gotoAdmin();
+  login(form): void {
+  console.log("try login", form.value);
+  var username = form.value['username'];
+  var password = form.value['password'];
+  if (!username || !password){
+      this.missing_value = true
+  }else{
+    this.missing_value = false
+    this.authService.login(username, password)
+      .subscribe((res: string) => {
+        console.log("get authenticate result:", res)
+        if(res["result"] == "success"){
+          if(res["usertype"] == "admin"){
+            this.gotoAdmin();
+          }else{
+            this.gotoPost();
+          }
         }else{
-          this.gotoPost();
+          window.alert("wrong username or password");
         }
-      }else{
-        window.alert("wrong username or password");
-      }
-    });
+      });
+    }
   }
 
   gotoAdmin() {
@@ -49,7 +54,7 @@ export class LoginComponent implements OnInit {
 }
 
   gotoPost() {
-    const url = "profile";
+    const url = "homepage";
     this.router.navigate([url]).then( (e) => {
       if (e) {
         console.log("Navigation to post is successful!");

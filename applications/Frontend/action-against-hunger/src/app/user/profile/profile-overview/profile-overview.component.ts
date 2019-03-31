@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../../model/user.model';
+import { Student } from '../../../model/student.model';
 import { UsersService } from '../../../service/users.service';
 
 
@@ -8,6 +9,7 @@ import { UsersService } from '../../../service/users.service';
   templateUrl: './profile-overview.component.html',
   styleUrls: ['./profile-overview.component.css']
 })
+
 export class ProfileOverviewComponent implements OnInit {
     username ="";
     usertype = "";
@@ -19,7 +21,9 @@ export class ProfileOverviewComponent implements OnInit {
   }
   ngOnInit() {
     this.getUser();
+    this.getStudents();
   }
+
   getUser(): void {
     console.log("try get user info");
     this.userService.getUserInfo()
@@ -37,4 +41,10 @@ export class ProfileOverviewComponent implements OnInit {
         }          
       });
   }
+
+  getStudents(): void {
+    console.log("try to load student list");
+    this.userService.getStudents()
+      .subscribe(students => this.students = students)
+  };
 }

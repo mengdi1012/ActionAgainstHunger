@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="logo">Signup New Account</div>
+    <div class="login-item">
+        <form #myform="ngForm" (ngSubmit)="signup(myform)" class="form form-login">
+            <div class="form-field">
+                <label class="user" for="login-username"><span class="hidden">Email</span></label>
+                <input name="email" id="login-username" type="text" class="form-input" placeholder="Email" ngModel required>
+          </div>
+          <div class="form-field">
+              <label class="user" for="login-username"><span class="hidden">Nickname</span></label>
+              <input [(ngModel)]="nickname" name="nickname" id="login-username" type="text" class="form-input" placeholder="Nickname" ngModel required>
+          </div>
+          <div class="form-field">
+              <label class="user" for="login-username"><span class="hidden">Password</span></label>
+              <input name="password" id="login-username" type="text" class="form-input" placeholder="Password" ngModel required>
+          </div>
+          <div class="form-field">
+              <label class="user" for="login-username"><span class="hidden">School</span></label>
+              <input [(ngModel)]="school" name="school" id="login-username" type="text" class="form-input" placeholder="School(Teacher only)" ngModel required>
+          </div>
+          <div class="form-field">
+            <label class="user" for="login-username"><span class="hidden">Field:</span></label>
+            <input [(ngModel)]="profession" name="profession" id="login-username" type="text" class="form-input" placeholder="Field(Profession only)" ngModel required>
+          </div>
+
+        <button class="button"  type="button" (click)="createUsername()">Create my unique username</button><br>
+
+        <div class="namedisplay"> 
+          Username: <span> {{username}}</span>
+        </div>
+
+        <button class="button" type="submit">Sign up</button>
+    
+      </form>
+    </div>
+</div>

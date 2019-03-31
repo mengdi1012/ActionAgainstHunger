@@ -19,6 +19,27 @@ export class AuthService {
         return this.http.post<Array<JSON>>(environment.APIEndpoint + "/api/signin", credential, httpOptions);
     }
 
+    signup(email: string, password: string, username: string, school: string, profession: string): Observable<any> {
+        const httpOptions = {
+            headers: new HttpHeaders({ 'Content-Type': 'application/json' }), withCredentials: true
+          };
+        const credential = {email: email,
+            password: password,
+            username: username,
+            school: school,
+            profession: profession 
+        };
+        return this.http.post<Array<JSON>>(environment.APIEndpoint + "/api/signup", credential, httpOptions);
+    }
+
+    createStudents(newstudents: Array<any>, password: string): Observable<any> {
+        const httpOptions = {
+            headers: new HttpHeaders({ 'Content-Type': 'application/json' }), withCredentials: true
+          };
+        const credential = {studentlist: newstudents , password: password};
+        return this.http.post<Array<JSON>>(environment.APIEndpoint + "/api/createstudent", credential, httpOptions);
+    }
+
     resetPW(password1: string, password2: string): Observable<any> {
         const httpOptions = {
             headers: new HttpHeaders({ 'Content-Type': 'application/json' }), withCredentials: true
@@ -33,6 +54,6 @@ export class AuthService {
     }
 
     logout(){
-        return this.http.get(environment.APIEndpoint + "/api/logout"); 
+        return this.http.get(environment.APIEndpoint + "/api/logout", {withCredentials: true}); 
     }
 }

@@ -10,20 +10,23 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { ProfileActivityComponent } from './user/profile/profile-activity/profile-activity.component';
 import { ProfileOverviewComponent } from './user/profile/profile-overview/profile-overview.component';
 import { ForumComponent } from './user/forum/forum.component';
-import { ForumHomeComponent } from './user/forum/home/forum-home.component';
+import { ForumHomeComponent } from './user/forum/public/forum-home.component';
 import { ForumCreatePostComponent } from './user/forum/create-post/forum-create-post.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ForumViewPostComponent } from './user/forum/view-post/forum-view-post.component';
 import { ProfileActivityCommentsComponent } from './user/profile/profile-activity/profile-activity-comments/profile-activity-comments.component';
 import { ProfileActivityPostsComponent } from './user/profile/profile-activity/profile-activity-posts/profile-activity-posts.component';
 import { ProfileActivityAllUsersComponent } from './user/profile/profile-activity/profile-activity-all-users/profile-activity-all-users.component';
-import { ProfileActivityNewUserComponent } from './user/profile/profile-activity/profile-activity-new-user/profile-activity-new-user.component';
+import { ProfileActivityNewStudentComponent } from './user/profile/profile-activity/profile-activity-new-student/profile-activity-new-student.component';
 import {ProfileActivityUpdateComponent} from './user/profile/profile-activity/profile-updatePW/profile-activity-updatePW.component';
 // import { AuthGuardService } from './service/auth-gaurd.service';
 import { LoginComponent } from './login/login.component';
 import {ActivityComponent} from './user/activity/activity.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminNavigationComponent } from './admin-navigation/admin-navigation.component';
+import { SignupComponent } from './signup/signup.component';
+import { HomeComponent } from './user/forum/homepage/home.component';
+import { PrivateComponent } from './user/forum/private/private.component';
 
 
 @NgModule({
@@ -35,17 +38,20 @@ import { AdminNavigationComponent } from './admin-navigation/admin-navigation.co
     ProfileActivityCommentsComponent,
     ProfileActivityPostsComponent,
     ProfileActivityAllUsersComponent,
-    ProfileActivityNewUserComponent,
+    ProfileActivityNewStudentComponent,
     ProfileOverviewComponent,
     ProfileActivityUpdateComponent,
+    HomeComponent,
+    PrivateComponent,
     ForumComponent,
     ForumHomeComponent,
     ForumCreatePostComponent,
     ForumViewPostComponent,
     LoginComponent,
-    ActivityComponent
+    ActivityComponent,
     AdminComponent,
-    AdminNavigationComponent
+    AdminNavigationComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
