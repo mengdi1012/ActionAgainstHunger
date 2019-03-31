@@ -28,16 +28,16 @@ const appRoutes: Routes = [
   { path: 'private', component: PrivateComponent},
   { path: 'createpost', component: ForumCreatePostComponent },
   { path: 'profile', component: ProfileComponent, 
-  children: [
-      { path: 'profile2', component: ProfileActivityPostsComponent },
-      { path: 'topics', component: ProfileActivityPostsComponent },
-      { path: 'comments', component: ProfileActivityCommentsComponent },
-      { path: 'allUsers', component: ProfileActivityAllUsersComponent },
-      { path: 'notification', component: ProfileActivityNotificationComponent },
-      
-   ],
-  },{ path: 'profile/update_pw', component: ProfileActivityUpdateComponent},
+    children: [
+        { path: 'profile2', component: ProfileActivityPostsComponent },
+        { path: 'topics', component: ProfileActivityPostsComponent },
+        { path: 'comments', component: ProfileActivityCommentsComponent },
+        { path: 'allUsers', component: ProfileActivityAllUsersComponent },
+        { path: 'newstudent', component: ProfileActivityNewStudentComponent },
+        { path: 'update_pw', component: ProfileActivityUpdateComponent},
 
+    ],
+  },
  { path: 'class', component: ForumComponent,
      children: [
          { path: '', component: ForumHomeComponent },
