@@ -17,24 +17,18 @@ export class ForumPublicComponent implements OnInit, OnDestroy{
   constructor(public postService: PostsService, private activatedRoute: ActivatedRoute, private router: Router){}
 
   ngOnInit(){
+  this.getPost();
 
-    this.activatedRoute.params.subscribe( params => {
-      console.log(params["classId"]);
-      this.classroomId = params["classId"];
-      // this.postService.getClassroomPosts(this.classroomId);
-      // this.postsSub = this.postService.getPostUpdateListener()
-      //   .subscribe((posts: Post[]) => {
-      //     this.posts = posts;
-      // });
-    });
   }
+
+  getPost(): void {
+    console.log("try to post list");
+    this.postService.getPublicPosts()
+      .subscribe(posts => this.posts = posts)
+  };
+
 
   ngOnDestroy() {
     this.postsSub.unsubscribe();
-  }
-
-  redirect(postID: string){
-    console.log(postID);
-    this.router.navigate(['/class/' + this.classroomId + '/topic/' + postID]);
   }
 }
