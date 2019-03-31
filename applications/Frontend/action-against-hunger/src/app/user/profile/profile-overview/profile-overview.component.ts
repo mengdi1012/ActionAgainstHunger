@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { User } from '../../../model/user.model';
 import { Student } from '../../../model/student.model';
 import { UsersService } from '../../../service/users.service';
@@ -10,12 +10,11 @@ import { UsersService } from '../../../service/users.service';
   styleUrls: ['./profile-overview.component.css']
 })
 
-export class ProfileOverviewComponent implements OnInit {
-    username ="";
-    usertype = "";
-    school = "";
-    user: User;
 
+export class ProfileOverviewComponent implements OnInit {
+
+    user: User;
+    students:Student[];
   constructor(private userService: UsersService){ 
 
   }
@@ -28,12 +27,8 @@ export class ProfileOverviewComponent implements OnInit {
     console.log("try get user info");
     this.userService.getUserInfo()
       .subscribe(user => {
-        this.user = user;
-        this.usertype=user.usertype;
-        this.username=user.username;
-        this.school=user.school;
+        this.user = user
         console.log("get response:", user)
-          console.log("get username:", this.username)
         if(user["username"] != ""){
           console.log("get user detail, ", user)
         }else{
