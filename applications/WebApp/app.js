@@ -63,6 +63,7 @@ require('./routes/api_user')(app, firebase);
 require('./routes/api_admin')(app, firebase);
 require('./routes/api_post')(app, firebase);
 require('./routes/api_profile')(app, firebase);
+require('./routes/api_notification')(app, firebase);
 //require('./routes/api_classroom')(app, firebase);
 //require('./routes/api_comments')(app, firebase);
  
