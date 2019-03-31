@@ -22,12 +22,12 @@ export class ProfileActivityPostsComponent implements OnInit, OnDestroy{
   ngOnInit(){
     console.log("Getting User Posts (Component)")
     var userID = this.authService.getUserID();
-    this.postService.getUserPosts(userID.toString());
-    this.postsSub = this.postService.getPostUpdateListener()
-      .subscribe((posts: Post[]) => {
-        console.log(posts);
-        this.posts = posts;
-      });
+    // this.postService.getUserPosts(userID.toString());
+    // this.postsSub = this.postService.getPostUpdateListener()
+    //   .subscribe((posts: Post[]) => {
+    //     console.log(posts);
+    //     this.posts = posts;
+    //   });
   }
 
   ngOnDestroy() {

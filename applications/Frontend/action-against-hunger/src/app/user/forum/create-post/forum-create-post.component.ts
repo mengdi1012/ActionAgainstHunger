@@ -24,7 +24,7 @@ export class ForumCreatePostComponent {
     const title = this.titleRef.nativeElement.value;
     const content = this.contentRef.nativeElement.value;
     const type = this.typeRef.nativeElement.value;
-    this.postService.createPost("Admin", this.classroomId, title, content, Date.now().toString(), Date.now().toString(), type);
+    this.postService.createPost("", "", "");
     this.router.navigate(['/class/' + this.classroomId]);
   }
 }
