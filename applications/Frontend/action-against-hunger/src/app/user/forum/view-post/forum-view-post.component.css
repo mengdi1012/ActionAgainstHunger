@@ -1,4 +1,17 @@
-.container {
+.logo {
+    font-family: Impact, sans-serif;
+    color: #fff;
+    text-shadow: 2px 2px 2px #000000;
+    font-size: 30px;
+    text-align: center;
+    padding: 20px 20px 0;
+    margin: 0;
+}
+
+.author {
+  font-size:10px;
+  font-weight: 800; 
+
 }
 
 .card {
@@ -12,20 +25,13 @@
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.row {
-	margin-left: 30%;
-}
-
 h4{
 	 color: #369;
-	 font-family: 'Trocchi', 
-	 serif; font-size: 45px; 
+	 font-size: 45px; 
 	 font-weight: normal; 
 	 line-height: 48px; 
 	 margin: 0;
 }
-
-
 
 .content{
 	color: #369;
@@ -39,10 +45,10 @@ h4{
 
 .id { color: #369; font-family: 'Raleway',sans-serif; font-size: 18px; font-weight: 500; line-height: 32px; margin: 0 0 24px; }
 
-h6 {
+.comment {
 	 color:#369;
-	 font-family: 'Raleway',sans-serif; 
-	 font-size: 20px; font-weight: 800; 
+   font-size: 20px; 
+   font-weight: 800; 
 	 line-height: 36px; margin: 0 0 0px; 
 	 /*text-align: center;*/
 }

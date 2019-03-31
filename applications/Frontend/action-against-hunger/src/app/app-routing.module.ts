@@ -22,23 +22,24 @@ const appRoutes: Routes = [
   { path: '', component: LoginComponent},
   { path: 'admin', component: AdminComponent},
   { path: 'signup', component: SignupComponent},
-  { path: 'homepage', component: ForumComponent,     
-    children: [
-      { path: 'public', component: ForumPublicComponent},
-      { path: 'private', component: PrivateComponent},
-      { path: 'createpost', component: ForumCreatePostComponent },
-    ],
-  },
-  { path: 'profile', component: ProfileComponent, 
-    children: [
-        { path: 'profile2', component: ProfileActivityPostsComponent },
-        { path: 'topics', component: ProfileActivityPostsComponent },
-        { path: 'comments', component: ProfileActivityCommentsComponent },
-        { path: 'allUsers', component: ProfileActivityAllUsersComponent },
-        { path: 'newstudent', component: ProfileActivityNewStudentComponent },
-        { path: 'update_pw', component: ProfileActivityUpdateComponent},
-    ],
-  },
+    {
+        path: 'homepage', component: ForumComponent,
+        children: [
+            { path: 'public', component: ForumPublicComponent },
+            { path: 'private', component: PrivateComponent },
+            { path: 'createpost', component: ForumCreatePostComponent },
+            { path: 'postdetail/:postId', component: ForumViewPostComponent },
+            { path: 'profile', component: ProfileComponent,
+                children: [
+                    { path: 'topics', component: ProfileActivityPostsComponent },
+                    { path: 'comments', component: ProfileActivityCommentsComponent },
+                    { path: 'allUsers', component: ProfileActivityAllUsersComponent },
+                    { path: 'newstudent', component: ProfileActivityNewStudentComponent },
+                    { path: 'update_pw', component: ProfileActivityUpdateComponent },
+                ],
+            },
+        ]
+    }},
 
 //  { path: 'class', component: ForumComponent,
 //      children: [

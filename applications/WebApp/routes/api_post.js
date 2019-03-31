@@ -1,6 +1,7 @@
 module.exports = function (app, firebase) {
 
     function createPost(req, res){
+        console.log("trying to create new post");
         if(req.session.username){
             var author = req.session.username;
             var school = 'default';
@@ -10,7 +11,7 @@ module.exports = function (app, firebase) {
             var content = req.body.content;
             var type = req.body.type;
             var title = req.body.title;
-            console.log("creating pose", req.body);
+            console.log("creating post", req.body);
             
             firebase.firestore().collection('posts').add({
                 author: author,
@@ -18,7 +19,7 @@ module.exports = function (app, firebase) {
                 content: content,
                 type: type,
                 title: title,
-                dateCreated: firebase.database.ServerValue.TIMESTAMP,
+                dateCreated: firebase.firestore.Timestamp.fromDate(new Date())
             })
             .then(doc => {
                 console.log("Successfully Added New Post: " + doc.id);
@@ -40,7 +41,7 @@ module.exports = function (app, firebase) {
            firebase.firestore().collection("posts").get().then(function(querySnapshot) {
                querySnapshot.forEach(function(doc) {
                    // doc.data() is never undefined for query doc snapshots
-                   console.log(doc.id, " => ", doc.data());
+                //    console.log(doc.id, " => ", doc.data());
                    var post = doc.data()
                    if(post.type == "global"){
                     post['postId'] = doc.id;
@@ -79,7 +80,7 @@ module.exports = function (app, firebase) {
     
 
     function getPostsByUser(req, res){
-        // if(req.session.username){
+        if(req.session.username){
             var user = req.params.user;
             var userConst = 'author';
             console.log("Retrieving posts with following attribute: " + userConst + " = " + user);
@@ -94,7 +95,6 @@ module.exports = function (app, firebase) {
                     posts.forEach(eachPost => {
                         var post = eachPost.data()
                         post['postId'] = eachPost.id;
-                        console.log(eachPost.id, '=>', eachPost.data()); 
                         allPosts.push(post);
                     });
                     res.send(allPosts);
@@ -104,15 +104,16 @@ module.exports = function (app, firebase) {
                 console.log("Error Getting Post:", error);
                 res.status(500).send("Error Getting Post");
         });
-        // }else{
-        //     res.status(500).send("Please Login!");
+        }else{
+            res.status(500).send("Please Login!");
         }
+    }
     
     function getPostsBySchool(req, res){
+        console.log("trying to get posts by school");
         if(req.session.username){
             var school = req.params.school;
             var schoolConst = 'school';
-            console.log("Retrieving posts with following attribute: " + schoolConst + " = " + classroomId);
             
             firebase.firestore().collection("posts").where(schoolConst, '==', school).get()
             .then(posts => {
@@ -124,7 +125,6 @@ module.exports = function (app, firebase) {
                     posts.forEach(eachPost => {
                         var post = eachPost.data()
                         post['postId'] = eachPost.id;
-                        console.log(eachPost.id, '=>', eachPost.data()); 
                         allPosts.push(post);
                     });
                     res.send(allPosts);
@@ -141,47 +141,56 @@ module.exports = function (app, firebase) {
     }
     
     function getCommentsByPost(req, res){
-        var postId = req.params.postId;
-        
-        firebase.firestore().collection("comments").where('post', '==', postId).get()
-        .then(comments => {
-            if ( comments.empty){
-                console.log("No Comments");
-                res.send();
-            }
+        console.log("trying to get comments by post");
+        if(req.session.username){
+            var postId = req.params.postId;
             
-            var allComments = [];
-            comments.forEach(eachComment => {
-                console.log(eachComment.id, '=>', eachComment.data()); 
-                allComments.push(eachComment.data());
+            firebase.firestore().collection("comments").where('postId', '==', postId).get()
+            .then(comments => {
+                if ( comments.empty){
+                    console.log("No Comments");
+                    res.send();
+                }
+                
+                var allComments = [];
+                comments.forEach(eachComment => {
+                    allComments.push(eachComment.data());
+                });
+                res.send(allComments);
+            }) 
+            .catch(function(error) {
+                console.log("Error Getting Comments:", error);
+                res.status(500).send("Error Getting Comments");
             });
-            res.send(allComments);
-        }) 
-	    .catch(function(error) {
-            console.log("Error Getting Comments:", error);
+        }else{
             res.status(500).send("Error Getting Comments");
-	   });
+        }
     }
 
     function createComment(req, res){
-        var author = req.session.username;
-        var postId = req.params.postId;
-        var content = req.body.content;
-        
-        firebase.firestore().collection('comments').add({
-            author: author,
-            content: content,
-            postId: postId,
-            dateCreated: firebase.database.ServerValue.TIMESTAMP 
-        })
-        .then(doc => {
-            console.log("Successfully Added New Comment: " + doc.id);
-            res.send({"Comment Id": doc.id});
-        })
-        .catch(function(error) {
-            console.error("Error Writing New Comment ", error);
-            res.status(500).send("Error Adding Comment");
-        });
+        console.log("ready to create new comment", req.body.content);
+        if(req.session.username){
+            var author = req.session.username;
+            var postId = req.params.postId;
+            var content = req.body.content;
+            
+            firebase.firestore().collection('comments').add({
+                author: author,
+                content: content,
+                postId: postId,
+                dateCreated: firebase.firestore.Timestamp.fromDate(new Date())
+            })
+            .then(doc => {
+                console.log("Successfully Added New Comment: " + doc.id);
+                res.send({"result": "success"});
+            })
+            .catch(function(error) {
+                console.error("Error Writing New Comment ", error);
+                res.status(500).send("Error create comment");
+            });
+        }else{
+            res.status(500).send("Please login!");
+        }
     }
 
     app.post('/api/post', createPost);

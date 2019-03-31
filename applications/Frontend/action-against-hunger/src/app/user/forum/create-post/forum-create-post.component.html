@@ -1,4 +1,4 @@
-<body ng-app="">
+<!-- <body ng-app="">
 <div class="container">
   <div class="row">
 
@@ -32,4 +32,33 @@
 
   </div>
 </div>
-</body>
+</body> -->
+<div class="container">
+    <div class="row">
+  
+      <div class="col-md-8 col-md-offset-2">
+  
+      <h4 class="logo">New Post</h4>
+  
+        <form #myform="ngForm" (ngSubmit)="createPost(myform)" class="form">
+            <div class="form-group">
+                  <label for="title">Title </label>
+                  <input name="title"  type="text" class="form-control" placeholder="title" ngModel required>
+            </div>
+            <div class="form-group">
+                <label class = "label" for="content">Content</label>
+                <textarea type="text"  rows="10" class="md-textarea md-textarea-auto form-control" placeholder="content"  name="content" ngModel required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="type">Type </label>
+                <input [(ngModel)]="type" name="type" type="text" class="form-control" placeholder="global or private" ngModel required>
+            </div>
+            <div id = "button" class="form-group">
+                <button type="submit" class="btn btn-primary" (click)=createPost()>
+                  Post
+                </button>
+              </div>
+        </form>
+  </div>
+  </div>
+</div>

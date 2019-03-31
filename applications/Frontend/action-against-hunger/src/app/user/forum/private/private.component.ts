@@ -11,44 +11,52 @@ import { User } from '../../../model/user.model';
   templateUrl: './private.component.html',
   styleUrls: ['./private.component.css']
 })
-export class PrivateComponent implements OnInit, OnDestroy{
+export class PrivateComponent{
+  user: User;
   posts: Post[] = [];
   private postsSub: Subscription;
   private classroomId: string;
-  private username: string;
-  user: User;
 
-  constructor(public postService: PostsService, private activatedRoute: ActivatedRoute, private router: Router,private userService: UsersService){
-  this.getUser();
-  }
+  constructor(public postService: PostsService, private activatedRoute: ActivatedRoute, private router: Router, private usersService: UsersService){}
 
   ngOnInit(){
-    this.getUser();
-  }
-
-  getUser(): void {
     console.log("try get user info");
-    this.userService.getUserInfo()
+    this.usersService.getUserInfo()
       .subscribe(user => {
-        this.user = user
+        console.log("get response:", user)
         if(user["username"] != ""){
-          this.getPosts();
+          this.user = user;
+          console.log("get user detail, ", user)
+          this.getSchoolPost();
         }else{
-          window.alert("not valid session");
+          this.router.navigate(["/"]).then( (e) => {
+            if (e) {
+              console.log("Navigation to login is successful!");
+            } else {
+              console.log("Navigation to login has failed!");
+            }
+          });
         }          
       });
-  }
+    }
 
-  getPosts(): void {
-    console.log("try to load student list");
-    console.log(this.user["username"]);
-    this.postService.getPostsByUser(this.user["username"])
+
+getSchoolPost(): void {
+    console.log("try to load post list");
+    this.postService.getPostsBySchool(this.user.school)
       .subscribe(posts => this.posts = posts)
   };
 
-  ngOnDestroy() {
-    this.postsSub.unsubscribe();
-  }
-
- 
+    goPostDetail(postId: string) {
+        console.log("go to post detail");
+        const url = '/postdetail/' + postId;
+        console.log(url)
+        this.router.navigate([url]).then((e) => {
+            if (e) {
+                console.log('Navigation is successful!');
+            } else {
+                console.log('Navigation has failed!');
+            }
+        });
+    }
 }

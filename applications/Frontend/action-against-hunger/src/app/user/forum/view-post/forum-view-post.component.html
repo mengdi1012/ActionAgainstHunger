@@ -1,42 +1,49 @@
 <!-- <link rel="stylesheet" type="text/css" href="./forum-view-post.component.css"> -->
 <div class="container">
+    <div class="row">
+        <h4 class="logo">Post Detail</h4>
+    </div> 
   <div class="card">
     <div class="card-body">
-      <div class="row">
-        <h4>{{ post.postTitle }}</h4>
+      <div>
+        <h4><b>{{ post.title }}</b></h4>
+        <span class="author">{{ post.author }}</span>
       </div>
-      <div class="row">
-        <div class="clearfix"></div>
-        <p class = "content">{{ post.postContent }}</p>
-      </div>
+      
     </div>
   </div>
-  <div class="card" *ngFor="let eachComment of comments">
-    <div class="card-body">
-      <div class="row">
-        <h6>{{ eachComment.commentContent }}</h6>
+  <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <p>{{ post.content }}</p>
+        </div>
       </div>
-      <div class="row">
-        <div class="clearfix"></div>
-        <article>
-          <p class = "id">{{ eachComment.userID }}</p>
-        </article>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <h4 class="logo">Comment</h4>
+    </div> 
+  <div class="card" *ngFor="let eachComment of comments, let i = index">
+    <div class="card-body comment">
+      <div>
+        <h6>[{{ i }}] {{ eachComment.content }}</h6>
+        <span class="author">{{ eachComment.author }}</span>
       </div>
     </div>
   </div>
 
 
   <div class="col-md-8 col-md-offset-2">
-
-    <div class="form-group">
-
-      <textarea rows="12" class="form-control" name="content" #contentInput></textarea>
-    </div>
-
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary" (click)=createComment()>
-        Post
-      </button>
-    </div>
+    <form>
+        <div class="md-form">
+          <textarea type="text" class="md-textarea md-textarea-auto form-control" placeholder="your comment" [(ngModel)]="myComment" name="myComment"></textarea>
+        </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" (click)=createComment()>
+          Post
+        </button>
+      </div>
+  </form>
   </div>
 </div>

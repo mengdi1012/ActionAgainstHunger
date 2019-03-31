@@ -1,27 +1,21 @@
-<!-- <link rel="stylesheet" type="text/css" href="./forum-home.component.css"> -->
 <div class="container">
-  <div class="row">
-      <h4>Posts</h4>
-  </div> 
-  <div class="card" *ngFor="let eachPost of posts">
-    <div class="card-body">
-      <div class="row">
-        <p>
-          <a class="float-left" (click)="redirect(eachPost.postID)"><strong>{{ eachPost.title }}</strong></a>
-        </p>
-        <p>
-          {{ eachPost.type }}
-        </p>
-      </div>
-      <div class="row">
-        <div class="clearfix"></div>
-        <p>
-          {{eachPost.content}}
-        </p>
-        <p>
-          {{ eachPost.author }}
-        </p>
+    <div class="row">
+        <h4 class="logo">Private Posts</h4>
+    </div> 
+    <div class="card" *ngFor="let eachPost of posts" >
+      <div class="card-body">
+        <div class="row">
+          <p>
+              <a class="float-left title" routerLink="/homepage/postdetail/{{ eachPost.postId }}"> Title: <strong> {{ eachPost.title }}</strong></a>
+          </p>
+        </div>
+        <div class="row">
+          <div class="clearfix"></div>
+          <p>
+            Author: {{ eachPost.author }}
+          </p>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  
