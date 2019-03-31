@@ -15,8 +15,6 @@ export class ForumCreatePostComponent {
   
   constructor(public postService: PostsService, private activatedRoute: ActivatedRoute, private router: Router){
     this.activatedRoute.params.subscribe( params => {
-      console.log(params["classId"]);
-      this.classroomId = params["classId"];
     });
   }
 
@@ -24,7 +22,9 @@ export class ForumCreatePostComponent {
     const title = this.titleRef.nativeElement.value;
     const content = this.contentRef.nativeElement.value;
     const type = this.typeRef.nativeElement.value;
-    this.postService.createPost("", "", "");
-    this.router.navigate(['/class/' + this.classroomId]);
+    this.postService.createPost(title, content, content)
+    .subscribe((res: JSON[]) => {
+    console.log(res);
+        });
   }
 }

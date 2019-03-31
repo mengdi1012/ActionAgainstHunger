@@ -44,7 +44,7 @@ module.exports = function (app, firebase) {
                    var post = doc.data()
                    if(post.type == "global"){
                     post['postId'] = doc.id;
-                    post['content'] = ''
+                    // post['content'] = doc.content;
                     console.log(post);
                     posts.push(post);
                    }
@@ -185,7 +185,7 @@ module.exports = function (app, firebase) {
     }
 
     app.post('/api/post', createPost);
-    app.get('/api/post/', getPublicPosts);
+    app.get('/api/post', getPublicPosts);
     app.get('/api/post/:postId', getPostById);
 
     app.get('/api/post/user/:user', getPostsByUser);
