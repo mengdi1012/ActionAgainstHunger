@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
 }
 
   gotoPost() {
-    const url = "profile";
+    const url = "globalpost";
     this.router.navigate([url]).then( (e) => {
       if (e) {
         console.log("Navigation to post is successful!");

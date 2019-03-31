@@ -44,7 +44,8 @@ nav.home .home{
 
 }
 .home {
-	margin-left: 20%;
+	/*margin-left: 100px;*/
+	text-align: center;
 }
 
 #nav{

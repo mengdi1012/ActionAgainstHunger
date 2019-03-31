@@ -22,7 +22,9 @@ const appRoutes: Routes = [
   { path: 'admin', component: AdminComponent},
   { path: 'signup', component: SignupComponent},
   { path: 'newstudent', component: ProfileActivityNewStudentComponent },
-  { path: 'profile', component: ProfileComponent, 
+  { path: 'profile', component: ProfileComponent}, 
+  { path: 'createpost', component: ForumCreatePostComponent},
+  { path: 'globalpost', component: ForumHomeComponent, 
   children: [
       { path: 'profile2', component: ProfileActivityPostsComponent },
       { path: 'topics', component: ProfileActivityPostsComponent },
