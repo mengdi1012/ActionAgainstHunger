@@ -1,0 +1,29 @@
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Student Nickname</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of newStudents; let i = index">
+            <td>
+                <input [(ngModel)]="student.nickname" class="form-control" type="text" name="{{student.nickname}}" />
+            </td>
+            <td>
+                <button class="btn btn-default"  type="button" (click)="deleteFieldValue(i)">Delete</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input class="form-control" type="text" id="newAttributeCode" [(ngModel)]="newAttribute.nickname" name="newAttributeCode" />
+            </td>
+            <td>
+                <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>
+            </td>
+        </tr>
+    </tbody>
+
+  </table>
+  <span>Default password: </span><input [(ngModel)]="password" placeholder="password"/><br>
+<button (click)="createNewStudent()">Create new student accounts</button>

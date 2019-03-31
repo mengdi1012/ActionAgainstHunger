@@ -15,11 +15,6 @@ function goGuestSignUp(req, res){
 	res.render('guest_signup');
 }
 
-function goCreatestudent(req, res){
-	console.log("go to create student page");
-	res.render('add_student');
-}
-
 function goProfile(req, res){
 	console.log('go profile usertype: ', req.session.usertype == 'teacher');
 	if(req.session.usertype == 'student'){
@@ -147,39 +142,44 @@ function signIn(req, res){
 }
 
 function createstudent(req, res) {
-	console.log("ready to create new students", req.body)
-	var studentlist = req.body.studentlist;
-	var password = req.body.password;
-	var school = req.session.school;
-	// link to database 
-	var usernames = [];
-	for (let i = 0; i < studentlist.length; i++) {
-		nickname = studentlist[i]
-		username = school + '_student_' + i
-		usernames.push(username)
-		firebase.firestore().collection('users').doc(username).set({
-			password: password,
-			username: username,
-			usertype: "student",
-			school: school
-		})
-		.then(function() {
-				console.log("Document successfully written!" + username );
-		})
-		.catch(function(error) {
-				console.error("Error writing document: ", error);
-		});
-		firebase.firestore().collection(school).doc(username).set({
-			nickname: nickname
-		})
-		.then(function() {
-			console.log("Document successfully written!" + nickname );
-		})
-		.catch(function(error) {
-				console.error("Error writing document: ", error);
-		});
+	if(req.session.usertype == 'teacher'){
+		console.log("ready to create new students", req.body)
+		var studentlist = req.body.studentlist;
+		var password = req.body.password;
+		var school = req.session.school;
+		// link to database 
+		var usernames = [];
+		for (let i = 0; i < studentlist.length; i++) {
+			nickname = studentlist[i].nickname
+			username = school + '_student_' + i
+			usernames.push(username)
+			firebase.firestore().collection('users').doc(username).set({
+				password: password,
+				username: username,
+				usertype: "student",
+				school: school
+			})
+			.then(function() {
+					console.log("Document successfully written!" + username );
+			})
+			.catch(function(error) {
+					console.error("Error writing document: ", error);
+			});
+
+			firebase.firestore().collection(school).doc(username).set({
+				nickname: nickname
+			})
+			.then(function() {
+				console.log("Document successfully written!" + nickname );
+			})
+			.catch(function(error) {
+					console.error("Error writing document: ", error);
+			});
+		}
+		res.send({result:"success"})
+	}else{
+		res.send({result:"fail"})
 	}
-	res.send({result:"suceess"})
 }
 
 // function Jumptoreset(req, res){
@@ -200,7 +200,6 @@ app.get('/api/guest_signup', goGuestSignUp);
 app.post('/api/signup', signUp);
 app.post('/api/signin', signIn);
 app.get('/api/logout', logout);
-app.get('/api/createstudent', goCreatestudent);
 app.post('/api/createstudent', createstudent);
 
 }

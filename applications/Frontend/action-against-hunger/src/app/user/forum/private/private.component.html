@@ -1,0 +1,28 @@
+<!-- <link rel="stylesheet" type="text/css" href="./forum-home.component.css"> -->
+<app-navigation-bar></app-navigation-bar>
+<div class="container">
+  <div class="card" *ngFor="let eachPost of posts">
+    <div class="card-body">
+      <div class="row">
+        <p>
+          <a class="float-left" (click)="redirect(eachPost.postID)"><strong>{{ eachPost.postTitle }}</strong></a>
+        </p>
+        <p>
+          {{ eachPost.postType }}
+        </p>
+      </div>
+      <div class="row">
+        <div class="clearfix"></div>
+        <p>{{ eachPost.postContent }}</p>
+      </div>
+      <div class="row">
+        <p>
+          {{ eachPost.userID }}
+        </p>
+        <p>
+          {{ eachPost.dateCreated }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
