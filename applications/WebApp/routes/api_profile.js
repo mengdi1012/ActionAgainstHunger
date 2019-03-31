@@ -35,6 +35,9 @@ function changePW(req, res) {
 }
 
 
+
+
+
 function getStudentInfo(req, res){
     console.log("ready to get student info");
     var students = [];
@@ -59,7 +62,9 @@ function getStudentInfo(req, res){
 }
 
 app.post('/api/update_pw', changePW);
+
 app.get('/api/get_students', getStudentInfo);
+
 
 
 };

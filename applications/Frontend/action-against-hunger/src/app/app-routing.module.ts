@@ -33,10 +33,12 @@ const appRoutes: Routes = [
       { path: 'topics', component: ProfileActivityPostsComponent },
       { path: 'comments', component: ProfileActivityCommentsComponent },
       { path: 'allUsers', component: ProfileActivityAllUsersComponent },
-      { path: 'newstudent', component: ProfileActivityNewStudentComponent },
+
+      { path: 'newUser', component: ProfileActivityNewUserComponent },
+
    ],
-  },
-    { path: 'update_pw', component: ProfileActivityUpdateComponent},
+  },{ path: 'profile/update_pw', component: ProfileActivityUpdateComponent},
+
  { path: 'class', component: ForumComponent,
      children: [
          { path: '', component: ForumHomeComponent },
