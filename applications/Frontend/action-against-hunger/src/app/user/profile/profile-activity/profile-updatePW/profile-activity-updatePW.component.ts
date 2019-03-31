@@ -27,22 +27,11 @@ export class ProfileActivityUpdateComponent implements OnInit {
         .subscribe((res: string) => {
           console.log('get authenticate result:', res)
           if (res['result'] === 'success') {
-            this.resetPW();
+            window.alert('success');
           } else {
             window.alert('change password fail');
           }
         });
-  }
-
-  resetPW() {
-    const url = 'profile';
-    this.router.navigate([url]).then((e) => {
-      if (e) {
-        console.log('Navigation is successful!');
-      } else {
-        console.log('Navigation has failed!');
-      }
-    });
   }
 }
 

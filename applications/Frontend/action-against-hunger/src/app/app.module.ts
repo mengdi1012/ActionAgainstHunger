@@ -10,7 +10,7 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { ProfileActivityComponent } from './user/profile/profile-activity/profile-activity.component';
 import { ProfileOverviewComponent } from './user/profile/profile-overview/profile-overview.component';
 import { ForumComponent } from './user/forum/forum.component';
-import { ForumHomeComponent } from './user/forum/public/forum-home.component';
+import { ForumPublicComponent } from './user/forum/public/forum-public.component';
 import { ForumCreatePostComponent } from './user/forum/create-post/forum-create-post.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ForumViewPostComponent } from './user/forum/view-post/forum-view-post.component';
@@ -25,9 +25,10 @@ import {ActivityComponent} from './user/activity/activity.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminNavigationComponent } from './admin-navigation/admin-navigation.component';
 import { SignupComponent } from './signup/signup.component';
-import { HomeComponent } from './user/forum/homepage/home.component';
+import { ProfileActivityNotificationComponent } from './user/profile/profile-activity/profile-activity-notification/profile-activity-notification.component';
+import { MatNativeDateModule } from '@angular/material';
+import {DemoMaterialModule} from './material-module';
 import { PrivateComponent } from './user/forum/private/private.component';
-
 
 @NgModule({
   declarations: [
@@ -41,23 +42,25 @@ import { PrivateComponent } from './user/forum/private/private.component';
     ProfileActivityNewStudentComponent,
     ProfileOverviewComponent,
     ProfileActivityUpdateComponent,
-    HomeComponent,
     PrivateComponent,
     ForumComponent,
-    ForumHomeComponent,
+    ForumPublicComponent,
     ForumCreatePostComponent,
     ForumViewPostComponent,
     LoginComponent,
     ActivityComponent,
     AdminComponent,
     AdminNavigationComponent,
-    SignupComponent
+    SignupComponent,
+    ProfileActivityNotificationComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatNativeDateModule,
+    DemoMaterialModule
   ],
   // providers: [AuthGuardService],
   providers: [],

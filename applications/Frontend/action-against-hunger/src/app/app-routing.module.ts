@@ -5,8 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { ForumComponent } from './user/forum/forum.component';
-import { ForumHomeComponent } from './user/forum/public/forum-home.component';
-import { HomeComponent } from './user/forum/homepage/home.component';
+import { ForumPublicComponent } from './user/forum/public/forum-public.component';
 import { PrivateComponent } from './user/forum/private/private.component';
 import { ForumCreatePostComponent } from './user/forum/create-post/forum-create-post.component';
 import { ForumViewPostComponent } from './user/forum/view-post/forum-view-post.component';
@@ -23,29 +22,32 @@ const appRoutes: Routes = [
   { path: '', component: LoginComponent},
   { path: 'admin', component: AdminComponent},
   { path: 'signup', component: SignupComponent},
-  { path: 'homepage', component: HomeComponent},
-  { path: 'public', component: ForumHomeComponent},
-  { path: 'private', component: PrivateComponent},
-  { path: 'createpost', component: ForumCreatePostComponent },
+  { path: 'homepage', component: ForumComponent,     
+    children: [
+      { path: 'public', component: ForumPublicComponent},
+      { path: 'private', component: PrivateComponent},
+      { path: 'createpost', component: ForumCreatePostComponent },
+    ],
+  },
   { path: 'profile', component: ProfileComponent, 
-  children: [
-      { path: 'profile2', component: ProfileActivityPostsComponent },
-      { path: 'topics', component: ProfileActivityPostsComponent },
-      { path: 'comments', component: ProfileActivityCommentsComponent },
-      { path: 'allUsers', component: ProfileActivityAllUsersComponent },
+    children: [
+        { path: 'profile2', component: ProfileActivityPostsComponent },
+        { path: 'topics', component: ProfileActivityPostsComponent },
+        { path: 'comments', component: ProfileActivityCommentsComponent },
+        { path: 'allUsers', component: ProfileActivityAllUsersComponent },
+        { path: 'newstudent', component: ProfileActivityNewStudentComponent },
+        { path: 'update_pw', component: ProfileActivityUpdateComponent},
+    ],
+  },
 
-      { path: 'newUser', component: ProfileActivityNewUserComponent },
-
-   ],
-  },{ path: 'profile/update_pw', component: ProfileActivityUpdateComponent},
-
- { path: 'class', component: ForumComponent,
-     children: [
-         { path: '', component: ForumHomeComponent },
-         { path: ':classId', component: ForumHomeComponent },
-         { path: ':classId/topic/new', component: ForumCreatePostComponent },
-         { path: ':classId/topic/:topicId', component: ForumViewPostComponent }
-]}];
+//  { path: 'class', component: ForumComponent,
+//      children: [
+//          { path: '', component: ForumPublicComponent },
+//          { path: ':classId', component: ForumPublicComponent },
+//          { path: ':classId/topic/new', component: ForumCreatePostComponent },
+//          { path: ':classId/topic/:topicId', component: ForumViewPostComponent }
+// ]}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],

@@ -12,7 +12,7 @@
     <p>School: <a>{{user.school}}</a></p>
 
 
-    <div>
+    <div *ngIf="isTeacher">
       <h4>Student information</h4>
     <table class="table table-bordered">
       <thead>

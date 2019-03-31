@@ -12,7 +12,7 @@ import { UsersService } from '../../../service/users.service';
 
 
 export class ProfileOverviewComponent implements OnInit {
-
+    isTeacher = false;
     user: User;
     students:Student[];
   constructor(private userService: UsersService){ 
@@ -31,6 +31,7 @@ export class ProfileOverviewComponent implements OnInit {
         console.log("get response:", user)
         if(user["username"] != ""){
           console.log("get user detail, ", user)
+          this.isTeacher = this.user.usertype == "teacher";
         }else{
           window.alert("not valid session");
         }          

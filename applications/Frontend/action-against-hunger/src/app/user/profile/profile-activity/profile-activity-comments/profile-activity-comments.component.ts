@@ -18,12 +18,12 @@ export class ProfileActivityCommentsComponent implements OnInit, OnDestroy{
 
   ngOnInit(){
     var userID = this.authService.getUserID();
-    this.commentService.getUserComments(userID.toString());
-    this.commentsSub = this.commentService.getCommentUpdateListener()
-      .subscribe((comments: Comment[]) => {
-        console.log(comments);
-        this.comments = comments;
-      });
+    // this.commentService.getUserComments(userID.toString());
+    // this.commentsSub = this.commentService.getCommentUpdateListener()
+    //   .subscribe((comments: Comment[]) => {
+    //     console.log(comments);
+    //     this.comments = comments;
+    //   });
   }
 
   ngOnDestroy() {
