@@ -25,5 +25,9 @@
     </tbody>
 
   </table>
-  <span>Default password: </span><input [(ngModel)]="password" placeholder="password"/><br>
+  <span>Password: </span><input [(ngModel)]="password1" type="password" placeholder="New password"/>
+  <br>
+  <span>Password: </span><input [(ngModel)]="password2" type="password" placeholder="Re-type password"/>
+  <br><br>
+
 <button (click)="createNewStudent()">Create new student accounts</button>
