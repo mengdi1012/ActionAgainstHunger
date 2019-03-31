@@ -39,8 +39,8 @@ a {
 .grid-pad {
     padding: 10px 0;
     position: absolute;
-    margin-left: 50px;
-    margin-top: 100px;
+    margin-left: 10px;
+    margin-top: 10px;
 }
 .grid-pad > [class*='col-']:last-of-type {
     padding-right: 20px;

@@ -1,3 +1,11 @@
 .col-md-8{
     background-color:white
 }
+
+table, th, td {
+    border: 3px solid white;
+  }
+
+span{
+    color: white
+}

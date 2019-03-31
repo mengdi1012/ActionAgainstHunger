@@ -38,6 +38,7 @@ export class ProfileActivityNewStudentComponent {
         console.log("get authenticate result:", res)
         if(res["result"] == "success"){
           window.alert("success");
+          window.location.reload();
         }else{
           window.alert("something wrong, please try again");
         }

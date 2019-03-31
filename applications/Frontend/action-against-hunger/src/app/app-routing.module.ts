@@ -37,9 +37,9 @@ const appRoutes: Routes = [
         { path: 'allUsers', component: ProfileActivityAllUsersComponent },
         { path: 'newstudent', component: ProfileActivityNewStudentComponent },
         { path: 'update_pw', component: ProfileActivityUpdateComponent},
-
     ],
   },
+
 //  { path: 'class', component: ForumComponent,
 //      children: [
 //          { path: '', component: ForumPublicComponent },
