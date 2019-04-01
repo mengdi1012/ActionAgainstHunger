@@ -131,6 +131,8 @@ List/describe the artifacts you will produce in order to present your project id
 * Be concise, yet precise.
 For example: "Build the website" is not precise at all, but "Build a static home page and upload it somewhere, so that it is publicly accessible" is much clearer.
 
-* We want to have a deployed fully functional version of our application on heroku. This will allow us to showcase what the app is capable of from a user's perspective.
+* We want to have a deployed fully functional version of our application on heroku. This will allow us to showcase what the app is capable of from a user's perspective and have a public access to our web application.
+.
 
-* We will also have a screen recording that will demo the app. This will include a voice over and a general traversal of the structure and features of the application. This is meant to give a quick summary of our progress
+* There are different types of user accounts that are pre-defined to show different functionality of different user type. It saves time for creating accounts and getting email authentication for signing up the account.
+
