@@ -39,7 +39,7 @@ Team name: Hunger Team
 ## Instructions
 - Access:
     The application has already deployed on Heroku with the following url
-    https://action-against-hunger.herokuapp.com/
+    https://action-against-hunger-backend.herokuapp.com
 
 - Accounts:
 -admin account are pre-created:
