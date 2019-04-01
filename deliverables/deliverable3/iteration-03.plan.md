@@ -24,6 +24,10 @@ List the most significant changes you made to your process (if any).
 > *Note:* If you are not making any changes to your process, it means that you are happy with all of the decisions you made in the previous iterations.
 > In this case, list what you consider to be the most significant process decisions your team made. For each decision, explain why you consider it successful, and what success metric you are using (or could use) to assert that the decision is successful.
 
+- We mvoe all our frontend to Angular rather then plain javascript    
+  After D2, we found there is a significant inconsistency between different web pages in our product. Since everyone is working on different pages, sometimes we just choose the easiest way to fix our own issue without considering others and we just end up with a mess in page redirection, UI display etc. The product looks like been scraped together in last-minute. Therefore, after our team discussion, we plan to use Angualr to refactor our front end web pages. With Angular, we have unified router urls to redirect pages and we have consistent background, font-family, navigation bar across all pages, which makes our product looks more professional and more user-friendly. In addition, Angular could help us to reduce duplication in coding, since each web page is constructed with  multiple components which can be reused in other pages as well. Besides, with components, we could apply dependency injection in our implementation make the functions easier to manage and test. Also, components are easily decoupled so that it help us be more efficient in maintaining and updating the code. In addition to that, we create multiple services to query REST API backend. Hence, each function just need to call the corresponding service functions explicitly to talk to the backend without needing to write its own query function. 
+  
+  
 #### Roles & responsibilities
 
 [Roles and Reaons]:
