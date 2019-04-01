@@ -196,8 +196,8 @@ module.exports = function (app, firebase) {
     function getComment(req, res){
 		console.log("get a Comment with commentId");
         var commentId = req.params.commentId;
-
-        firebase.firestore().collection("comment").doc(commentId).get()
+        console.log("with this comment id",commentId);
+        firebase.firestore().collection("comments").doc(commentId).get()
             .then(doc => {
                 console.log(doc.data());
                 var comment = doc.data();

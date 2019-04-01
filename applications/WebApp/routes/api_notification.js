@@ -31,7 +31,7 @@ module.exports = function (app, firebase) {
         var commentId = req.params.commentId;
         var receiver = req.params.user;
 
-        console.log("start for create notification");
+        console.log("start for create notification")
         firebase.firestore().collection('notification').add({
             receiver: receiver,
             commentId: commentId,
@@ -63,7 +63,7 @@ module.exports = function (app, firebase) {
         });
     }
 
-	app.get('/api/notification/create/:user/:commentId', createNotification);
+	app.post('/api/notification/create/:user/:commentId', createNotification);
 	app.get('/api/notification/update/:notifId', updateNotification);
 	app.get('/api/notification/:user', getNotification);
 

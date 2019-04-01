@@ -18,7 +18,7 @@ export class NotificationService {
     return this.http.get<Notification[]>(url, {withCredentials: true});
   }
  
-  createNotification(commentId: string, user: string): Observable<any> {
+  createNotification(user: string, commentId: string): Observable<any> {
     const url = environment.APIEndpoint + "/api/notification/create/" + user + '/' + commentId;
     return this.http.post<Array<JSON>>(url, {withCredentials: true});
 }
