@@ -106,7 +106,8 @@ View post:
 Make comments:
    1. sign in with Teacher account: t1_uoft / password:123456
    2. click one of the listed post's title to check the post detail  
-   3. You can make your comment at the bottom and click post and you will see your comment
+   3. You can make your comment at the bottom and click post
+   4. redo step 2 to see your new comment
 
 Every user:  update password
 Steps:
