@@ -13,7 +13,17 @@ export class NotificationService {
 
     
   getNotification(user: string): Observable<Comment[]>{
-    const url = environment.APIEndpoint + "/api/notification" + user;
+    const url = environment.APIEndpoint + "/api/notification/" + user;
+    return this.http.get<Comment[]>(url, {withCredentials: true});
+  }
+ 
+  createNotification(postId: string, user: string) {
+    const url = environment.APIEndpoint + "/api/notification/create/" + user + '/' + postId;
+    return this.http.get<Comment[]>(url, {withCredentials: true});
+}
+
+  deleteNotification(notifId: string) {
+    const url = environment.APIEndpoint + "/api/notification/update/" + notifId;
     return this.http.get<Comment[]>(url, {withCredentials: true});
 }
 }
