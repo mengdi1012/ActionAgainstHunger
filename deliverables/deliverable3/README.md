@@ -113,18 +113,17 @@ Steps:
    
 Get and Send Notification:  
 Steps:  
-    1.  Sign in with student account: uoft_student_0 / password:123456  
-    2.  click one of the post whose author are t1_uoft  
-    3.  Make a comment for the post  
-    4.  Logout by clicking the logout button on the navigation bar  
-    5.  sign in with teacher account: t1_uoft / password: 123456  
-    6.  Go to profile page by clicking profile button on navigation bar  
-    7.  Click my message  
-    8,   you will see the notification of comment made in step 3  
-    9, click the "view it" will redirect the page to the corresponding post detail  
+ 1.  Sign in with student account: uoft_student_0 / password:123456  
+ 2.  click one of the post whose author are t1_uoft  
+ 3.  Make a comment for the post  
+ 4.  Logout by clicking the logout button on the navigation bar  
+ 5.  sign in with teacher account: t1_uoft / password: 123456  
+ 6.  Go to profile page by clicking profile button on navigation bar  
+ 7.  Click my message and you will see the notification of comment made in step 3      
+ 8. click the "view it" will redirect the page to the corresponding post detail    
 
-Every user:  update password
-Steps:
+Every user:  update password  
+Steps:  
  1. sign in with any user except admin
  2. click the profile button at the navigation bar, the page will redirect to profile page
  3. Click (Reset Password) button
