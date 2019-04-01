@@ -108,6 +108,17 @@ Make comments:
    2. click one of the listed post's title to check the post detail  
    3. You can make your comment at the bottom and click post
    4. redo step 2 to see your new comment
+   
+Get and Send Notification:
+    1. Sign in with student account: uoft_student_0 / password:123456  
+    2. click one of the post whose author are t1_uoft  
+    3. Make a comment for the post  
+    4. Logout by clicking the logout button on the navigation bar  
+    5. sign in with teacher account: t1_uoft / password: 123456  
+    6. Go to profile page by clicking profile button on navigation bar  
+    7. Click my message  
+    8, you will see the notification of comment made in step 3  
+    9, click the "view it" will redirect the page to the corresponding post detail  
 
 Every user:  update password
 Steps:
@@ -117,4 +128,6 @@ Steps:
  4. enter a password and click submit
  5. Click the success alert, it will redirect to profile page
  6. logout and try login with new password to see the password change
+ 
+
 
