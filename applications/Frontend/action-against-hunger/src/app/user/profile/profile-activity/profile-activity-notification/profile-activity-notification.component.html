@@ -8,12 +8,13 @@
         <th scope="col">Post Link</th>
       </tr>
 
-      <tr *ngFor="let cm of comments">
+      <tr *ngFor="let cm of comments, let i = index">
         <th>{{cm.content}}</th>
         <th>{{cm.dateCreated._seconds * 1000 | date:'MM-dd-yyyy' }}</th>
         <th>
-          <a routerLink='/homepage/postdetail/{{cm.postId}}'>View it</a>
-        </tr>
+          <a class="view" (click)="checkAndRedirect( cm.postId , i )">View it</a>
+          </th>
+      </tr>
       </thead>
 
   </table>

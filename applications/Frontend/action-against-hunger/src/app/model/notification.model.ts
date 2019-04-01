@@ -1,11 +1,11 @@
 export class Notification {
-    public notificationId: String;
+    public notifId: string;
     public receiverId: string;
     public commentId: string
     public newNotif: boolean;
 
-    constructor(notificationId: string, receiverId: string, commentId: string, newNotif: boolean){
-        this.notificationId = notificationId;
+    constructor(notifId: string, receiverId: string, commentId: string, newNotif: boolean){
+        this.notifId = notifId;
         this.receiverId = receiverId;
         this.commentId = commentId;
         this.newNotif = newNotif;
