@@ -11,10 +11,9 @@
       <tr *ngFor="let cm of comments">
         <th>{{cm.content}}</th>
         <th>{{cm.dateCreated}}</th>
-        <tr>
+        <th>
           <a routerLink='/homepage/postdetail/{{cm.postId}}'>View it</a>
         </tr>
-        
       </thead>
 
   </table>

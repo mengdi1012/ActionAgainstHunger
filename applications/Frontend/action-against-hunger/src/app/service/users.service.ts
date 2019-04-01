@@ -3,7 +3,6 @@ import { HttpClient} from "@angular/common/http";
 import { User } from "../model/user.model";
 import { Student } from "../model/student.model"
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
 

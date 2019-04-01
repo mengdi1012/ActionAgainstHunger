@@ -182,7 +182,7 @@ module.exports = function (app, firebase) {
             })
             .then(doc => {
                 console.log("Successfully Added New Comment: " + doc.id);
-                res.send({"result": "success"});
+                res.send({"result": "success","commentId":doc.id});
             })
             .catch(function(error) {
                 console.error("Error Writing New Comment ", error);
@@ -193,6 +193,26 @@ module.exports = function (app, firebase) {
         }
     }
 
+    function getComment(req, res){
+		console.log("get a Comment with commentId");
+        var commentId = req.params.commentId;
+
+        firebase.firestore().collection("comment").doc(commentId).get()
+            .then(doc => {
+                console.log(doc.data());
+                var comment = doc.data();
+                comment['commentId'] = doc.id;
+                console.log(comment);
+                res.send(comment);
+            }) 
+            .catch(function(error) {
+                console.log("not comment found:", error);
+                res.status(500).send("No comment found");
+            });
+    }
+    
+
+    
     app.post('/api/post', createPost);
     app.get('/api/post', getPublicPosts);
     app.get('/api/post/:postId', getPostById);
@@ -202,4 +222,5 @@ module.exports = function (app, firebase) {
 
     app.post('/api/comment/:postId', createComment);
     app.get('/api/comment/post/:postId', getCommentsByPost);
+    app.get('/api/comment/comment/:commentId', getComment);
 }

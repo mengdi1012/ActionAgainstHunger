@@ -16,6 +16,10 @@ export class CommentsService {
         return this.http.get<Comment[]>(url, {withCredentials: true});
     }
 
+    getComment(commentId: string): Observable<Comment>{
+        const url = environment.APIEndpoint + "/api/comment/post/" + commentId;
+        return this.http.get<Comment>(url, {withCredentials: true});
+    }
 
 
     createComment(postId: string, content: string): Observable<any> {
