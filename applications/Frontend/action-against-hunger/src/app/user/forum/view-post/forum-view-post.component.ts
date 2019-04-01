@@ -4,6 +4,7 @@ import { Comment } from '../../../model/comment.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PostsService } from "../../../service/posts.service";
 import { CommentsService } from "../../../service/comments.service";
+import { NotificationService } from 'src/app/service/notification.service';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class ForumViewPostComponent{
   comments: Comment[];
   myComment: string;
   private postId: string;
+  private postAuthor: string;
 
   @ViewChild('contentInput') contentRef: ElementRef;
 
@@ -25,7 +27,8 @@ export class ForumViewPostComponent{
     this.post.content.replace(new RegExp("\n", 'g'), "<br />")
   }
 
-  constructor(public commentService: CommentsService, public postService: PostsService, private activatedRoute: ActivatedRoute, private router: Router){
+  constructor(public commentService: CommentsService, public postService: PostsService, 
+    private activatedRoute: ActivatedRoute, private router: Router, private notificationService:NotificationService){
     this.activatedRoute.params.subscribe( params => {
       this.postId = params["postId"];
     });
@@ -34,7 +37,12 @@ export class ForumViewPostComponent{
     getPost(): void {
         console.log("try to load post detail ", this.postId);
         this.postService.getPostDetail(this.postId)
-            .subscribe(post => this.post = post)
+            .subscribe(
+              post => {
+                this.post = post;
+                this.postAuthor = post.author
+              }
+              )
     };
 
     getComments(): void {
@@ -50,10 +58,16 @@ export class ForumViewPostComponent{
       console.log("here is your comment", this.myComment);
       this.commentService.createComment(this.postId, this.myComment)
       .subscribe((res: string) => {
-        console.log("sending invitation email result:", res)
+        console.log("create comment here", res);
         if(res["result"] == "success"){
-          window.alert("success");
-          window.location.reload();
+          this.notificationService.createNotification(res["commentId"],this.postAuthor)
+          .subscribe((res:string) => {
+            if(res["result"]== "success"){
+              console.log("create notify",res);
+              window.alert("success");
+              window.location.reload();
+            }    
+          });
         }else{
           window.alert("something wrong, please try again");
         }

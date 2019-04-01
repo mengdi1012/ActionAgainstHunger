@@ -28,12 +28,14 @@ module.exports = function (app, firebase) {
     }
 
     function createNotification(req, res){
-        var postId = req.params.postId;
+        var commentId = req.params.commentId;
         var receiver = req.params.user;
-        
+
+        console.log("start for create notification");
         firebase.firestore().collection('notification').add({
             receiver: receiver,
-			postId: postId
+            commentId: commentId,
+            newNotif: true
         })
         .then(doc => {
             console.log("Successfully Added New Notification: " + doc.id);
@@ -46,20 +48,22 @@ module.exports = function (app, firebase) {
 	}
 
 	function updateNotification(req, res){
-		console.log("try to delete notification ",req.params.notifId);
+		console.log("try to update notification ",req.params.notifId);
 		notifId = req.params.notifId;
-		firebase.firestore().collection("notification").doc(notifId).delete()
+		firebase.firestore().collection("notification").doc(notifId).update({
+            "newNotif":false,
+        })
         .then(doc => {
-            console.log("Successfully Delete Notification: " + notifId);
+            console.log("Successfully update this Notification: " + notifId);
             res.send({"result": "success"});
         })
         .catch(function(error) {
-            console.error("Error Delete Notification ", error);
+            console.error("Error Update Notification ", error);
             res.status(500).send("Error Delete Notification");
         });
     }
 
-	app.get('/api/notification/create/:user/:postId', createNotification);
+	app.get('/api/notification/create/:user/:commentId', createNotification);
 	app.get('/api/notification/update/:notifId', updateNotification);
 	app.get('/api/notification/:user', getNotification);
 
