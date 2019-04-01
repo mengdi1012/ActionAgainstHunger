@@ -15,6 +15,7 @@ export class NotificationService {
 
     
   getNotification(user: string): Observable<Notification[]>{
+    console.log("whoooo??/",user);
     const url = environment.APIEndpoint + "/api/notification/" + user;
     return this.http.get<Notification[]>(url, {withCredentials: true});
   }
@@ -24,8 +25,8 @@ export class NotificationService {
     return this.http.post<Array<JSON>>(url, {withCredentials: true});
 }
 
-  updateNotification(notifId: string) {
+  updateNotification(notifId: string):Observable<any> {
     const url = environment.APIEndpoint + "/api/notification/update/" + notifId;
-    return this.http.get<Notification[]>(url, {withCredentials: true});
+    return this.http.get<Array<JSON>>(url, {withCredentials: true});
 }
 }

@@ -16,7 +16,8 @@ module.exports = function (app, firebase) {
             notification.forEach(eachNotification => {
 				notification = eachNotification.data()
 				console.log(eachNotification.id, '=>', notification); 
-				notification['notifId'] = eachNotification.id
+                notification['notifId'] = eachNotification.id
+                console.log("get notification, ", notification);
                 allNotification.push(notification);
             });
             res.send(allNotification);
