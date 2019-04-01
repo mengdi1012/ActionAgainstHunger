@@ -13,31 +13,31 @@ Team name: Hunger Team
 
 #### Decisions that turned out well
 
-*  So we made two following decisions:
-1.  commit comment describes with the change:
-- To write a good commit message, the commit message should contain a brief description of what changes are made. For example, "change create user component" is not a good enough commit message. "create user component change backend createUser() " is a better commit message and it shows the specific function that is modified.
+1. Commit message should clearly describes the change:  
+    A good commit message should contain a brief description of what the changes are made. For example, "change create user component" is not a good enough commit message. "create user component change backend createUser() " is a better commit message and it shows the specific function that is modified.
 
-2. Keep master branch runnable and developed on a local branch
-- The master branch will only keep changes/ commits. If any team member makes mistakes on a local branch, the master branch will not be affected. For example, for our deliverable 2, someone git push -f on the master branch. Many of the commits are deleted and sometimes we can never get it back.
+2. Always keep master branch runnable and only develop new feature on different branches, and make pull-request  
+    The master branch should only keep implmented features. Features that are developing should be on other branches. Therefore, when a team member breaks his build, the master branch and others branches will not be affected.
 
-3. Always verify the local branch before merge to master
-- The master branch will only keep changes/ commits that are verified by the team. The team does not want changes merged from branches that can lead to error. The changes need to be effective but not random.
+3. Never merge blindly or use git command with --force or any other commands that are not familiar   
+    The master branch will only keep commits that are verified by the team. The team does not want changes merged from branches that may lead to error. Since we use pull-request to merge branach. We will ask two team members to review it. When there is a conflict, we may either reject the pull-request or resolve the conflict on github, but never merge it blindly. Besides, no one should use git command with --force for any reason. Since, for our deliverable 2, someone use git push --force on the master branch. Many of the commits are deleted and sometimes we can never get them back.
 
 
 #### Decisions that did not turn out as well as we hoped
 
-1. Using Angular2 as the front-end framework
-- Angular2 is a very powerful tool to build a web application. The team already starts the front end with Javascript, Bootstrap, HTML, and CSS. Since Angular2 has different syntax from and using typescript instead of Javascript. The team has to learn Angular2 and refactor the code for Angular2. It takes more time than we expected.
+1. Using Angular as the front-end framework  
+    Angular is a very powerful tool to build the web application. But it has very different structures and syntax to plain Javascript. And most of the team members are not familiar with it. Therefore, the team has to learn Angular and refactor the previous developed front-end code for Angular. It takes more time to study than we expected.
 
 
-
-2. Too many branches from Github.
--The team wants to use different branches for each team members. It is very hard to tell which team member is working on what kind of feature and what their commit can effect. It would be better to separate branches by features. It is more clear because every team member who works on this feature can verify the change.
+2. Everyone works on their own branch.    
+    We encourage that everyone should create their own branch. 
+    And each branch should be linked to each feature. However, we ignore the fact that two or more people may work on the same feature together. It cause some similar and confusing branch name on git. We should split main features to several main branch at first and everyone should create sub branches to working on their own part of each feature.
+    It is more clear to because every team member who works on this feature can verify the change.
 
 
 #### Planned changes
 
-1. The team changes the frontend using Angular2 which is a more powerful web application platform.
+1. The team changes the frontend using Angular which is a more powerful web application platform.
 2. The decision of making the "gamify" feature, the team cannot do the "gamify" feature within 2 weeks since this is the least prioritized optional feature for our partner. The time restriction does not allow us to discuss the scoring system for "gamify" feature and implement it.
 
 
@@ -73,6 +73,6 @@ Providing challenges for students and rewarding systems to let students gain a s
 
 Going into the next iteration, our main insights are:
 
-* Angular is a very powerful framework for frontend. To incorporate our front end into Angular2 can better organize the front end css, HTML, and type script by component so that the code is better organized.
+* Angular is a very powerful framework for frontend. To incorporate our front end into Angular can better organize the front end css, HTML, and type script by component so that the code is better organized.
 * The feature that is needed to be implemented in this iteration is the notification feature and the activity feature. These features can help users better communicate with each other when a comment is made, the user can get noticed as soon as possible. It conserves the passion to communicate and share knowledge.
 
