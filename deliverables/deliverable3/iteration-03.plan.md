@@ -24,6 +24,10 @@ List the most significant changes you made to your process (if any).
 > *Note:* If you are not making any changes to your process, it means that you are happy with all of the decisions you made in the previous iterations.
 > In this case, list what you consider to be the most significant process decisions your team made. For each decision, explain why you consider it successful, and what success metric you are using (or could use) to assert that the decision is successful.
 
+- We move all our frontend to Angular rather then plain javascript    
+  After D2, we found there is a significant inconsistency between different web pages in our product. Since everyone is working on different pages, sometimes we just choose the easiest way to fix our own issue without considering others and we just end up with a mess in page redirection, UI display etc. The product looks like been scraped together in last-minute. Therefore, after our team discussion, we plan to use Angualr to refactor our front end web pages. With Angular, we have unified router urls to redirect pages and we have consistent background, font-family, navigation bar across all pages, which makes our product looks more professional and more user-friendly. In addition, Angular could help us to reduce duplication in coding, since each web page is constructed with  multiple components which can be reused in other pages as well. Besides, with components, we could apply dependency injection in our implementation make the functions easier to manage and test. Also, components are easily decoupled so that it help us be more efficient in maintaining and updating the code. In addition to that, we create multiple services to query REST API backend. Hence, each function just need to call the corresponding service functions explicitly to talk to the backend without needing to write its own query function. 
+  
+  
 #### Roles & responsibilities
 
 [Roles and Reaons]:
@@ -98,12 +102,9 @@ We should encourage all team members not to be shy and feel free to express diff
 * We prioritized tasks by giving each team one major focus they had to complete. For example, one group had to complete authentication and another had to complete the forum. After these major tasks were completed for each group, then we would decide to enrich the application.
 * Teams were made by their assigning people to their biggest strengths or a stronger member with a weaker member. If members in the group had little knowledge of most technologies, they were partnered up with the most knowledgeable to that their inexperience would minimize any delays, whilst still be able to learn. People with some knowledge were partnered together so they could both be able to contribute and learn from each other.
 
-
 #### Deployment and Github Workflow
-- We did not use a very strict Git workflow, we only require everyone to remind the whole team on facebook before submitting some critical features.  The first reason is that we split the tasks by features, so there should not be too much code conflict. Besides, we have a tight timeline and everyone’s working time is different, it is very inefficient to wait for others’ review before commit.
-- In practice, we ask everyone to commit frequently and pull frequently to avoid serious conflict happening. Besides, every time we find an issue caused by some submit, the founder should report the issue to the code owner to fix it in time. We also require everyone to make the commit comment short and clear to help us debugging if needed.
-- For the development process, we first select a guy to build the architecture for our app in one week.  Then we split all team into sub-teams by features. Everyone develops for their assigned features. Before the internal deadline, the guy building the architecture will integrate all features together. He will get to know everyone’s task achievement and coding details, link the pages together and deploy it on Heroku.
-
+- Everytime we implmente a new feature, we will create a new branch and create a pull-request to merge it into master after finished later. Before merge, the committer need to notify the whole team online for code review and two students will go to check it on Github. If no problem found, Jason will be responsible to merge it, because he has QA experiences. If there is anything wrong, Jason will close the pull-request and told the committer to fix it and resubmit later. 
+- Also, We have strict name conventions, like branch name must be either end up with "feature" or "bug" because a good name convention can help reviewed better understand the purpose of each commit and branch. Besides, our team also set a rule that noone should use git command with --force or any other git command not known. Since in iteration2, we lost the d2 documents because somebody use the --force command carelessly, which cause a lot of trouble to recover the data.
 
 
 ## Product
@@ -131,6 +132,8 @@ List/describe the artifacts you will produce in order to present your project id
 * Be concise, yet precise.
 For example: "Build the website" is not precise at all, but "Build a static home page and upload it somewhere, so that it is publicly accessible" is much clearer.
 
-* We want to have a deployed fully functional version of our application on heroku. This will allow us to showcase what the app is capable of from a user's perspective.
+* We want to have a deployed fully functional version of our application on heroku. This will allow us to showcase what the app is capable of from a user's perspective and have a public access to our web application.
+.
 
-* We will also have a screen recording that will demo the app. This will include a voice over and a general traversal of the structure and features of the application. This is meant to give a quick summary of our progress
+* There are different types of user accounts that are pre-defined to show different functionality of different user type. It saves time for creating accounts and getting email authentication for signing up the account.
+
