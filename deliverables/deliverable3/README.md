@@ -41,12 +41,13 @@ Posts:
     https://action-against-hunger.herokuapp.com/
 
 - Accounts:
-    admin account are pre-created:
-    username:admin / password: admin123
-    We also have a pre-created the accounts for other user types
-    Teacher account: t1_uoft / password:123456
-    Student account: uoft_student_0 / password: 123456
-    Guest account: : pro1_food / password: 123456
+-admin account are pre-created:
+* username:admin / password: admin123
+* We also have a pre-created the accounts for other user types
+* Teacher account: t1_uoft / password:123456
+* Student account: uoft_student_0 / password: 123456
+* Guest account: : pro1_food / password: 123456
+
 
 
 As **admin**: you can invite teacher and guest
@@ -77,8 +78,8 @@ e.g: uoft
 As a **teacher**: create pool of students account
 Steps:
 1. sign in with Teacher account: t1_uoft / password:123456
-2. Click the profile button at the navigation bar
-3. Click create students account button
+2. Click the profile button at the navigation bar in the home page
+3. Click (New Students) button
 4. Click add or delete one more student button to adjust suitable number of rows
 5. Enter the nickname for new students like “mengdi, jayson, jerry ,faye”
 6. Set a default password like “123456”
@@ -108,9 +109,10 @@ Make comments:
 
 Every user:  update password
 Steps:
-   1. sign in with any user except admin
-   2. click the profile button at the navigation bar, the page will redirect to profile page
-   3. Click update password button, it will redirect to password update page
-   4. enter a password and click submit
-   5. Click the success alert, it will redirect to profile page
-   6. logout and try login with new password
+ 1. sign in with any user except admin
+ 2. click the profile button at the navigation bar, the page will redirect to profile page
+ 3. Click (Reset Password) button, it will redirect to password update page
+ 4. enter a password and click submit
+ 5. Click the success alert, it will redirect to profile page
+ 6. logout and try login with new password to see the password change
+
