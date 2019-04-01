@@ -89,27 +89,30 @@ Steps:
 9. You can now review the just added students list in table on left side
 
 
-As a **teacher**: View post and create post   
-Create the post:  
+As a **teacher**: View post and create post     
+Create the post:    
    1. sign in with Teacher account: **User:** t1_uoft / **Password**:123456
    2. on home page click the new post button, the page will redirect to the page for create post.
    3. In the create post page, user can type the title, type(either public or private) and content for the post.
    4. Click the post button and the page will redirect to public posts page where you can find the new posts
 
-View post:
+View post:  
+Steps:  
    1. sign in with Teacher account: **User:** t1_uoft / **Password**:123456  
    2. On homepage they can click the public button to view the public posts, they can click the title of each post to go into details of each posts.
    3. On homepage they can click the private the button to view the posts for their school's posts, they can click the title of each post to go into details of each posts.
    4. to view the post detail, just click each post's title
 
-
-Make comments:
+ 
+Make comments:  
+Steps:  
    1. sign in with Teacher account: t1_uoft / password:123456
    2. click one of the listed post's title to check the post detail  
    3. You can make your comment at the bottom and click post
    4. redo step 2 to see your new comment
    
-Get and Send Notification:
+Get and Send Notification:  
+Steps:  
     1.  Sign in with student account: uoft_student_0 / password:123456  
     2.  click one of the post whose author are t1_uoft  
     3.  Make a comment for the post  
