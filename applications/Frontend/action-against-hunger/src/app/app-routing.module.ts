@@ -16,6 +16,7 @@ import { ProfileActivityNewStudentComponent } from './user/profile/profile-activ
 import {ProfileActivityUpdateComponent} from './user/profile/profile-activity/profile-updatePW/profile-activity-updatePW.component';
 import { AdminComponent } from './admin/admin.component';
 import { SignupComponent } from './signup/signup.component';
+import { ProfileActivityNotificationComponent } from './user/profile/profile-activity/profile-activity-notification/profile-activity-notification.component';
 
 
 const appRoutes: Routes = [
@@ -36,10 +37,11 @@ const appRoutes: Routes = [
                     { path: 'allUsers', component: ProfileActivityAllUsersComponent },
                     { path: 'newstudent', component: ProfileActivityNewStudentComponent },
                     { path: 'update_pw', component: ProfileActivityUpdateComponent },
+                    { path: 'notification', component: ProfileActivityNotificationComponent},
                 ],
             },
         ]
-    }},
+    },
 
 //  { path: 'class', component: ForumComponent,
 //      children: [
