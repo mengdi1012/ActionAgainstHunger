@@ -60,7 +60,7 @@ export class ForumViewPostComponent{
       .subscribe((res: string) => {
         console.log("create comment here", res);
         if(res["result"] == "success"){
-          this.notificationService.createNotification(res["commentId"],this.postAuthor)
+          this.notificationService.createNotification(this.postAuthor,res["commentId"])
           .subscribe((res:string) => {
             if(res["result"]== "success"){
               console.log("create notify",res);

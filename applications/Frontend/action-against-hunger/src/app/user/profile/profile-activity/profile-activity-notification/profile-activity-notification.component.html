@@ -10,7 +10,7 @@
 
       <tr *ngFor="let cm of comments">
         <th>{{cm.content}}</th>
-        <th>{{cm.dateCreated}}</th>
+        <th>{{cm.dateCreated._seconds * 1000 | date:'MM-dd-yyyy' }}</th>
         <th>
           <a routerLink='/homepage/postdetail/{{cm.postId}}'>View it</a>
         </tr>

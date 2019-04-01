@@ -17,7 +17,7 @@ export class CommentsService {
     }
 
     getComment(commentId: string): Observable<Comment>{
-        const url = environment.APIEndpoint + "/api/comment/post/" + commentId;
+        const url = environment.APIEndpoint + "/api/comment/comment/" + commentId;
         return this.http.get<Comment>(url, {withCredentials: true});
     }
 
