@@ -3,37 +3,38 @@ Product name: Action Against Hunger
 Team name: Hunger Team
 
 ## Description
-Provide a high-level description of your application and it's value from an end-user's perspective
-- Our web application is a platform for participants of Action Against Hunger’s Nutrition Program to connect with teachers, professionals and other students. It is meant to connect students from all over the world who are enrolled in the Nutrition program as well as to provide a place where food/nutrition professionals can posts articles and answer questions to educate the youth.
+* - Our web application is a platform for participants of Action Against Hunger’s Nutrition Program to connect with teachers, professionals and  students. It is meant to connect students from all over the world who are enrolled in the Nutrition program as well as to provide a place where food/nutrition professionals can posts articles and answer questions to educate the youth.
 
-What is the problem you're trying to solve?
-- How can we build connections between students, teachers and professions in the Action Against Hunger educational program?
+* The problem is how we can build connections between students, teachers and professions in the Action Against Hunger educational program.
 
 - We are trying to build an application where:
-  * Students can interact with one another through posts.
-  * Teachers can interact with students through posts.
-  * Different schools participating in the Action Against Hunger program can communicate to one another through posts, challenges and activities.
+* Students can interact with one another through posts.
+* Teachers can interact with students through posts.
+* Different schools participating in the Action Against Hunger program can communicate to one another through posts, challenges and activities.
 
-There is a need for a separate app rather than having some sort of social media group (FB group, etc), because a majority of the users will be students. This means that privacy must be handled appropriately as the users can be as young as 8 years old. It is also better to have everyone on one separate platform because there is less room for distractions and misuse.
+*There is a need for a separate app rather than having some sort of social media group (FB group, etc), because a majority of the users will be students. This means that privacy must be handled appropriately as the users can be as young as 8 years old. It is also better to have everyone on one separate platform because there is less room for distractions and misuse.
 
 
- Is there any context required to understand **why** the application solves this problem?
+* We have strict account creations mechanism to keep the user privacy safely in the community. The post feature allows students, teachers and professions to make and view posts from each other so that they can connect/communicate to each other across the world, breaking the geographical restrictions.
 
-- We have strict account creations mechanism to keep the safety of the community. We have a post feature that allows students, teachers and professions to make and view posts from each other. Only teachers/students of the program will have access to this app. Any guest users will be given access through the organization.
 
 ## Key Features
-User accounts:
+*User accounts:
 - We have four user types - **student, teacher, guest and admin**.
     1. Admin can send an invitation email to teacher or guest which contains a link pointing to the signup page.
     2. Uninvited users are not able to sign up
     3. Teachers could create a pool of student accounts by providing a pool of nicknames and a default password. Our app will automatically generated a pool of accounts with unique usernames consisting of school names and an ID.
     4. Teacher can always check the current students list containing the pair of  student’s nickname and username, so that they can recognize students’ identity.
 
-Posts:
+*Posts:
 1. User can view the all the global posts after they log in to webapp.
 2. User can view the school's posts by clicking the private button on the mainpage.
 3. On the individual post page, user can post comment under that post.
 4. User can also make their own post, they can choose to post to gloal page or the private page. For the global posts, anyone can view that, the the private posts, only user in that school can view.
+
+*  Notification: Receiving notification when users are tagged from the post so that the user can easily follow the ongoing communication. For example, students attend activities for growing tomatoes, post their tomatoes’ photos, and receive feedback and comment from their peers.
+
+
 
 ## Instructions
 - Access:
