@@ -102,12 +102,9 @@ We should encourage all team members not to be shy and feel free to express diff
 * We prioritized tasks by giving each team one major focus they had to complete. For example, one group had to complete authentication and another had to complete the forum. After these major tasks were completed for each group, then we would decide to enrich the application.
 * Teams were made by their assigning people to their biggest strengths or a stronger member with a weaker member. If members in the group had little knowledge of most technologies, they were partnered up with the most knowledgeable to that their inexperience would minimize any delays, whilst still be able to learn. People with some knowledge were partnered together so they could both be able to contribute and learn from each other.
 
-
 #### Deployment and Github Workflow
-- We did not use a very strict Git workflow, we only require everyone to remind the whole team on facebook before submitting some critical features.  The first reason is that we split the tasks by features, so there should not be too much code conflict. Besides, we have a tight timeline and everyone’s working time is different, it is very inefficient to wait for others’ review before commit.
-- In practice, we ask everyone to commit frequently and pull frequently to avoid serious conflict happening. Besides, every time we find an issue caused by some submit, the founder should report the issue to the code owner to fix it in time. We also require everyone to make the commit comment short and clear to help us debugging if needed.
-- For the development process, we first select a guy to build the architecture for our app in one week.  Then we split all team into sub-teams by features. Everyone develops for their assigned features. Before the internal deadline, the guy building the architecture will integrate all features together. He will get to know everyone’s task achievement and coding details, link the pages together and deploy it on Heroku.
-
+- Everytime we implmente a new feature, we will create a new branch and create a pull-request to merge it into master after finished later. Before merge, the committer need to notify the whole team online for code review and two students will go to check it on Github. If no problem found, Jason will be responsible to merge it, because he has QA experiences. If there is anything wrong, Jason will close the pull-request and told the committer to fix it and resubmit later. 
+- Also, We have strict name conventions, like branch name must be either end up with "feature" or "bug" because a good name convention can help reviewed better understand the purpose of each commit and branch. Besides, our team also set a rule that noone should use git command with --force or any other git command not known. Since in iteration2, we lost the d2 documents because somebody use the --force command carelessly, which cause a lot of trouble to recover the data.
 
 
 ## Product
