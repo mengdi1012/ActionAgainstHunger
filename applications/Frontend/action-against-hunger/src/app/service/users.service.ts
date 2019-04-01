@@ -12,7 +12,7 @@ import { environment } from '../../environments/environment';
 export class UsersService {
     private user: User;
     constructor(private http: HttpClient){}
-    getUserInfo(): Observable<any> {
+    getUserInfo(): Observable<User> {
         const url = environment.APIEndpoint + "/api/user";
         return this.http.get<User>(url, {withCredentials: true});
     }

@@ -1,3 +1,22 @@
-<p>
-  profile-activity-notification works!
-</p>
+<div>
+  <p>My Messages:</p>
+  <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th scope="col">Message</th>
+        <th scope="col">Date</th>
+        <th scope="col">Post Link</th>
+      </tr>
+
+      <tr *ngFor="let cm of comments">
+        <th>{{cm.content}}</th>
+        <th>{{cm.dateCreated}}</th>
+        <tr>
+          <a routerLink='/homepage/postdetail/{{cm.postId}}'>View it</a>
+        </tr>
+        
+      </thead>
+
+  </table>
+
+</div>
