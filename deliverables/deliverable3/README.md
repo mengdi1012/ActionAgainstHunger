@@ -42,13 +42,12 @@ Team name: Hunger Team
     https://action-against-hunger-backend.herokuapp.com
 
 - Accounts:
--admin account are pre-created:
-* username:admin / password: admin123
-* We also have a pre-created the accounts for other user types
-* Teacher account: t1_uoft / password:123456
-* Student account: uoft_student_0 / password: 123456
-* Guest account: : pro1_food / password: 123456
-
+- admin account are pre-created:
+    - username:admin / password: admin123
+- We also have a pre-created the accounts for other user types  
+    - Teacher account: t1_uoft / password:123456  
+    - Student account: uoft_student_0 / password: 123456  
+    - Guest account: : pro1_food / password: 123456  
 
 
 As **admin**: you can invite teacher and guest
@@ -85,34 +84,35 @@ Steps:
 5. Enter the nickname for new students like “mengdi, jayson, jerry ,faye”
 6. Set a default password like “123456”
 7. Click create all students accounts
-8. Click the success button in alert window and the page will redirect to profile
+8. Click the success button in alert window
+9. Click Public and then click profile again on the navigation bar
 9. You can now review the just added students list in table on left side
 
-For Posts, we implement most functions in backend. But the corresponding front end are implemented in another angular project. We plan to move all current front end to angular in next iteration. Therefore the current web app's front end is a legacy, we just provide a brief idea about how this will work.
 
-As a teacher: View post and create post
-   Create the post:
-   1. sign in with Teacher account: **User:** t1_uoft / **Password**:123456 and this will redirect to the homepage.
+As a **teacher**: View post and create post   
+Create the post:  
+   1. sign in with Teacher account: **User:** t1_uoft / **Password**:123456
    2. on home page click the new post button, the page will redirect to the page for create post.
    3. In the create post page, user can type the title, type(either public or private) and content for the post.
-   4. Click the create button to create the post and store it in database.
-
+   4. Click the post button and the page will redirect to public posts page where you can find the new posts
 
 View post:
-   1. sign in with Teacher account: **User:** t1_uoft / **Password**:123456 and this will redirect to the homepage.
+   1. sign in with Teacher account: **User:** t1_uoft / **Password**:123456  
    2. On homepage they can click the public button to view the public posts, they can click the title of each post to go into details of each posts.
    3. On homepage they can click the private the button to view the posts for their school's posts, they can click the title of each post to go into details of each posts.
+   4. to view the post detail, just click each post's title
+
 
 Make comments:
    1. sign in with Teacher account: t1_uoft / password:123456
-   2. User can use the view post feature to go into any posts.
-   3. User can make comments through the comment box on the page.
+   2. click one of the listed post's title to check the post detail  
+   3. You can make your comment at the bottom and click post and you will see your comment
 
 Every user:  update password
 Steps:
  1. sign in with any user except admin
  2. click the profile button at the navigation bar, the page will redirect to profile page
- 3. Click (Reset Password) button, it will redirect to password update page
+ 3. Click (Reset Password) button
  4. enter a password and click submit
  5. Click the success alert, it will redirect to profile page
  6. logout and try login with new password to see the password change
