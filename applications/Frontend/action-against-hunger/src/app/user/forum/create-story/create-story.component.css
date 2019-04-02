@@ -1,0 +1,57 @@
+.logo {
+    font-family: Impact, sans-serif;
+    color: #fff;
+    text-shadow: 2px 2px 2px #000000;
+    font-size: 30px;
+    text-align: center;
+    padding: 20px 20px 0;
+    margin: 0;
+  }
+  
+  h1{
+      color: rgb(17, 104, 68);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 250%;
+  }
+  .row {
+      margin-top: 30px;
+  }
+  .form-group{
+    color:white;
+    font-size:20px;
+  }
+  
+  #input_title {
+      margin-top: 60px;
+  }
+  
+  #description {
+      margin-top: 5px;
+      width: 500px;
+  }
+  #textarea {
+      width: 300px;
+      height: 200px;
+  }
+  
+  #button {
+      margin-top: 20px;
+      
+  }
+  
+  button {
+   /* padding: .5em 1em;*/
+    background: linear-gradient(yellow, darken(orange, 10%));
+    border: none;
+    border-bottom: 4px solid darken(darkorange, 18%);
+    font-size: 1rem;
+    font-weight: bold;
+    color: yellow;
+    width: 80px;
+    margin-left:0px;
+    border-style: inset;
+  }
+  
+  button:hover {
+    background: darkorange;
+  }

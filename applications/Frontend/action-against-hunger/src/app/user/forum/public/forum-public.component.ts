@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Post } from '../../../model/post.model';
 import { PostsService } from '../../../service/posts.service';
 import { ActivatedRoute, Router } from '@angular/router';

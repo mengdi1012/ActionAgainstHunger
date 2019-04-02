@@ -65,7 +65,6 @@ function signUp(req, res) {
 	console.log(req)
 	console.log("Ready to signup: ", signup_email, signup_password, signup_username, signup_school)
 
-//--------------------------------
 	var old_doc = undefined
 	firebase.firestore().collection("users").get().then(function(querySnapshot) {
 		querySnapshot.forEach(function(doc) {

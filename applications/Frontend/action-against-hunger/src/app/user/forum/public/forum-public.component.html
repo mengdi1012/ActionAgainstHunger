@@ -12,7 +12,8 @@
       <div class="row">
         <div class="clearfix"></div>
         <p>
-          Author: {{ eachPost.author }}
+          Author: {{ eachPost.author }}<br>
+          {{eachPost.dateCreated._seconds * 1000 | date:'MM-dd-yyyy' }}
         </p>
       </div>
     </div>

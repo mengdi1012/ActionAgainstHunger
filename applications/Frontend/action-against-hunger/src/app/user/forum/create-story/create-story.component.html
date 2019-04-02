@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+  
+      <div class="col-md-8 col-md-offset-2">
+  
+      <h4 class="logo">New Story</h4>
+  
+        <form #myform="ngForm" (ngSubmit)="createStory(myform)" class="form">
+            <div class="form-group">
+                <label class = "label" for="content">Content</label>
+                <textarea type="text"  rows="10" class="md-textarea md-textarea-auto form-control" placeholder="content"  name="content" ngModel required></textarea>
+            </div>
+            <div id = "button" class="form-group">
+                <button type="submit" class="btn btn-primary">
+                  Share
+                </button>
+              </div>
+        </form>
+  </div>
+  </div>
+</div>

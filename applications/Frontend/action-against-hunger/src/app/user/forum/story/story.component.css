@@ -1,0 +1,43 @@
+.logo {
+    font-family: Impact, sans-serif;
+    color: #fff;
+    text-shadow: 2px 2px 2px #000000;
+    font-size: 30px;
+    text-align: center;
+    padding: 20px 20px 0;
+    margin: 0;
+}
+
+p{
+	color: #369;
+	font-family: 'Trocchi', 
+	serif; font-size: 15px; 
+	font-weight: normal; 
+	line-height: 48px; 
+	margin: 0;
+	margin-left: 20%;
+	float: left ;
+}
+
+#create {
+	margin-left: 20%;
+	border: 3px solid #555;
+	height: 100px;
+	width: 200px;
+}
+
+.card-body {
+	 border-style: outset;
+}
+
+.card {
+background-color: #ECEAE0;
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}

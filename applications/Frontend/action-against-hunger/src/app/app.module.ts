@@ -29,6 +29,8 @@ import { ProfileActivityNotificationComponent } from './user/profile/profile-act
 import { MatNativeDateModule } from '@angular/material';
 import {DemoMaterialModule} from './material-module';
 import { PrivateComponent } from './user/forum/private/private.component';
+import { StoryComponent } from './user/forum/story/story.component';
+import { CreateStoryComponent } from './user/forum/create-story/create-story.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { PrivateComponent } from './user/forum/private/private.component';
     AdminComponent,
     AdminNavigationComponent,
     SignupComponent,
-    ProfileActivityNotificationComponent
+    ProfileActivityNotificationComponent,
+    StoryComponent,
+    CreateStoryComponent
   ],
   imports: [
     BrowserModule,

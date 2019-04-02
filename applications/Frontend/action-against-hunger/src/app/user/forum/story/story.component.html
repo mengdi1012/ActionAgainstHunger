@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <h4 class="logo">Stories</h4>
+    </div> 
+    <div class="card" *ngFor="let eachStory of stories" >
+      <div class="card-body">
+        <div class="row">
+          <p>
+              <a class="float-left title"> <strong>{{ eachStory.author }} </strong>:  {{ eachStory.content }}</a>
+            <br>
+                <span>{{eachStory.dateCreated._seconds * 1000 | date:'MM-dd-yyyy' }}</span>
+            <br>           
+                <a (click)="updateLike(eachStory)">
+                <button mat-raised-button matBadge={{eachStory.like}}>Like</button>
+                </a>
+            </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

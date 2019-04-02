@@ -13,6 +13,7 @@
           <div class="clearfix"></div>
           <p>
             Author: {{ eachPost.author }}
+            {{eachPost.dateCreated._seconds * 1000 | date:'MM-dd-yyyy' }}
           </p>
         </div>
       </div>

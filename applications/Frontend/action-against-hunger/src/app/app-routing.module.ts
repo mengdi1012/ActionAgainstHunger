@@ -6,6 +6,10 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { ForumComponent } from './user/forum/forum.component';
 import { ForumPublicComponent } from './user/forum/public/forum-public.component';
+import { StoryComponent } from './user/forum/story/story.component';
+import { CreateStoryComponent } from './user/forum/create-story/create-story.component';
+
+
 import { PrivateComponent } from './user/forum/private/private.component';
 import { ForumCreatePostComponent } from './user/forum/create-post/forum-create-post.component';
 import { ForumViewPostComponent } from './user/forum/view-post/forum-view-post.component';
@@ -28,7 +32,9 @@ const appRoutes: Routes = [
         children: [
             { path: 'public', component: ForumPublicComponent },
             { path: 'private', component: PrivateComponent },
+            { path: 'story', component: StoryComponent },
             { path: 'createpost', component: ForumCreatePostComponent },
+            { path: 'createstory', component: CreateStoryComponent },
             { path: 'postdetail/:postId', component: ForumViewPostComponent },
             { path: 'profile', component: ProfileComponent,
                 children: [

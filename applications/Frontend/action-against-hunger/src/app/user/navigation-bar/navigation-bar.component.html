@@ -1,27 +1,17 @@
-﻿<!-- <link rel="stylesheet" type="text/css" href="./navigation-bar.component.css"> -->
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8"/>
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" />
-  </head>
-  <body ng-app>
-      <nav id="nav" ng-click="$event.preventDefault()">
-          <a routerLink="/homepage/public" class="home">public </a>
-          <a routerLink="/homepage/private" class="home">private </a>
-          <a routerLink="#" class="home">activity</a>
-          <a routerLink="/homepage/createpost" class="home">New Post</a>
-          <a routerLink="/homepage/postdetail" style="visibility: hidden">ViewPost</a>
-          <a>
-            <div class="rainbow-text">
-              <div class="title-text">
-                <span class="letters" id="a1">Action Against Hunger</span>
-              </div>
-            </div>
-          </a><br>
-          <a routerLink="/" class="home right">log out</a>
-          <a routerLink="/homepage/profile" class="home right">Profile</a>
-      </nav>
-  </body>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-</html>
+﻿<nav id="nav" ng-click="$event.preventDefault()">
+    <a class="home">
+        <div class="rainbow-text">
+          <div>
+            <span class="letters title-text" id="a1">Action Against Hunger</span>
+          </div>
+        </div>
+      </a><br>
+    <a routerLink="/homepage/public" class="home">Global </a>
+    <a routerLink="/homepage/private" class="home">My school </a>
+    <a routerLink="/homepage/story" class="home">Story</a>
+    <a routerLink="/homepage/createpost" class="home">New Post</a>
+    <a routerLink="/homepage/createstory" class="home">New Story</a>
+    <a routerLink="/homepage/postdetail" style="visibility: hidden">ViewPost</a>
+    <a routerLink="/" class="home right">log out</a>
+    <a routerLink="/homepage/profile" class="home right">Profile</a>
+</nav>
