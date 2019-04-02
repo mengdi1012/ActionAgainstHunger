@@ -10,9 +10,9 @@ app.use(cors({origin: [
 ], credentials: true}));
 
 app.use(express.static(__dirname + '/'));
-app.use(express.static(__dirname + '/assets'));
+app.use(express.static(__dirname + '/static'));
 app.engine('.html', require('ejs').__express);
-app.set('views', __dirname + '/assets/views');
+app.set('views', __dirname + '/static');
 app.set('view engine', 'html');
 
 
@@ -52,12 +52,18 @@ firebase.initializeApp({
 // An array to store chat messages.  We will only store messages
 // as long as the server is running.
 function goSigninpage(req, res){
-  res.render('signin');
+  res.render('index');
+}
+
+function goSignup(req, res){
+  res.render('signup');
 }
 
 // Routes
 // Serve the index page
 app.get(['/', '/index', '/signin'], goSigninpage);
+app.get('/signup', goSignup);
+
 //users routers
 require('./routes/api_user')(app, firebase);
 require('./routes/api_admin')(app, firebase);
@@ -68,5 +74,7 @@ require('./routes/api_notification')(app, firebase);
 //require('./routes/api_comments')(app, firebase);
  
  
-app.listen(3000);
-console.log('Listening on port 3000');
+ 
+app.listen(process.env.PORT || 3000, function(){
+    console.log('Your node js server is running');
+});

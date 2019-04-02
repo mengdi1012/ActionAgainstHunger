@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./profile-activity-all-users.component.css']
 })
 export class ProfileActivityAllUsersComponent {
-  childUsers: User[] = [];
+  users: User[] = [];
 
 
 }

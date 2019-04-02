@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  APIEndpoint: 'https://action-against-hunger-backend.herokuapp.com'
 };

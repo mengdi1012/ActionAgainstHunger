@@ -1,38 +1,3 @@
-<!-- <body ng-app="">
-<div class="container">
-  <div class="row">
-
-    <div class="col-md-8 col-md-offset-2">
-
-      <h1 id = "title" >New Post</h1>
-
-      <div id = "input_title" class="form-group">
-        <label for="title">Title </label>
-        <input type="text" class="form-control" name="title" #titleInput />
-      </div>
-      <div class="form-group">
-        <label for="type">Type </label>
-      </div>
-      <div id= "type" class="form-group">
-        <input type="text" class="form-control" name="type" #typeInput />
-      </div>
-
-      <div class="form-group">
-        <label class = "label" for="content">Description</label>
-      </div>
-      <div id = "description"  class="form-group">
-        <textarea id = "textarea" rows="20" class="form-control" name="content" #contentInput></textarea>
-      </div>
-      <div id = "button" class="form-group">
-        <button type="submit" class="btn btn-primary" (click)=createPost()>
-          Post
-        </button>
-      </div>
-    </div>
-
-  </div>
-</div>
-</body> -->
 <div class="container">
     <div class="row">
   
@@ -51,10 +16,10 @@
             </div>
             <div class="form-group">
                 <label for="type">Type </label>
-                <input [(ngModel)]="type" name="type" type="text" class="form-control" placeholder="global or private" ngModel required>
+                <input name="type" type="text" class="form-control" placeholder="global or private" ngModel required>
             </div>
             <div id = "button" class="form-group">
-                <button type="submit" class="btn btn-primary" (click)=createPost()>
+                <button type="submit" class="btn btn-primary">
                   Post
                 </button>
               </div>

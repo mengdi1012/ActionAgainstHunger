@@ -57,5 +57,77 @@ nav.home .home{
 }
 
 
+@import url(https://fonts.googleapis.com/css?family=Fjalla+One);
+body,
+html {
+  font-family: 'Fjalla One', sans-serif;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: rgb(169, 3, 41);
+  /* Old browsers */
+  /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+  background: radial-gradient(ellipse at center, rgba(169, 3, 41, 1) 0%, rgba(143, 2, 34, 1) 44%, rgba(109, 0, 25, 1) 100%);
+  /* W3C */
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=1);
+  /* IE6-8 fallback on horizontal gradient */
+}
+
+.rainbow-text {
+  display: block;
+  margin-left: 40px;
+}
+
+.title-text {
+  text-align: center;
+}
+
+.title-text span.letters {
+  font-size: 3rem;
+}
+
+#a1 {
+  -webkit-animation-delay: .1s;
+  /* Chrome, Safari, Opera */
+  animation-delay: .1s;
+}
+
+.letters {
+  color: rgb(65, 202, 47);
+  text-shadow: 2px 2px 6px #333;
+  animation: color-changer 6s infinite;
+  transition: color-changer ease-in-out;
+}
+
+@keyframes color-changer {
+  33% {
+    color: rgb(212, 233, 91);
+  }
+  /* #EE0BF5 cctv*/
+  66% {
+    color: #00CCFF;
+  }
+  /* #00CCFF marine */
+  100% {
+    color:  rgb(65, 202, 47);
+  }
+  /* #66F50B radio */
+}
+
+@-webkit-keyframes color-changer {
+  33% {
+    color: rgb(212, 233, 91);
+  }
+  /* #EE0BF5 cctv*/
+  66% {
+    color: #00CCFF;
+  }
+  /* #00CCFF marine */
+  100% {
+    color: rgb(65, 202, 47);
+  }
+  /* #66F50B radio */
+}
+
 
 

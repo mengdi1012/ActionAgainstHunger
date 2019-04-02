@@ -95,7 +95,7 @@ function signUp(req, res) {
 			.catch(function(error) {
 					console.error("Error writing document: ", error);
 			});
-			res.status(200).send({result:"success"})
+			res.redirect('/')
 		}).catch(function(error) {
 			console.error("Error removing document: ", error);
 		});	

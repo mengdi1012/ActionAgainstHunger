@@ -12,8 +12,9 @@
     <p>School: <a>{{user.school}}</a></p>
 
 
-    <div *ngIf="isTeacher">
+    <div *ngIf="isTeacher"> 
       <h4>Student information</h4>
+      <button (click)="getStudents()"> Refresh </button>
     <table class="table table-bordered">
       <thead>
       <tr>

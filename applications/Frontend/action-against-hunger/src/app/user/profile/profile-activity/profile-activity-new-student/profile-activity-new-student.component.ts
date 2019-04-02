@@ -10,10 +10,10 @@ import { AuthService } from '../../../../service/auth.service';
   styleUrls: ['./profile-activity-new-student.component.css']
 })
 export class ProfileActivityNewStudentComponent {
-  private password1="";
-  private password2="";
-  private newStudents: Array<any> = [];
-  private newAttribute: any = {};
+  public password1="";
+  public password2="";
+  public newStudents: Array<any> = [];
+  public newAttribute: any = {};
 
   constructor(private authService: AuthService) {
     console.log('Creating profile activity new student component');
@@ -42,7 +42,6 @@ export class ProfileActivityNewStudentComponent {
             console.log("get authenticate result:", res);
             if (res["result"] === "success"){
               window.alert('success');
-              window.location.reload();
             } else {
               window.alert('something wrong, please try again');
             }

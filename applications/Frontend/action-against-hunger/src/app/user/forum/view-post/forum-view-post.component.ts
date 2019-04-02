@@ -59,13 +59,13 @@ export class ForumViewPostComponent{
       this.commentService.createComment(this.postId, this.myComment)
       .subscribe((res: string) => {
         console.log("create comment here", res);
+        this.getComments();
         if(res["result"] == "success"){
           this.notificationService.createNotification(this.postAuthor,res["commentId"])
           .subscribe((res:string) => {
             if(res["result"]== "success"){
               console.log("create notify",res);
               window.alert("success");
-              window.location.reload();
             }    
           });
         }else{

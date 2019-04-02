@@ -14,6 +14,7 @@ import { Router } from "@angular/router";
 export class ProfileActivityNotificationComponent implements OnInit {
   comments:Comment[] = [];
   notificationIdList:string[] = [];
+  notificationViewList:boolean[]=[];
   private notification:Notification;
   constructor(public notificationServiceL: NotificationService, private usersService: UsersService,
      private commentService:CommentsService, private router:Router) { 
@@ -32,6 +33,7 @@ export class ProfileActivityNotificationComponent implements OnInit {
             for (var i = 0; i < notifications.length;i++){
               console.log("!!!",notifications[i]);
               this.notificationIdList.push(notifications[i].notifId);
+              this.notificationViewList.push(notifications[i].newNotif);
               this.commentService.getComment(notifications[i].commentId).subscribe(
                 comment => {
                   console.log("comment is",comment);

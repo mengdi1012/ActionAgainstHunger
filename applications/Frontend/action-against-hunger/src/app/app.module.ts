@@ -21,7 +21,7 @@ import { ProfileActivityNewStudentComponent } from './user/profile/profile-activ
 import {ProfileActivityUpdateComponent} from './user/profile/profile-activity/profile-updatePW/profile-activity-updatePW.component';
 // import { AuthGuardService } from './service/auth-gaurd.service';
 import { LoginComponent } from './login/login.component';
-import {ActivityComponent} from './user/activity/activity.component';
+import {ActivityComponent} from './activity/activity.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminNavigationComponent } from './admin-navigation/admin-navigation.component';
 import { SignupComponent } from './signup/signup.component';

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signup.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+
+</head>
+<body>
+	<section>
+		<header>
+			<button id="back"> Back </button><h1> Signup Page </h1>
+		</header>
+
+		<form action="/api/signup" method="post">
+			<ul>
+				<li class="ss-item-required">
+	            	<span class="label"> Email : </span>
+	            	<input class="text-input" type="text" id="email" placeholder="Email" title="Type in email" name="email" required="true"/>
+				</li>
+				<li class="ss-item-required">
+					<span class="label"> Nickname : </span>
+					<input class="text-input" type="text" id="nickname" name="nickname" required="true"/>
+				</li>
+				<li class="ss-item-required">
+					<span class="label"> Password :  </span>
+					<input class="text-input" type="password" id="password" name="password" required="true"/>
+				</li>
+				<li class="account-type">
+					<span class="label"> School: </span>
+					<input class="text-input" type="text" id="school" placeholder="teacher only" name="school" required="true"/><br>
+				</li>
+				<li class="account-type">
+					<span class="label"> Profession: </span>
+					<input class="text-input" type="text" id="profession" placeholder="profession only" name="profession" required="true"/><br>
+				</li>
+
+				<li class="ss-item-required">
+				  	<input type="button" onclick="createUsername()" value="Create my unique username"><br>
+					<span class="label"> Username : </span>
+					<input type="text" id="username" name="username" size="50" required="true"/>
+				</li>
+
+
+			</ul>
+
+			<input id="signup-button" type="submit" value="Signup"/>
+	
+		</form>
+	</section>
+	<script src="signup.js"> </script>
+	
+</body>
+
+</html>
