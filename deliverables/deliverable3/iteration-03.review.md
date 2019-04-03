@@ -52,9 +52,9 @@ Team name: Hunger Team
 - Professionals: login, publish posts and answer questions.
 - Admin:  Create accounts for teachers and food professionals, view all the user's information etc.
 
-2.  The interactions among users:
+2.  The interactions among users:   
 - A strong focus on posting, texts and reading/commenting on others’ posts so that users can interact with others.
-- Students can share stories and like others' stories, which could be integrated with gamify feature in future.  
+- Students can share stories and like others' stories, which could motivate students be more engaged to this plateform to share their leaning, thinking and introduce more interaction between each other.    
 
 3. Receiving notification when users are tagged from the post so that the user can easily follow the ongoing communication. For example, students attend activities for growing tomatoes, post their tomatoes’ photos, and receive feedback and comment from their peers.
 
