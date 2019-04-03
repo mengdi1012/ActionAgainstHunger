@@ -54,6 +54,7 @@ Team name: Hunger Team
 
 2.  The interactions among users:
 - A strong focus on posting, texts and reading/commenting on others’ posts so that users can interact with others.
+- Students can share stories and like others' stories, which could be integrated with gamify feature in future.  
 
 3. Receiving notification when users are tagged from the post so that the user can easily follow the ongoing communication. For example, students attend activities for growing tomatoes, post their tomatoes’ photos, and receive feedback and comment from their peers.
 
