@@ -13,14 +13,18 @@ Team name: Hunger Team
 
 #### Decisions that turned out well
 
-1. Commit message should clearly describes the change:  
-    A good commit message should contain a brief description of what the changes are made. For example, "change create user component" is not a good enough commit message. "create user component change backend createUser() " is a better commit message and it shows the specific function that is modified.
-
+1. Never merge blindly or use git command with --force or any other commands that are not familiar   
+    The master branch will only keep commits that are verified by the team. The team does not want changes merged from branches that may lead to error. Since we use pull-request to merge branach. We will ask two team members to review it. When there is a conflict, we may either reject the pull-request or resolve the conflict on github, but never merge it blindly. Besides, no one should use git command with --force for any reason. Since, for our deliverable 2, someone use git push --force on the master branch. Many of the commits are deleted and sometimes we can never get them back.  
+    
 2. Always keep master branch runnable and only develop new feature on different branches, and make pull-request  
     The master branch should only keep implmented features. Features that are developing should be on other branches. Therefore, when a team member breaks his build, the master branch and others branches will not be affected.
+    
+3. Commit message should clearly describes the change:  
+    A good commit message should contain a brief description of what the changes are made. For example, "change create user component" is not a good enough commit message. "create user component change backend createUser() " is a better commit message and it shows the specific function that is modified.
 
-3. Never merge blindly or use git command with --force or any other commands that are not familiar   
-    The master branch will only keep commits that are verified by the team. The team does not want changes merged from branches that may lead to error. Since we use pull-request to merge branach. We will ask two team members to review it. When there is a conflict, we may either reject the pull-request or resolve the conflict on github, but never merge it blindly. Besides, no one should use git command with --force for any reason. Since, for our deliverable 2, someone use git push --force on the master branch. Many of the commits are deleted and sometimes we can never get them back.
+
+
+
 
 
 #### Decisions that did not turn out as well as we hoped
