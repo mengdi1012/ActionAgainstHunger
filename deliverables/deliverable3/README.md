@@ -120,7 +120,15 @@ Steps:
  5.  sign in with teacher account: t1_uoft / password: 123456  
  6.  Go to profile page by clicking profile button on navigation bar  
  7.  Click my message and you will see the notification of comment made in step 3      
- 8. click the "view it" will redirect the page to the corresponding post detail    
+ 8. click the "view it" will redirect the page to the corresponding post detail   
+ 
+As a **student**: write and like stories:  
+Steps:  
+    1.  Sign in with student account: uoft_student_0 / password:123456
+    2.  Click Story on the navigation bar  
+    3. Stories from different students are listed their  
+    4. Click the Like button to like a story and you can see the likes change immediately  
+    5. In future, the likes could be integrated into gamify functions  
 
 Every user:  update password  
 Steps:  
